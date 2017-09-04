@@ -1,0 +1,25 @@
+<?php
+
+$_code = $this->getMethodCode();
+
+$_infoHtml = $this->getInfoHtml();
+$_ssnHtml = $this->getSsnHtml();
+
+?>
+
+<ul class="form-list" id="payment_form_<?php echo $_code ?>"
+    style="display:none;">
+
+    <?php if (!empty($_infoHtml)): ?>
+        <li>
+            <?php echo($_infoHtml); ?>
+        </li>
+    <?php endif ?>
+
+    <?php if (!empty($_ssnHtml)): ?>
+        <li>
+            <?php echo $_ssnHtml ?>
+        </li>
+    <?php endif ?>
+
+</ul>

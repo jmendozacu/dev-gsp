@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Ecom_KlarnaCheckout>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<!--<Idev_OneStepCheckout /> NOTE: only depends so it will be loaded last, need this to get all checkout-links working. Uncomment if ever used together with OSC -->
+			</depends>
+		</Ecom_KlarnaCheckout>
+	</modules>
+</config>

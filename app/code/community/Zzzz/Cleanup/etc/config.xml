@@ -1,0 +1,14 @@
+<config>
+    <default>
+        <bubble_autocomplete>
+            <general>
+                <enable_jquery>0</enable_jquery>
+            </general>
+        </bubble_autocomplete>
+        <lanot_filemanager>
+            <view>
+                <root_directory>media/wysiwyg</root_directory>
+            </view>
+        </lanot_filemanager>
+    </default>
+</config>

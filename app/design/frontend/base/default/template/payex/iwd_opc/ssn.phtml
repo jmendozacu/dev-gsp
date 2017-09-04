@@ -1,0 +1,18 @@
+
+<li class="fields">
+    <div class="field">
+        <label for="socialSecurityNumber"><?php echo Mage::helper('aait_ssn')->__('Social Security Number'); ?></label>
+        <div class="input-box">
+            <input type="text" title="<?php echo Mage::helper('aait_ssn')->__('Social Security Number'); ?>" name="socialSecurityNumber" id="socialSecurityNumber" class="input-text" />
+        </div>
+    </div>
+    <div class="field">
+        <button type="button" title="<?php echo Mage::helper('aait_ssn')->__('Get Address'); ?>" class="button" id="ssn_click"><span><span><?php echo Mage::helper('aait_ssn')->__('Get Address'); ?></span></span></button>
+    </div>
+</li>
+
+<script type="text/javascript">
+    if(typeof MAGENTO_BASE_URL == "undefined"){
+        var MAGENTO_BASE_URL = "<?php echo Mage::getBaseUrl(); ?>";
+    }
+</script>

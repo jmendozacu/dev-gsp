@@ -1,0 +1,7 @@
+<layout>
+	<default>
+		<reference name="head">
+			<action method="addItem"><type>js</type><name>ecom/adminhtml/wysiwyg/tiny_mce/setup.js</name><params/><if/><condition>can_load_tiny_mce</condition></action>
+		</reference>
+	</default>
+</layout>

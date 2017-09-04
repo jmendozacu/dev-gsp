@@ -1,0 +1,24 @@
+.login-form {
+    background: url("login_box_bg_ecom.jpg") no-repeat scroll 0 0 transparent;
+}
+
+.login-container .legal {
+    background: url("login_box_legal_bg_ecom.gif") no-repeat scroll 0 0 transparent;
+}
+
+button, .form-button {
+    background: url("btn_bg_ecom.gif") repeat-x scroll 0 100% #FFAC47;
+    border-color: #7da945 #54722f #54722f #7da945;
+    border-style: solid;
+    border-width: 1px;
+}
+
+a {
+    color: #7da945;
+	 text-shadow: 0px 0px 5px #fff;
+}
+
+.login-container {
+    background: none;
+    padding-left: 0px;
+}

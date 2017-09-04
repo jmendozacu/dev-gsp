@@ -1,0 +1,219 @@
+<?php
+
+/**
+ * PayEx Bank Debit Helper: Order
+ * Created by AAIT Team.
+ */
+class AAIT_Bankdebit_Helper_Order extends Mage_Core_Helper_Abstract
+{
+
+    /**
+     * Create transaction
+     * @note: Use for only first transaction
+     * @param $payment
+     * @param $parentTransactionId
+     * @param $transactionId
+     * @param $type
+     * @param int $IsTransactionClosed
+     * @param array $fields
+     * @return Mage_Sales_Model_Order_Payment_Transaction
+     */
+    public function createTransaction(&$payment, $parentTransactionId, $transactionId, $type, $IsTransactionClosed = 0, $fields = array())
+    {
+        $failsafe = true;
+        $ShouldCloseParentTransaction = true;
+
+        // set transaction parameters
+        $transaction = Mage::getModel('sales/order_payment_transaction')
+            ->setOrderPaymentObject($payment)
+            ->setTxnType($type)
+            ->setTxnId($transactionId)
+            ->isFailsafe($failsafe);
+
+        $transaction->setIsClosed($IsTransactionClosed);
+
+        // Set transaction addition information
+        if (count($fields) > 0) {
+            $transaction->setAdditionalInformation(Mage_Sales_Model_Order_Payment_Transaction::RAW_DETAILS, $fields);
+        }
+
+        // link with sales entities
+        $payment->setLastTransId($transactionId);
+        $payment->setCreatedTransaction($transaction);
+        $payment->getOrder()->addRelatedObject($transaction);
+
+        // link with parent transaction
+        if ($parentTransactionId) {
+            $transaction->setParentTxnId($parentTransactionId);
+            // Close parent transaction
+            if ($ShouldCloseParentTransaction) {
+                $parentTransaction = $payment->getTransaction($parentTransactionId);
+                if ($parentTransaction) {
+                    $parentTransaction->isFailsafe($failsafe)->close(false);
+                    $payment->getOrder()->addRelatedObject($parentTransaction);
+                }
+            }
+        }
+
+        return $transaction;
+    }
+
+    /**
+     * Create Invoice
+     * @param $order
+     * @param bool $online
+     * @return Mage_Sales_Model_Order_Invoice
+     */
+    public function makeInvoice(&$order, $online = false)
+    {
+
+        if ($order->canInvoice() == false) {
+            // when order cannot create invoice, need to have some logic to take care
+            $order->addStatusToHistory(
+                $order->getStatus(), // keep order status/state
+                Mage::helper('paygate')->__('Error in creating an invoice', true),
+                true /* notified */
+            );
+            return false;
+        }
+
+        // Prepare Invoice
+        $magento_version = Mage::getVersion();
+        if (version_compare($magento_version, '1.4.2', '>=')) {
+            $invoice = Mage::getModel('sales/order_invoice_api_v2');
+            $invoice_id = $invoice->create($order->getIncrementId(), $order->getAllItems(), Mage::helper('bankdebit')->__('Auto-generated from PayEx module'), false, false);
+            $invoice = Mage::getModel('sales/order_invoice')->loadByIncrementId($invoice_id);
+
+            if ($online) {
+                $invoice->setRequestedCaptureCase(Mage_Sales_Model_Order_Invoice::CAPTURE_ONLINE);
+                $invoice->capture()->save();
+            } else {
+                $invoice->setRequestedCaptureCase(Mage_Sales_Model_Order_Invoice::CAPTURE_OFFLINE);
+                $invoice->pay()->save();
+            }
+        } else {
+            $invoice = Mage::getModel('sales/service_order', $order)->prepareInvoice();
+            $invoice->addComment(Mage::helper('bankdebit')->__('Auto-generated from PayEx module'), false, false);
+            $invoice->setRequestedCaptureCase($online ? Mage_Sales_Model_Order_Invoice::CAPTURE_ONLINE : Mage_Sales_Model_Order_Invoice::CAPTURE_OFFLINE);
+            $invoice->register();
+
+            $invoice->getOrder()->setIsInProcess(true);
+
+            try {
+                $transactionSave = Mage::getModel('core/resource_transaction')
+                    ->addObject($invoice)
+                    ->addObject($invoice->getOrder());
+                $transactionSave->save();
+            } catch (Mage_Core_Exception $e) {
+                // Save Error Message
+                $order->addStatusToHistory(
+                    $order->getStatus(),
+                    'Failed to create invoice: ' . $e->getMessage(),
+                    true
+                );
+                Mage::throwException($e->getMessage());
+            }
+        }
+
+        $invoice->setIsPaid(true);
+
+        // Assign Last Transaction Id with Invoice
+        $transactionId = $invoice->getOrder()->getPayment()->getLastTransId();
+        if ($transactionId) {
+            $invoice->setTransactionId($transactionId);
+            $invoice->save();
+        }
+
+        return $invoice;
+    }
+
+    /**
+     * Change Order State, using Direct SQL
+     * @param $order_id
+     * @param $state
+     * @return bool
+     */
+    public function changeOrderState($order_id, $state)
+    {
+        $db = Mage::getSingleton('core/resource')->getConnection('core_write');
+        try {
+            $query = "UPDATE `" . Mage::getSingleton('core/resource')->getTableName('sales_flat_order') . "` SET state='$state', status='$state' WHERE increment_id = '$order_id';";
+            $db->query($query);
+            $query = "UPDATE `" . Mage::getSingleton('core/resource')->getTableName('sales_flat_order_grid') . "` SET status='$state' WHERE increment_id = '$order_id';";
+            $db->query($query);
+        } catch (Exception $e) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Get First Transaction ID
+     * @param  $order Mage_Sales_Model_Order
+     * @return bool
+     */
+    static public function getFirstTransactionId(&$order)
+    {
+        $order_id = $order->getId();
+        if (!$order_id) {
+            return false;
+        }
+        $collection = Mage::getModel('sales/order_payment_transaction')->getCollection()
+            ->addOrderIdFilter($order_id)
+            ->setOrder('transaction_id', 'ASC')
+            ->setPageSize(1)
+            ->setCurPage(1);
+        return $collection->getFirstItem()->getTxnId();
+    }
+
+    /**
+     * Get Order Amount
+     * With Using Rounding Issue Fix
+     * @param Mage_Sales_Model_Order $order
+     * @return float
+     */
+    public function getOrderAmount($order)
+    {
+        // At moment this function don't support discounts
+        if (abs($order->getDiscountAmount()) > 0) {
+            return $order->getGrandTotal();
+        }
+
+        $amount = 0;
+        // add Order Items
+        $items = $order->getAllVisibleItems();
+        /** @var $item Mage_Sales_Model_Order_Item */
+        foreach ($items as $item) {
+            if ($item->getParentItem()) {
+                continue;
+            }
+
+            $itemQty = (int)$item->getQtyOrdered();
+            $priceWithTax = $item->getPriceInclTax();
+            $amount += round(100 * Mage::app()->getStore()->roundPrice($itemQty * $priceWithTax));
+        }
+
+        // add Discount
+        $discount = $order->getDiscountAmount();
+        $discount += $order->getShippingDiscountAmount();
+        $amount += round(100 * $discount);
+
+        // add Shipping
+        if (!$order->getIsVirtual()) {
+            $shippingIncTax = $order->getShippingInclTax();
+            $amount += round(100 * $shippingIncTax);
+        }
+
+        $grand_total = $order->getGrandTotal();
+        $amount = $amount / 100;
+
+        $abs = abs(Mage::app()->getStore()->roundPrice($amount) - Mage::app()->getStore()->roundPrice($grand_total));
+        // Is ~0.010000000002037
+        if ($abs > 0 && $abs < 0.011) {
+            Mage::helper('bankdebit/tools')->addToDebug('Warning: Price rounding issue. ' . $grand_total . ' vs ' . $amount);
+            return $amount;
+        } else {
+            return $grand_total;
+        }
+    }    
+}

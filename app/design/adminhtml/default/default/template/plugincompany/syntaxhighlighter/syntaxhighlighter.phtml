@@ -1,0 +1,294 @@
+<?php
+/**
+ *
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ *
+ */
+?>
+<?php if(Mage::getStoreConfig('plugincompany_syntaxhighlighter/plugincompany_syntaxhighlighter_group/enabled')){
+    ?>
+    <!--[if lte IE 8]>
+    <script type="text/javascript">
+        var isIe8 = true;
+    </script>
+    <![endif]-->
+    <script type="text/javascript">
+    //get default wysiwyg setting
+    var wyiwygDefault;
+    wyiwygDefault = false;
+    <?php if(Mage::getStoreConfig('cms/wysiwyg/enabled') == 'enabled' || Mage::registry("syntaxhighlighter_force_enable_wysiwyg")){ ?>
+    wyiwygDefault = true;
+    <?php } ?>
+
+    //retrieve available text areas for page
+    var SHtextareas = <?php echo $this->getTextAreas(); ?>
+
+            jQuery('document').ready(function() {
+                //check if tinyMCE is available
+                if(wyiwygDefault && getHasTinyMCE()) {
+                    //wait for tinyMCE init
+                    var tinyMCEcheck=setInterval(function () {
+                        if(tinyMCE.activeEditor) {
+                            initTextareas();
+                            clearInterval(tinyMCEcheck);
+                        }
+                    }, 200);
+                }else{
+                    //init immeditately
+                    initTextareas();
+                }
+
+                //reinit after catalog category ajax load
+                Ajax.Responders.register({
+                    onComplete: function (response) {
+                        initTextareas();
+                    }
+                });
+
+                //modified function for inserting variables and images in textfield
+                updateElementAtCursor = function (el, value, win) {
+                    var replaced = false;
+                    jQuery(SHtextareas).each(function (k, v) {
+                        if (v.title == jQuery(el).attr('id')) {
+                            SHtextareas[k].editor.replaceSelection(value);
+                            replaced = true;
+                            return false;
+                        }
+                    });
+                    if (replaced) {
+                        return false;
+                    }
+
+                    if (win == undefined) {
+                        win = window.self;
+                    }
+                    if (document.selection) {
+                        el.focus();
+                        sel = win.document.selection.createRange();
+                        sel.text = value;
+                    } else if (el.selectionStart || el.selectionStart == '0') {
+                        var startPos = el.selectionStart;
+                        var endPos = el.selectionEnd;
+                        el.value = el.value.substring(0, startPos) + value + el.value.substring(endPos, el.value.length);
+                    } else {
+                        el.value += value;
+                    }
+                    return false;
+                }
+
+                if(typeof catalogWysiwygEditor != 'undefined'){
+                    catalogWysiwygEditor.closeDialogWindow = function(dialogWindow){
+                        // remove form validation event after closing editor to prevent errors during save main form
+                        if (typeof varienGlobalEvents != undefined && editorFormValidationHandler) {
+                            varienGlobalEvents.removeEventHandler('formSubmit', editorFormValidationHandler);
+                        }
+
+                        //IE fix - blocked form fields after closing
+                        //$(dialogWindow.options.firedElementId).focus();
+
+                        // focus function causes errors in IE8
+
+
+                        //destroy the instance of editor
+                        wysiwygObj = eval('wysiwyg'+dialogWindow.options.firedElementId+'_editor');
+                        if (tinyMCE.get(wysiwygObj.id)) {
+                            tinyMCE.execCommand('mceRemoveControl', true, wysiwygObj.id);
+                        }
+
+                        dialogWindow.close();
+                        Windows.overlayShowEffectOptions = this.overlayShowEffectOptions;
+                        Windows.overlayHideEffectOptions = this.overlayHideEffectOptions;
+                    }
+                }
+            })
+        ;
+
+    //init codemirror functionalty
+    function initTextareas() {
+        jQuery(SHtextareas).each(function (k, v) {
+            ///only run if textarea exists
+            if (jQuery('#' + v.title).length == 0) {
+                //if text area does not exist do nothing
+                return;
+            }
+
+            //prevent double loading of codemirror in case of AJAX trigger
+            if(jQuery('#' + v.title).hasClass('codemirror-loaded')){
+                return;
+            }else{
+                jQuery('#' + v.title).addClass('codemirror-loaded');
+            }
+
+            //set codetype for editor
+            var codeType = 'text/html';
+            if(v.type) {
+                codeType = v.type;
+            }
+
+            //init codemirror editor
+            var editor = CodeMirror.fromTextArea(document.getElementById(v.title), {
+                lineNumbers: true,
+                indentUnit:4,
+                lineWrapping: true,
+                matchBrackets: true,
+                autoCloseBrackets: true,
+                autoCloseTags: true,
+                styleActiveLine: true,
+                matchTags: {bothTags: true},
+                mode: codeType
+            });
+
+
+            //on change set value to original textfield
+            editor.on('change', function (cm) {
+                if (jQuery('#' + v.title).val() != cm.getValue()) {
+                    jQuery('#' + v.title).val(cm.getValue());
+                }
+            });
+
+            //modified wysiwyg toggle function
+            jQuery('#toggle' + v.title).click(function(e)
+            {
+                jQuery('#' + v.title).hide()
+
+                //ie8 fix
+                if(typeof isIe8 != 'undefined'){
+                    jQuery('#' + v.title).css({position:'absolute',left:'-10000px'});
+                }
+
+                if(jQuery(editor.getWrapperElement()).is(':visible')){
+                    jQuery(editor.getWrapperElement()).hide();
+                    var interv = setInterval(function() {
+                        if(jQuery('#' + v.title + '_parent').not(':visible')){
+                            jQuery('#' + v.title + '_parent').show();
+                        }else{
+                            clearInterval(interv);
+                        }
+                    },100)
+                }else{
+                    jQuery(editor.getWrapperElement()).show();
+                }
+            })
+
+            if(wyiwygDefault && jQuery(document).find('#toggle' + v.title).length){
+                var wrpr = editor.getWrapperElement();
+                jQuery(wrpr).hide();
+            }
+
+            SHtextareas[k].editor = editor;
+            setTimeout(function() {
+                editor.refresh();
+            },300)
+        })
+
+        // interval for looking for changes in textarea.
+        // if changes are detected, codemirror editor is updated
+        // Unfortunately there is no textarea onchange event, so interval is needed.
+        setInterval(function () {
+            jQuery(SHtextareas).each(function (k, v) {
+                //only run if textarea exists
+                if (jQuery('#' + v.title).length == 0) {
+                    //if text area does not exist do nothing
+                    return;
+                }
+                if (v) {
+                    if (jQuery('#' + v.title).val() != v.editor.getValue()) {
+                        v.editor.setValue(jQuery('#' + v.title).val())
+                        v.editor.refresh();
+                    }
+                }
+            })
+        }, 300);
+
+        jQuery(document).ready(function() {
+            jQuery('.tab-item-link').on('click' ,function() {
+                setTimeout(function() {
+                    jQuery(SHtextareas).each(function(k,v) {
+                        //only run if textarea exists
+                        if (jQuery('#' + v.title).length == 0) {
+                            //if text area does not exist do nothing
+                            return;
+                        }
+                        v.editor.refresh();
+                    })
+                },100)
+            })
+        })
+    }
+
+    //checks if there are any tinyMCE enabled fields on the page
+    function getHasTinyMCE() {
+        var hastiny = false;
+        jQuery(SHtextareas).each(function(k,v) {
+            if(jQuery('#toggle' + v.title).length) {
+                hastiny = true;
+                return false;
+            }
+        })
+        return hastiny;
+    }
+
+    //Modified template control function for newsletter templates
+    //fixes issues with 'convert to plain text' functionality
+    if(typeof templateControl !== 'undefined'){
+        templateControl.stripTags = function() {
+            if(!window.confirm("Are you sure that you want to strip all tags?")) {
+                return false;
+            }
+            if(this.isEditor()) {
+                this.getEditor().turnOff();
+                this.getEditor().getToggleButton().hide();
+            }
+            this.unconvertedText = $(this.id).value;
+            $('convert_button').hide();
+            $('convert_button_back').show();
+            $(this.id).value =  $(this.id).value.stripScripts().stripTags();
+            $('field_template_styles').hide();
+
+            //show codemirror editor
+            var textAreaId = this.id;
+            jQuery(SHtextareas).each(function(k,v) {
+                if(v.title == textAreaId){
+                    v.editor.getWrapperElement().show();
+                }
+            });
+
+            this.typeChange = true;
+            return false;
+        };
+
+        templateControl.unStripTags = function () {
+            $('convert_button').show();
+            $('convert_button_back').hide();
+            $(this.id).value =  this.unconvertedText;
+            if(this.isEditor()) {
+                this.getEditor().turnOn();
+                this.getEditor().getToggleButton().show();
+
+                //hide codemirror editor
+                var textAreaId = this.id;
+                jQuery(SHtextareas).each(function(k,v) {
+                    if(v.title == textAreaId){
+                        v.editor.getWrapperElement().hide();
+                    }
+                });
+            }
+
+            this.typeChange = false;
+            $('field_template_styles').show();
+            return false;
+        };
+    }
+    </script>
+
+<?php } ?>

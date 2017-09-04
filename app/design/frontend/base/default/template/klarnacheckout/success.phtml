@@ -1,0 +1,25 @@
+<div class="step-two">
+	<div id="KCO-snippet"><?php echo $this->getOrderHtml() ?></div>
+</div>
+<script type="text/javascript">
+
+
+    // if google tracking is enabled
+    // keep track of the time until the checkout has loaded
+    var timeStarted = new Date();
+    (function checkIfKcoHasLoaded () {
+        setTimeout(function () {
+            if($('klarna-checkout-iframe') && $('klarna-checkout-iframe').style.minHeight != "400px"){
+                var timeSpent = new Date() - timeStarted;
+
+                if(typeof _gaq != 'undefined') _gaq.push(['_trackTiming', 'KlarnaCheckout', 'Load', timeSpent, 'Checkout Success',100]);
+                if(typeof ga == 'function') ga('send','timing', 'KlarnaCheckout', 'Load', timeSpent, 'Checkout Success');
+                if(console) console.log("KCO load-time: "+timeSpent);
+
+            }
+            else checkIfKcoHasLoaded();
+        }, 5);
+    })();
+
+
+</script>

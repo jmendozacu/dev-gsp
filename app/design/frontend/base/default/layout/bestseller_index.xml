@@ -1,0 +1,22 @@
+<layout>
+    <catalog_category_default>
+        <reference name="product_list_toolbar">
+            <action method="setDefaultDirection" ifconfig="catalog/frontend/sort_by_desc"><string>desc</string></action>
+        </reference>
+    </catalog_category_default>
+    <catalog_category_layered>
+        <reference name="product_list_toolbar">
+            <action method="setDefaultDirection" ifconfig="catalog/frontend/sort_by_desc"><string>desc</string></action>
+        </reference>
+    </catalog_category_layered>
+    <catalogsearch_result_index>
+        <reference name="search_result_list">
+            <action method="setDefaultDirection" ifconfig="catalog/frontend/sort_by_desc"><string>desc</string></action>
+        </reference>
+    </catalogsearch_result_index>
+    <catalogsearch_advanced_result>
+        <reference name="search_result_list">
+            <action method="setDefaultDirection" ifconfig="catalog/frontend/sort_by_desc"><string>desc</string></action>
+        </reference>
+    </catalogsearch_advanced_result>
+</layout>

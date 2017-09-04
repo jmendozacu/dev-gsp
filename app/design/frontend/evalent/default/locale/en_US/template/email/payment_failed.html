@@ -1,0 +1,107 @@
+<!--@subject Payment Transaction Failed Reminder @-->
+<!--@vars
+{"var reason":"Transaction Failed Reason",
+"var checkoutType":"Checkout Type",
+"var customerEmail":"Customer Email",
+"var customer":"Customer Name",
+"var items":"Shopping Cart Items",
+"var total":"Total",
+"var billingAddress.format('html')":"Billing Address",
+"var shippingAddress.format('html')":"Shipping Address",
+"var shippingMethod":"Shipping Method",
+"var paymentMethod":"Payment Method",
+"var dateAndTime":"Date and Time of Transaction"}
+@-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<body style="background:#FFFFFF; font-family:Helvetica, Verdana, Arial, sans-serif; font-size:12px; margin:0; padding:0; color:#444;">
+<div style="background:#FFFFFF; font-family:Helvetica, Verdana, Arial, sans-serif; font-size:12px; margin:0; padding:0; color:#444;">
+<table align="center" cellspacing="0" cellpadding="0" border="0" width="600" style="background:#ffffff; margin-top:20px; margin-bottom:20px;">
+    <tr>
+        <td align="center" valign="top">
+        
+        <!-- [ header starts here] -->
+
+            <table cellspacing="0" cellpadding="0" border="0" width="600" height="200" style="background-color:#00b8d0;">
+                <tr>
+                    <td valign="top" align="left"width="600" >
+                        <h1 style="font-size:20px;color:#fff;text-align:left;">Welcome to GSP</h1>
+                    </td>
+                </tr>
+            </table>
+            
+        <!-- [ middle starts here] -->
+        
+            <table cellspacing="0" cellpadding="0" border="0" width="600">
+                <tr>
+                    <td valign="top" align="left">
+                        <h1 style="font-size: 15px; font-weight:normal; margin:30px 0 20px 0;">
+                            Payment transaction failed.
+                        </h1>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 20px 0;">
+                            <strong>Reason</strong><br />
+                            {{var reason}}<br />
+                            <br />
+                            <strong>Checkout Type</strong><br />
+                            {{var checkoutType}}<br />
+                            <br />
+                            <strong>Customer</strong><br />
+                            <a href="mailto:{{var customerEmail}}" style="color:#1865a2;">{{var customer}}</a> ( {{var customerEmail}} )<br />
+                            <br />
+                            <strong>Items</strong><br />
+                            {{var items}}<br />
+                            <br />
+                            <strong>Total</strong><br />
+                            {{var total}}<br />
+                            <br />
+                            <strong>Billing Address</strong><br />
+                            {{var billingAddress.format('html')}}<br />
+                            <br />
+                            <strong>Shipping Address</strong><br />
+                            {{var shippingAddress.format('html')}}<br />
+                            <br />
+                            <strong>Shipping Method</strong><br />
+                            {{var shippingMethod}}<br />
+                            <br />
+                            <strong>Payment Method</strong><br />
+                            {{var paymentMethod}}<br />
+                            <br />
+                            <strong>Date &amp; Time:</strong><br />
+                            {{var dateAndTime}}<br />
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 20px 0;">
+                            If you have any questions don't hesitate to contact us. Our details are at the bottom of this email.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            
+        <!-- [ footer starts here] -->    
+            
+            <table cellspacing="0" cellpadding="0" border="0" width="600" style="border-top:1px solid #dddddd;">
+                <tr>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='general/store_information/name'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/address'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/zip_city'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">{{block type="design/email_country"}}</p>
+                    </td>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='general/store_information/phone'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/hours'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;"><a href="mailto:{{config path='general/trans_email/ident_general/email'}}" style="color:#1865a2;">{{config path='general/trans_email/ident_general/email'}}</a></p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;"><a href="{{store url=''}}" style="color:#1865a2;">{{config path='basicsetup/contact_details/url'}}</a></p>
+                    </td>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='sales_email/email_templates/email_footer1'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='sales_email/email_templates/email_footer2'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='sales_email/email_templates/email_footer3'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">{{config path='sales_email/email_templates/email_footer4'}}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>

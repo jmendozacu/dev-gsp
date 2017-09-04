@@ -1,0 +1,21 @@
+<script type="text/javascript">
+    //<![CDATA[
+    function bestsellerRun() {
+		
+		if(!confirm('This CAN take a long time!\nAnd the process CAN be interapted, leaving a broken index!\nYou have to be really sure, Do you want to run this?')) return;
+		if(!confirm('Really?!\nYou\'r that sure?\nThis IS dangerous!\nYou have been warned...')) return;
+		
+        new Ajax.Request('<?php echo $this->getAjaxCheckUrl() ?>', {
+            method:     'get',
+            onSuccess: function(transport){
+ 
+            if (transport.responseText){
+                alert('Reindex DONE')
+            }
+            }
+        });
+    }
+    //]]>
+</script>
+ 
+<?php echo $this->getButtonHtml() ?>

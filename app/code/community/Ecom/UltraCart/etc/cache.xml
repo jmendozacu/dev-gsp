@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <placeholders>
+        <ecom_ultracart_title>
+			<name>ultracart.title</name>
+            <block>ultracart/cart</block>
+            <placeholder>ULTRACART_BLOCK</placeholder>
+            <container>Enterprise_PageCache_Model_Container_Sidebar_Cart</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </ecom_ultracart_title>
+        <ecom_ultracart_summary>
+			<name>ultracart.summary</name>
+            <block>ultracart/cart</block>
+            <placeholder>ULTRACART_BLOCK</placeholder>
+            <container>Enterprise_PageCache_Model_Container_Sidebar_Cart</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </ecom_ultracart_summary>
+        <ecom_ultracart_products>
+			<name>ultracart.products</name>
+            <block>ultracart/cart</block>
+            <placeholder>ULTRACART_BLOCK</placeholder>
+            <container>Enterprise_PageCache_Model_Container_Sidebar_Cart</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </ecom_ultracart_products>
+
+        <ecom_ultracart_clone_title>
+            <name>ultracart.clone.title</name>
+            <block>ultracart/cart</block>
+            <placeholder>ULTRACART_BLOCK</placeholder>
+            <container>Enterprise_PageCache_Model_Container_Sidebar_Cart</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </ecom_ultracart_clone_title>
+        <ecom_ultracart_clone_summary>
+            <name>ultracart.clone.summary</name>
+            <block>ultracart/cart</block>
+            <placeholder>ULTRACART_BLOCK</placeholder>
+            <container>Enterprise_PageCache_Model_Container_Sidebar_Cart</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </ecom_ultracart_clone_summary>
+        <ecom_ultracart_clone_products>
+            <name>ultracart.clone.products</name>
+            <block>ultracart/cart</block>
+            <placeholder>ULTRACART_BLOCK</placeholder>
+            <container>Enterprise_PageCache_Model_Container_Sidebar_Cart</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </ecom_ultracart_clone_products>
+    </placeholders>
+</config>

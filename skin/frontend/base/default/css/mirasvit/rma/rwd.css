@@ -1,0 +1,175 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.rma-italic {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
+}
+.rma-mute {
+  color: #999;
+  font-size: 11px;
+}
+.rma-view div.fieldset,
+.rma-new-step2 div.fieldset {
+  margin: 30px 0px;
+}
+.rma-history div.fieldset {
+  padding: 5px 10px;
+  margin: 10px 0px;
+  border-radius: 0px 5px 5px 0px;
+  font-size: 13px;
+}
+.rma-history div.fieldset h2.legend {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 14px;
+}
+.rma-history div.fieldset.user {
+  border: 1px solid #8eb589;
+  border-left: 5px solid #8eb589;
+  background-color: #fefffe;
+  background-image: -moz-linear-gradient(top, #fdfffd, #ffffff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fdfffd), to(#ffffff));
+  background-image: -webkit-linear-gradient(top, #fdfffd, #ffffff);
+  background-image: -o-linear-gradient(top, #fdfffd, #ffffff);
+  background-image: linear-gradient(to bottom, #fdfffd, #ffffff);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffdfffd', endColorstr='#ffffffff', GradientType=0);
+}
+.rma-history div.fieldset.customer {
+  border: 1px solid #9cb4c5;
+  border-left: 5px solid #9cb4c5;
+  background-color: #fcfdff;
+  background-image: -moz-linear-gradient(top, #fafcff, #ffffff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafcff), to(#ffffff));
+  background-image: -webkit-linear-gradient(top, #fafcff, #ffffff);
+  background-image: -o-linear-gradient(top, #fafcff, #ffffff);
+  background-image: linear-gradient(to bottom, #fafcff, #ffffff);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffafcff', endColorstr='#ffffffff', GradientType=0);
+}
+.rma-confirmation-form {
+  border: solid 1px #cccccc;
+  background: #fff;
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  margin-left: -215px;
+  width: 630px;
+  padding: 20px;
+  z-index: 1001;
+}
+.rma-confirmation-form .close {
+  width: 40px;
+  float: right;
+  display: block;
+  color: #636363;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 30px;
+  position: absolute;
+  top: -8px;
+  right: -14px;
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+  cursor: pointer;
+}
+.rma-confirmation-form h2 {
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+  color: #50A4CF;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.rma-confirmation-form .buttons {
+  text-align: right;
+  margin-bottom: 0px !important;
+}
+.rma-confirmation-form-overlay {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100000px;
+  height: 100000px;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+.rma-items .rma-one-item {
+  *zoom: 1;
+  margin-bottom: 10px;
+}
+.rma-items .rma-one-item:before,
+.rma-items .rma-one-item:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.rma-items .rma-one-item:after {
+  clear: both;
+}
+.rma-items .rma-one-item .item-description {
+  width: 50%;
+  float: left;
+  border-right: 1px solid #ededed;
+}
+.rma-items .rma-one-item .item-description b {
+  margin-left: 20px;
+}
+.rma-items .rma-one-item .item-description img {
+  width: 150px;
+  float: left;
+  margin-left: 10px;
+}
+.rma-items .rma-one-item .item-description input {
+  float: left;
+}
+.rma-items .rma-one-item .item-options {
+  border-left: 1px solid #ededed;
+  margin-left: -1px;
+  padding-left: 20px;
+  width: 50%;
+  float: left;
+}
+.rma-items .rma-one-item .item-options > div {
+  margin-bottom: 8px;
+  position: relative;
+}
+.rma-items .rma-one-item .item-options > div label {
+  width: 150px;
+}
+.rma-items .rma-one-item .item-options > div label em {
+  color: #df280a;
+}
+.rma-items .rma-one-item .item-options > div .total-qty {
+  position: absolute;
+  left: 200px;
+  top: 1px;
+}
+.rma-items .rma-one-item .item-options > div .validate-rma-quantity {
+  font-size: 13px;
+  text-align: center;
+}

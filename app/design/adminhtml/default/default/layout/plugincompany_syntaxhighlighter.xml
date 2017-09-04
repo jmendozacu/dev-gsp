@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ *
+-->
+<layout>
+   <adminhtml_cms_block_edit>
+       <update handle="plugincompany_codemirror" />
+    </adminhtml_cms_block_edit>
+
+    <adminhtml_cms_page_edit>
+        <update handle="plugincompany_codemirror" />
+    </adminhtml_cms_page_edit>
+
+    <adminhtml_catalog_product_edit>
+        <update handle="plugincompany_codemirror" />
+    </adminhtml_catalog_product_edit>
+
+    <adminhtml_newsletter_template_new>
+        <update handle="plugincompany_codemirror" />
+    </adminhtml_newsletter_template_new>
+
+    <adminhtml_newsletter_template_edit>
+        <update handle="plugincompany_codemirror" />
+    </adminhtml_newsletter_template_edit>
+
+    <adminhtml_catalog_category_edit>
+        <update handle="plugincompany_codemirror" />
+    </adminhtml_catalog_category_edit>
+
+    <adminhtml_system_email_template_edit>
+        <update handle="plugincompany_codemirror" />
+    </adminhtml_system_email_template_edit>
+
+    <adminhtml_blog_post_edit>
+        <update handle="plugincompany_codemirror" />
+    </adminhtml_blog_post_edit>
+    <adminhtml_blog_post_new>
+        <update handle="plugincompany_codemirror" />
+    </adminhtml_blog_post_new>
+
+    <plugincompany_codemirror>
+        <reference name="head">
+            <action method="addJs">
+                <script>plugincompany/jquerynoconflict.js</script>
+            </action>
+            <action method="addJs">
+                <script>plugincompany/codemirror/codemirror.js</script>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>plugincompany/codemirror/show-hint.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>plugincompany/codemirror/codemirror.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>plugincompany/codemirror/fullscreen.css</name>
+            </action>
+        </reference>
+        <reference name="content" after="-">
+            <block type="plugincompany_syntaxhighlighter/syntaxhighlighter" template="plugincompany/syntaxhighlighter/syntaxhighlighter.phtml"/>
+        </reference>
+    </plugincompany_codemirror>
+</layout>

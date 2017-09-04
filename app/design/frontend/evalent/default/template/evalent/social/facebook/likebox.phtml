@@ -1,0 +1,17 @@
+<?php
+/**
+ * @category    Evalent Modules
+ * @package     Evalent_Social
+ * @author      Evalent Group AB
+ */
+?>
+
+<div class="block block-facebook">
+	<?php if (Mage::getStoreConfig('facebook/like_box/block_title_show')): ?>
+		<div class="block-title">
+			<strong><?php echo Mage::getStoreConfig('facebook/like_box/block_title'); ?></strong>
+		</div>
+	<?php endif; ?>
+	<div class="fb-like-box" data-href="<?php echo Mage::getStoreConfig('facebook/like_box/href'); ?>" data-width="<?php echo Mage::getStoreConfig('facebook/like_box/width'); ?>" data-height="<?php echo Mage::getStoreConfig('facebook/like_box/height'); ?>" data-colorscheme="<?php echo Mage::getStoreConfig('facebook/like_box/colorscheme'); ?>" data-show-faces="<?php echo Mage::getStoreConfig('facebook/like_box/faces'); ?>" data-stream="<?php echo Mage::getStoreConfig('facebook/like_box/stream'); ?>" data-header="<?php echo Mage::getStoreConfig('facebook/like_box/header'); ?>" data-show-border="false" data-force-wall"false">
+	</div>
+</div>

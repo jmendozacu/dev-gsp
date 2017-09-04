@@ -1,0 +1,48 @@
+.btn-cart {
+	position: relative;
+}
+
+.ajaxbuy-loader {
+	width:16px;
+	height:16px;
+	position: absolute;
+	top: 3px;
+	left: -19px;
+	background-image: url(../images/ajaxbuy-loader.gif);
+}
+
+.ajaxbuy-loader.loader-form-version {
+	left: -20px;
+	top: 4px;
+}
+
+.ajaxbuy-loader.ajaxbuy-done {
+	background-image: url(../images/ajaxbuy-done.png);
+}
+
+/* Message-box */
+
+.ajaxbuy-message {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #00AB66;/*theme*/
+	color: #fff;/*theme*/
+	text-align: center;
+	overflow: hidden;
+	height: 0;
+	transition: height ease 0.5s;
+	z-index: 10000000;
+	padding-top: 5px
+	/*line-height: 35px;*/
+}
+
+.ajaxbuy-message.ajaxbuy-message-failiure {
+	background-color: #FF7F7F;
+	color: #000000;
+}
+
+.ajaxbuy-message.open {
+	height: 28px;
+}

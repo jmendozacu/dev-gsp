@@ -1,0 +1,82 @@
+<!--@subject Newsletter unsubscription success @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$customer.name":"Customer Name",
+"store url=\"customer/account/\"":"Customer Account Url"}
+@-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<body style="background:#FFFFFF; font-family:Helvetica, Verdana, Arial, sans-serif; font-size:12px; margin:0; padding:0; color:#444;">
+<div style="background:#FFFFFF; font-family:Helvetica, Verdana, Arial, sans-serif; font-size:12px; margin:0; padding:0; color:#444;">
+<table align="center" cellspacing="0" cellpadding="0" border="0" width="600" style="background:#ffffff; margin-top:20px; margin-bottom:20px;">
+    <tr>
+        <td align="center" valign="top">
+        
+        <!-- [ header starts here] -->
+
+            <table cellspacing="0" cellpadding="0" border="0" width="600" height="200" style="background-color:#00b8d0;">
+                <tr>
+                    <td valign="top" align="left"width="600" >
+                        <h1 style="font-size:20px;color:#fff;text-align:left;">Welcome to GSP</h1>
+                    </td>
+                </tr>
+            </table>
+            
+        <!-- [ middle starts here] -->
+        
+            <table cellspacing="0" cellpadding="0" border="0" width="600">
+                <tr>
+                    <td valign="top" align="left">
+                        <br />
+                        <h1 style="font-size: 15px; font-weight:normal; margin:30px 0 20px 0;">
+                            Hello {{htmlescape var=$order.getCustomerName()}}
+                        </h1>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 20px 0;">
+                            You have now ended your subscription. We hope to see you with us soon again.
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:10px 0 10px 0;">
+                            If you have any questions don't hesitate to contact us. Our details are at the bottom of this email.
+                        </p>
+                        <br />
+                        <br />
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">
+                            {{config path='sales_email/email_templates/message3'}}
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 20px 0;">
+                            <strong>{{config path='general/store_information/name'}}</strong>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            
+        <!-- [ footer starts here] -->    
+            
+            <table cellspacing="0" cellpadding="0" border="0" width="600" style="border-top:1px solid #dddddd;">
+                <tr>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='general/store_information/name'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/address'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/zip_city'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">{{block type="design/email_country"}}</p>
+                    </td>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='general/store_information/phone'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/hours'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;"><a href="mailto:{{config path='general/trans_email/ident_general/email'}}" style="color:#1865a2;">{{config path='general/trans_email/ident_general/email'}}</a></p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;"><a href="{{store url=''}}" style="color:#1865a2;">{{config path='basicsetup/contact_details/url'}}</a></p>
+                    </td>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='sales_email/email_templates/email_footer1'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='sales_email/email_templates/email_footer2'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='sales_email/email_templates/email_footer3'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">{{config path='sales_email/email_templates/email_footer4'}}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>

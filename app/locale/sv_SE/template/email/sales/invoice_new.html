@@ -1,0 +1,155 @@
+<!--@subject  {{config path='general/store_information/name'}}: Faktura {{var invoice.increment_id}} för ordernummer {{var order.increment_id}} @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$order.getCustomerName()":"Customer Name",
+"var store.getFrontendName()":"Store Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var invoice.increment_id":"Invoice Id",
+"var order.increment_id":"Order Id",
+"var order.billing_address.format('html')":"Billing Address",
+"var payment_html":"Payment Details",
+"var order.shipping_address.format('html')":"Shipping Address",
+"var order.shipping_description":"Shipping Description",
+"layout area=\"frontend\" handle=\"sales_email_order_invoice_items\" invoice=$invoice order=$order":"Invoice Items Grid",
+"var comment":"Invoice Comment"}
+@-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<body style="background:#FFFFFF; font-family:Helvetica, Verdana, Arial, sans-serif; font-size:12px; margin:0; padding:0; color:#444;">
+<div style="background:#FFFFFF; font-family:Helvetica, Verdana, Arial, sans-serif; font-size:12px; margin:0; padding:0; color:#444;">
+<table align="center" cellspacing="0" cellpadding="0" border="0" width="600" style="background:#ffffff; margin-top:20px; margin-bottom:20px;">
+    <tr>
+        <td valign="top" align="center">
+        
+        <!-- [ header starts here] -->
+        
+            <table cellspacing="0" cellpadding="0" border="0" width="600" style="border-bottom:1px solid #dddddd;">
+                <tr>
+                    <td valign="top" align="left">
+                        <a href="{{store url=''}}"><img src="{{var logo_url}}" alt="{{var logo_alt}}" style="margin-bottom:20px;" border="0"/></a>
+                    </td>
+                </tr>
+            </table>
+            
+        <!-- [ middle starts here] -->
+        
+            <table cellspacing="0" cellpadding="0" border="0" width="600">
+                <tr>
+                    <td valign="top" align="left">
+                        <h1 style="font-size: 15px; font-weight:normal; margin:30px 0 20px 0;">
+                            Hej {{htmlescape var=$order.getCustomerName()}}
+                        </h1>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">
+                            Här kommer fakturan för din beställning hos {{config path='general/store_information/name'}}.
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">
+                              Du kan följa status för din beställning genom att <a href="{{store url='customer/account/'}}" style="color:#1865a2;">logga in på ditt konto.</a>
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 20px 0;">
+                            Om du har några frågor kring din faktura så kontakta oss gärna. Våra kontaktuppgifter hittar du i slutet av det här mailet.
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 20px 0;">
+                            Ditt fakturanummer: <strong>{{var invoice.increment_id}}</strong>, och ditt ordernummer: <strong>{{var order.increment_id}}</strong>
+                        </p>
+                        
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th align="left" width="55%" bgcolor="#eaeaea" style="font-size:11px; padding:5px 9px 6px 9px; border:1px solid #eaeaea; line-height:1em;">
+                                        Fakturerad till:
+                                    </th>
+                                    <th width="3%"></th>
+                                    <th align="left" width="42%" bgcolor="#eaeaea" style="font-size:11px; padding:5px 9px 6px 9px; border:1px solid #eaeaea; line-height:1em;">
+                                        Betalningsmetod:
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td valign="top" style="font-size:10px; padding:7px 9px 9px 9px; border:1px solid #eaeaea; border-top:0;">
+                                        {{var order.getBillingAddress().format('html')}}
+                                    </td>
+                                    <td>&nbsp;</td>
+                                    <td valign="top" style="font-size:10px; padding:7px 9px 9px 9px; border:1px solid #eaeaea; border-top:0;">
+                                        {{var payment_html}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                            {{depend order.getIsNotVirtual()}}
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th align="left" width="55%" bgcolor="#eaeaea" style="font-size:11px; padding:5px 9px 6px 9px; border:1px solid #eaeaea; border-bottom:none; line-height:1em;">
+                                        Leveransadress:
+                                    </th>
+                                    <th width="3%"></th>
+                                    <th align="left" width="42%" bgcolor="#eaeaea" style="font-size:11px; padding:5px 9px 6px 9px; border:1px solid #eaeaea; border-bottom:none; line-height:1em;">
+                                        Leveransmetod:
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td valign="top" style="font-size:11px; padding:7px 9px 9px 9px; border:1px solid #eaeaea; border-top:0;">
+                                        {{var order.getShippingAddress().format('html')}}
+                                    </td>
+                                    <td>&nbsp;</td>
+                                    <td valign="top" style="font-size:11px; padding:7px 9px 9px 9px; border:1px solid #eaeaea; border-top:0;">
+                                        {{var order.getShippingDescription()}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            {{/depend}}
+
+                        <p style="font-size:11px; line-height:20px; margin:0 0 10px 0;">
+                            {{layout area="frontend" handle="sales_email_order_invoice_items" invoice=$invoice order=$order}}
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">
+                            {{var comment}}
+                        </p>
+                        <br />
+                        <br />
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">
+                            {{config path='sales_email/email_templates/message3'}}
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 20px 0;">
+                            <strong>{{config path='general/store_information/name'}}</strong>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            
+        <!-- [ footer starts here] -->    
+            
+            <table cellspacing="0" cellpadding="0" border="0" width="600" style="border-top:1px solid #dddddd;">
+                <tr>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='general/store_information/name'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/address'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/zip_city'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">{{block type="design/email_country"}}</p>
+                    </td>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='general/store_information/phone'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/hours'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;"><a href="mailto:{{config path='general/trans_email/ident_general/email'}}" style="color:#1865a2;">{{config path='general/trans_email/ident_general/email'}}</a></p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;"><a href="{{store url=''}}" style="color:#1865a2;">{{config path='basicsetup/contact_details/url'}}</a></p>
+                    </td>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='sales_email/email_templates/email_footer1'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='sales_email/email_templates/email_footer2'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='sales_email/email_templates/email_footer3'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">{{config path='sales_email/email_templates/email_footer4'}}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>

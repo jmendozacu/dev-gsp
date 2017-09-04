@@ -1,0 +1,39 @@
+<?php if(!Mage::getStoreConfig("klarnacheckout/checkout/show_checkout_heading")) return ""; ?>
+
+
+<div class="step-two">
+
+        <div class="klarnacheckout-fieldset" style="  padding-bottom: 0; margin-bottom: 0;">
+            <h2 class="klarna-checkout-logo-heading">
+                <?php echo $this->__("Checkout"); ?>
+                <?php if(Mage::getStoreConfig("klarnacheckout/checkout/helpform_active")): ?>
+                    <span><?php echo $this->__('Can\'t see the checkout? <a %s>Click here</a>',' href="#" onclick="$(\'cant-see-checkout-form\').toggleClassName(\'hide\'); return false"'); ?></span>
+                <?php endif ?>
+            </h2>
+        </div>
+        <?php if(Mage::getStoreConfig("klarnacheckout/checkout/helpform_active")): ?>
+            <div class="klarnacheckout-fieldset hideable hide" id="cant-see-checkout-form">
+                <div class="hideable-inner">
+
+                    <p style="margin-bottom: 10px;"><?php echo $this->__("Enter your email and/or your phonenumber if you can't see the checkout, we'll contact you as soon as possible to help you with your order"); ?></p>
+
+
+                    <div class="klarnacheckout-field">
+                        <input class="input-text validate-email" type="text" id="kco-help-email" value="" placeholder="<?php echo $this->__('Enter Email'); ?>" />
+                    </div>
+                    <div class="klarnacheckout-field">
+                        <input class="input-text" type="text" id="kco-help-phone" value="" placeholder="<?php echo $this->__('Enter phonenumber'); ?>" />
+                    </div>
+                    <div class="klarnacheckout-field">
+                        <input class="input-text" type="text" id="kco-help-message" value="" placeholder="<?php echo $this->__('Describe your problem'); ?>" />
+                    </div>
+                    <button class="kco-action" type="button" data-action="sendHelpForm">
+                        <span><?php echo $this->__('Send'); ?></span>
+                    </button>
+                </div>
+                <div class="hideable-inner success hidden">
+                    <p style="margin-bottom: 10px;"><?php echo $this->__("Your request for help has been sent, we'll contact you shortly") ?></p>
+                </div>
+            </div>
+        <?php endif;?>
+</div>

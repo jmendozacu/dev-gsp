@@ -1,0 +1,24 @@
+<?php $_items = $this->getRecentItems() ?>
+<?php if(count($_items)): ?>
+    <?php /*
+        <p class="block-subtitle"><?php echo $this->__('Recently added item(s)') ?></p>
+    */ ?>
+    <table class="cart-header">
+        <tr>
+            <td class="cell-col"><?php echo $this->__('&nbsp;') ?></td>
+            <td class="cell-col1"><?php echo $this->__('Product') ?></td>
+            <td class="cell-col2"><?php echo $this->__('Qty') ?></td>
+            <td class="cell-col3"><?php echo $this->__('Total') ?></td>
+            <td class="cell-col4"><?php echo $this->__('Remove') ?></td>
+        </tr>
+    </table>
+    <ol id="cart-sidebar" class="mini-products-list">
+        <?php foreach($_items as $_item): ?>
+            <?php echo $this->getItemHtml($_item) ?>
+        <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
+<?php else: ?>
+    <p class="empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+<?php endif ?>
+

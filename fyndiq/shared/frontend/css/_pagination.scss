@@ -1,0 +1,49 @@
+.pages {
+  float: left;
+  margin: 10px 0;
+  width: 350px;
+
+  ol {
+    float: left;
+    margin: 0;
+    margin-left: 15px;
+    padding: 0;
+  }
+
+  li {
+    float: left;
+    list-style: none;
+    margin-right: 5px;
+
+    &.current {
+      @include border-radius(3px);
+      background-color: $color-pending;
+      color: $color-light;
+      display: inline-block;
+      font-size: $font-text-default;
+      line-height: 16px;
+      outline: none;
+      padding: 8px 12px;
+      text-decoration: none;
+    }
+  }
+
+  a {
+    @include border-radius(3px);
+    background-color: $color-disabled-background;
+    color: $color-black;
+    cursor: pointer;
+    display: inline-block;
+    font-size: $font-text-default;
+    line-height: 16px;
+    outline: none;
+    padding: 8px 12px;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $color-pending;
+      color: $color-light;
+      text-decoration: none;
+    }
+  }
+}

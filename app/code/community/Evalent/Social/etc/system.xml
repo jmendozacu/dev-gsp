@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Evalent Modules
+ * @package     Evalent_Social
+ * @author      Evalent Group AB
+ */
+-->
+<config>
+	<tabs>
+		<social translate="label" module="social">
+			<label><![CDATA[<strong>Social integrations</strong>]]></label>
+			<sort_order>789</sort_order>
+		</social>
+	</tabs>
+
+	<sections>
+		<facebook translate="label" module="social">
+			<label>Facebook</label>
+			<tab>social</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>20</sort_order>
+			<class>ecom-facebook</class>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<opengraph translate="label">
+					<label>1. Facebook Open Graph Protocol</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>                
+					<fields>
+						<active translate="label comment">
+                            <label><![CDATA[<strong>1.1</strong> Activate Open Graph]]></label>
+                            <comment><![CDATA[]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+						<admin translate="label comment">
+				            <label><![CDATA[<strong>1.2</strong> Facebook page admin]]></label>
+				            <comment><![CDATA[User id or user name of the person who is the admin for your Facebook page, for example <strong>erik.persson</strong>.]]></comment>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>20</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </admin>
+				        <zip translate="label comment">
+				            <label><![CDATA[<strong>1.3</strong> OG zip code]]></label>
+				            <comment><![CDATA[Zip code for where the business is located.]]></comment>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>30</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </zip>
+				        <city translate="label comment">
+				            <label><![CDATA[<strong>1.4</strong> OG city]]></label>
+				            <comment><![CDATA[City where the business is located.]]></comment>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>40</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </city>
+				        <title translate="label comment">
+				            <label><![CDATA[<strong>1.5</strong> Default OG title]]></label>
+				            <comment><![CDATA[Default title of the site for the homepage.]]></comment>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>50</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </title>
+				        <url translate="label comment">
+				            <label><![CDATA[<strong>1.6</strong> Default OG url]]></label>
+				            <comment><![CDATA[Default OG url for the homepage.]]></comment>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>60</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </url>
+				        <description translate="label comment">
+				            <label><![CDATA[<strong>1.7</strong> Default OG description]]></label>
+				            <comment><![CDATA[Default description of the site for the homepage.]]></comment>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>70</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </description>
+				        <image translate="label comment">
+				            <label><![CDATA[<strong>1.8</strong> Default OG image link]]></label>
+				            <comment><![CDATA[Link to the default OG image for the homepage.]]></comment>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>80</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </image>
+			        </fields>
+		        </opengraph>
+				<like_button translate="label">
+					<label>2. 'Like' / 'Recommend' and 'Share' on product view page</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>                
+					<fields>
+						<active translate="label comment">
+                            <label><![CDATA[<strong>2.1</strong> Active]]></label>
+                            <comment><![CDATA[Enable the 'Like' button.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <share translate="label comment">
+				            <label><![CDATA[<strong>2.2</strong> Activate the 'Share' button?]]></label>
+				            <comment><![CDATA[Makes it possible for your customers to, by private message on Facebook or by email, <strong>share a recommendation</strong> of a product in your shop.]]></comment>
+				            <frontend_type>select</frontend_type>
+                            <source_model>social/share</source_model>
+				            <sort_order>20</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </share>
+				        <layout translate="label comment">
+				            <label><![CDATA[<strong>2.3</strong> Choose layout type]]></label>
+				            <comment><![CDATA[Go to the <a target="_blank" href="https://developers.facebook.com/docs/reference/plugins/like/">Facebook documentation</a> to see examples of the alternatives in the drop down.]]></comment>
+				            <frontend_type>select</frontend_type>
+                            <source_model>social/layout</source_model>
+				            <sort_order>30</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </layout>
+				        <faces translate="label comment">
+				            <label><![CDATA[<strong>2.4</strong> Faces]]></label>
+				            <comment><![CDATA[Show faces of your fans?]]></comment>
+				            <frontend_type>select</frontend_type>
+                            <source_model>social/faces</source_model>
+				            <sort_order>40</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </faces>
+				        <action translate="label comment">
+				            <label><![CDATA[<strong>2.5</strong> 'Like' or 'Recommend'?]]></label>
+				            <comment><![CDATA[What verb for call to action do you want to use?]]></comment>
+				            <frontend_type>select</frontend_type>
+                            <source_model>social/verb</source_model>
+				            <sort_order>50</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </action>
+				        <colorscheme translate="label comment">
+				            <label><![CDATA[<strong>2.6</strong> Color scheme]]></label>
+				            <comment><![CDATA[Choose color scheme for the module.]]></comment>
+				            <frontend_type>select</frontend_type>
+                            <source_model>social/colorscheme</source_model>
+				            <sort_order>60</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </colorscheme>
+			        </fields>
+		        </like_button>
+		        <like_box translate="label">
+					<label>3. 'Like' box</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>                
+					<fields>
+						<active translate="label comment">
+                            <label><![CDATA[<strong>3.1</strong> Active]]></label>
+                            <comment><![CDATA[]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+						<left translate="label comment">
+                            <label><![CDATA[<strong>3.2</strong> Like Box in the left column]]></label>
+                            <comment><![CDATA[Add Like Box to the left column of all pages?]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </left>
+                        <right translate="label comment">
+                            <label><![CDATA[<strong>3.3</strong> Like Box in the right column]]></label>
+                            <comment><![CDATA[Add Like Box to the right column of all pages?]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </right>
+                        <block_title_show translate="label comment">
+                            <label><![CDATA[<strong>3.4</strong> Show block title]]></label>
+                            <comment><![CDATA[Do you want to display a title to the Facebook block?]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                        </block_title_show>
+                        <block_title translate="label comment">
+                            <label><![CDATA[<strong>3.5</strong> Block title]]></label>
+                            <comment><![CDATA[What do you want the block title to be?]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><active>1</active></depends>
+                            <depends><block_title_show>1</block_title_show></depends>
+                        </block_title>
+				        <href translate="label comment">
+				            <label><![CDATA[<strong>3.6</strong> Address/Url to your Facebook page]]></label>
+				            <comment><![CDATA[Copy the address/url of your page and paste it here including 'http://www'.]]></comment>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>60</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <validate>required-entry</validate>
+				            <depends><active>1</active></depends>
+				        </href>
+				        <width translate="label comment">
+				            <label><![CDATA[<strong>3.7</strong> Width of the 'Like' box]]></label>
+				            <comment><![CDATA[Enter the width of the box in pixels, eg. '208'.]]></comment>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>70</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <validate>validate-number</validate>
+				            <depends><active>1</active></depends>
+				        </width>
+				        <height translate="label comment">
+				            <label><![CDATA[<strong>3.8</strong> Height of the 'Like' box]]></label>
+				            <comment><![CDATA[Enter the height of the box in pixels, eg. '396'.]]></comment>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>80</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <validate>validate-number</validate>
+				            <depends><active>1</active></depends>
+				        </height>
+				        <colorscheme translate="label comment">
+				            <label><![CDATA[<strong>3.9</strong> Color scheme]]></label>
+				            <comment><![CDATA[Choose color scheme for the module.]]></comment>
+				            <frontend_type>select</frontend_type>
+                            <source_model>social/colorscheme</source_model>
+				            <sort_order>90</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </colorscheme>
+				        <faces translate="label comment">
+				            <label><![CDATA[<strong>3.10</strong> Faces]]></label>
+				            <comment><![CDATA[Show faces of your fans?]]></comment>
+				            <frontend_type>select</frontend_type>
+                            <source_model>social/faces</source_model>
+				            <sort_order>100</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </faces>
+				        <stream translate="label comment">
+				            <label><![CDATA[<strong>3.11</strong> Facebook page feed]]></label>
+				            <comment><![CDATA[Show the feed from your Facebook page?]]></comment>
+				            <frontend_type>select</frontend_type>
+                            <source_model>social/stream</source_model>
+				            <sort_order>110</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </stream>
+				        <header translate="label comment">
+				            <label><![CDATA[<strong>3.12</strong> Show header]]></label>
+				            <comment><![CDATA[Do you want to display the header from Facebook? Defaults to 'No'.]]></comment>
+				            <frontend_type>select</frontend_type>
+                            <source_model>social/header</source_model>
+				            <sort_order>120</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+				            <depends><active>1</active></depends>
+				        </header>
+			        </fields>
+		        </like_box>
+			</groups>
+		</facebook>		
+	</sections>
+</config>

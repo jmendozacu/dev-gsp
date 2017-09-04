@@ -1,0 +1,1111 @@
+<root>
+    <blocks>
+        <cms_block>
+            <title>Header top - länkar/block vänster</title>
+            <identifier>block_header_top_left</identifier>
+            <content><![CDATA[
+<a href="tel:+46406925050"><span class="fa fa-phone"></span> Ring 040-692 50 50</a>
+]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Header top - länkar/block vänster 2</title>
+            <identifier>block_header_top_left2</identifier>
+            <content><![CDATA[
+<ul class="links">
+    <li class="first">
+        <a href="{{store url='om-din-butik'}}">Top länk 1</a>
+    </li>
+    <li>
+        <a href="{{store url='kundtjanst'}}">Top länk 2</a>
+    </li>
+    <li class="last">
+        <a href="{{store url='kopvillkor'}}">Top länk 3</a>
+    </li>
+</ul>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Header top - länkar/block höger</title>
+            <identifier>block_header_top_right</identifier>
+            <content><![CDATA[
+<ul class="links">
+    <li class="first">
+        <a href="{{store url=''}}">Top länk 4</a>
+    </li>
+    <li>
+        <a href="{{store url='typography'}}">Top länk 5</a>
+    </li>
+    <li class="last">
+        <a href="{{store url='privacy-policy'}}">Top länk 6</a>
+    </li>
+</ul>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Header top - länkar/block höger 2</title>
+            <identifier>block_header_top_right2</identifier>
+            <content><![CDATA[
+<ul class="links">
+    <li class="first">
+        <a href="{{store url=''}}">Top länk 7</a>
+    </li>
+    <li>
+        <a href="{{store url=''}}">Top länk 8</a>
+    </li>
+    <li class="last">
+        <a href="{{store url=''}}">Top länk 9</a>
+    </li>
+</ul>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Toppmeny - extra länkar höger</title>
+            <identifier>block_nav_links</identifier>
+            <content><![CDATA[
+<li class="nav-item level0 level-top right blog">
+    <a class="level-top" href="{{store direct_url=''}}" title="Blogg">
+        <span>Blogg</span>
+    </a>
+</li>
+<!--li class="nav-item level0 level-top right">
+    <a class="level-top" href="{{store direct_url=''}}" title="Nyheter">
+        <span>Nyheter</span>
+    </a>
+</li-->]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Landningssida 1</title>
+            <identifier>landing_page1</identifier>
+            <content><![CDATA[
+<div class="horizontal-section">
+
+    <a href="#">
+        <img src="{{media url="wysiwyg/infortis/ultimo/custom/landing/category01.jpg"}}" title="You can edit this block or replace it with custom content" alt="Sample banner" />
+
+        <div class="caption dark2 full-width">
+            <h2 class="heading permanent">Category Banner</h2>
+            <p>Upload image and description for every category in the store</p>
+            <p>Create landing pages for categories</p>
+        </div>
+    </a>
+
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Landningssida 2</title>
+            <identifier>landing_page2</identifier>
+            <content><![CDATA[
+<div class="horizontal-section">
+
+    {{block type="ultraslideshow/slideshow" template="infortis/ultraslideshow/slideshow.phtml" slides="block_category_slide1,block_category_slide2" timeout="10000"}}
+
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Landningssida 3</title>
+            <identifier>landing_page3</identifier>
+            <content><![CDATA[
+<div class="landing-page nested-container clearer">
+    <br />
+
+    <div class="vertical-section grid12-4 mobile-grid-half">
+        <a href="{{store direct_url="downloadable/ebooks.html"}}">
+            <img class="center-block" src="{{media url="wysiwyg/infortis/ultimo/custom/landing/vert1.jpg"}}" alt="Sample banner" />
+            <div class="caption dark3 full-width">
+                <h2 class="heading permanent">e-Books</h2>
+                <p class="permanent">Sell e-Books with Magento</p>
+                <p>Lorem ipsum dolor </p>
+            </div>
+        </a>
+    </div>
+    <div class="vertical-section grid12-4 mobile-grid-half">
+        <a href="{{store direct_url="downloadable/music.html"}}">
+            <img class="center-block" src="{{media url="wysiwyg/infortis/ultimo/custom/landing/vert2.jpg"}}" alt="Sample banner" />
+            <div class="caption dark3 full-width">
+                <h2 class="heading permanent">Music</h2>
+                <p class="permanent">Sell music with Magento</p>
+                <p>Lorem ipsum dolor </p>
+            </div>
+        </a>
+    </div>
+    <div class="vertical-section grid12-4 mobile-grid-half">
+        <a href="{{store direct_url="downloadable/software.html"}}">
+            <img class="center-block" src="{{media url="wysiwyg/infortis/ultimo/custom/landing/vert3.jpg"}}" alt="Sample banner" />
+            <div class="caption dark3 full-width">
+                <h2 class="heading permanent">Software</h2>
+                <p class="permanent">Sell digital products</p>
+                <p>Lorem ipsum dolor </p>
+            </div>
+        </a>
+    </div>
+
+    <div class="vertical-section grid-full mobile-grid-half">
+        <p class="horizontal-section" style="background-color: #f5f5f5; padding: 15px;">This is a custom landing page: a CMS block which can replace category products. You can put your own content here: text, HTML, images - whatever you want. You can create landing page for every category.</p>
+    </div>
+    <br />
+
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Kategorisida - produktlista top</title>
+            <identifier>block_category_above_collection</identifier>
+            <content><![CDATA[
+<div class="sample-block">Static CMS block displayed above list/grid of products. Put your own content here.</div>
+]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Kategorisida - produktlista botten</title>
+            <identifier>block_category_below_collection</identifier>
+            <content><![CDATA[
+<div class="nested-container hide-below-768">
+
+    <div class="page-banners clearer">
+        <div class="grid12-6 banner">
+            <a href="{{store direct_url="about-magento-demo-store"}}" title="Replace this image with your own">
+                <img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/01.png"}}" alt="Sample banner" />
+            </a>
+        </div>
+        <div class="grid12-6 banner">
+            <a href="{{store direct_url="about-magento-demo-store"}}" title="Replace this image with your own">
+                <img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/03.png"}}" alt="Sample banner" />
+            </a>
+        </div>
+    </div>
+
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Kategorisida - inga produkter</title>
+            <identifier>block_category_above_empty_collection</identifier>
+            <content><![CDATA[
+<div class="note-msg empty-catalog">
+
+    <h3>Det fanns tyvärr inga produkter.</h3>
+
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Kategorisida - banner 1</title>
+            <identifier>block_category_slide1</identifier>
+            <content><![CDATA[
+<a href="{{store url='about-magento-demo-store'}}">
+
+    <img src="{{media url='wysiwyg/infortis/ultimo/custom/landing/slide1.jpg'}}" alt="Sample image" />
+
+        <div class="caption light1 full-width top">
+            <h2 class="heading permanent">Category Slideshow</h2>
+            <h2 class="heading permanent" style="clear:left;">Sample Banner</h2>
+        </div>
+
+</a>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Kategorisida - banner 2</title>
+            <identifier>block_category_slide2</identifier>
+            <content><![CDATA[
+<img src="{{media url='wysiwyg/infortis/ultimo/custom/landing/slide2.jpg'}}" alt="Sample image" />
+
+<div class="caption light3 full-width centered">
+    <h2 class="heading permanent">Sample Category Slideshow</h2>
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Produktsida - produktbild botten</title>
+            <identifier>block_product_img_bottom</identifier>
+            <content><![CDATA[
+Sample content of the static block - image column bottom.
+]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Produktsida - kolumn nr 2 botten</title>
+            <identifier>block_product_primary_bottom</identifier>
+            <content><![CDATA[
+Sample content of the static block - primary column bottom.
+]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Produktsida - kolumn nr 3 botten</title>
+            <identifier>block_product_secondary_bottom</identifier>
+            <content><![CDATA[
+<div class="feature feature-icon-hover indent first">
+    <span class="ib ic ic-lg ic-plane"></span>
+    <p class="no-margin ">We will send this product in 2 days. <a href="#">Read more...</a></p>
+</div>
+<div class="feature feature-icon-hover indent">
+    <span class="ib ic ic-lg ic-phone"></span>
+    <p class="no-margin ">Call us now for more info about our products.</p>
+</div>
+<div class="feature feature-icon-hover indent">
+    <span class="ib ic ic-lg ic-reload"></span>
+    <p class="no-margin ">Return purchased items and get all your money back.</p>
+</div>
+<div class="feature feature-icon-hover indent last">
+    <span class="ib ic ic-lg ic-star"></span>
+    <p class="no-margin ">Buy this product and earn 10 special loyalty points!</p>
+</div>
+
+<!-- Social bookmarks from http://www.addthis.com/get/sharing  -->
+<!-- AddThis Button BEGIN
+<div class="feature-wrapper top-border">
+    <div class="addthis_toolbox addthis_default_style ">
+    <a class="addthis_button_preferred_1"></a>
+    <a class="addthis_button_preferred_2"></a>
+    <a class="addthis_button_preferred_3"></a>
+    <a class="addthis_button_preferred_4"></a>
+    <a class="addthis_button_compact"></a>
+    <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5054e6c6502d114f"></script>
+</div>
+AddThis Button END -->]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Produktsida - flik 1</title>
+            <identifier>block_product_tab1</identifier>
+            <content><![CDATA[
+<p>Custom CMS block displayed as a tab. You can use it to display info about returns and refunds, latest promotions etc. You can put your own content here: text, HTML, images - whatever you like. There are <strong>many similar blocks</strong> accross the store. All CMS blocks are editable from the admin panel.</p>
+
+<div class="feature indent first">
+    <span class="icon i-right no-bg-color"></span>
+    <p class="no-margin"><strong>Magento Community Edition is the most powerful</strong> open source e-commerce software and can be downloaded 100% for free. Developers can modify the core code, add custom features and functionality by installing extensions from Magento Connect marketplace.</p>
+</div>
+<div class="feature indent">
+    <span class="icon i-right no-bg-color"></span>
+    <p class="no-margin"><strong>Manage the fully dynamic catalog</strong> with the intutive admistrative interface. The flexible catalog system includes various options for the display of items. Magento is also integrated with a variety of major payment gateways out of the box.</p>
+</div>
+<div class="feature indent last">
+    <span class="icon i-right no-bg-color"></span>
+    <p class="no-margin"><strong>Magento is a fully global platform</strong>, allowing for the expansion of business or simply offering multiple versions of your site to meet the needs of your customers.
+Translated into over 60 languages, supporting multiple currencies, payment methods and taxes, Magento allows for internationalization of your online stores.</p>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Produktsida - flik 2</title>
+            <identifier>block_product_tab2</identifier>
+            <content><![CDATA[
+<p>Another custom CMS block displayed as a tab. You can use it to display info about returns and refunds, latest promotions etc. You can put your own content here: text, HTML, images - whatever you like. There are <strong>many similar blocks</strong> accross the store. All CMS blocks are editable from the admin panel.</p>
+
+<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis. Nullam ornare enim nec justo bibendum lobortis. In eget metus.</p>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Produktsida - istället för relaterade</title>
+            <identifier>block_product_replace_related</identifier>
+            <content><![CDATA[
+<div class="block">
+    <div class="block-title">
+        <strong><span>Replace related</span></strong>
+    </div>
+
+    <p style="background-color: #eee; padding:10px; margin-bottom:10px; margin-top:10px;">
+        Custom CMS block replacing related products. Put your own content here: text, HTML, images - whatever you want.
+    </p>
+    <p style="background-color: #eee; padding:10px;">
+        There are many similar blocks accross the store. All editable from admin panel.
+    </p>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Produktsida - istället för upsell</title>
+            <identifier>block_product_replace_upsell</identifier>
+            <content><![CDATA[
+<div style="background-color: #eee; padding: 20px;">
+    Custom CMS block displayed when you want to replace up-sell products with custom content. You can display here some text, images or any other content.
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - bildspel 1</title>
+            <identifier>block_slide1</identifier>
+            <content><![CDATA[
+<a href="{{store url=''}}">
+
+    <img src="{{media url='wysiwyg/infortis/ultimo/slideshow/01.jpg'}}" alt="Sample slide" />
+
+    <!--div class="caption light1 top-right">
+        <h2 class="heading permanent">Customizable Theme</h2>
+        <p>You can change colors of almost every element</p>
+        <p>You have never seen so many options</p>
+    </div-->
+
+</a>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - bildspel 2</title>
+            <identifier>block_slide2</identifier>
+            <content><![CDATA[
+<a href="{{store url=''}}">
+
+    <img src="{{media url='wysiwyg/infortis/ultimo/slideshow/02.jpg'}}" alt="Sample slide" />
+
+    <!--div class="caption dark2">
+        <h2 class="heading permanent">Responsive</h2>
+        <p class="permanent">This theme can adapt to any mobile screen resolution</p>
+    </div-->
+
+</a>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - bildspel 3</title>
+            <identifier>block_slide3</identifier>
+            <content><![CDATA[
+<a href="{{store url=''}}">
+
+    <img src="{{media url='wysiwyg/infortis/ultimo/slideshow/03.jpg'}}" alt="Sample slide" />
+
+    <!--a class="caption dark feature-icon-hover" href="{{store direct_url='dress7.html'}}" title="Click to see the product">
+        <h2 class="hide-below-960" style="color: #fff; font-size: 35px; line-height: 60px; padding-right: 8px;">Super Promo</h2>
+        <span class="ic ic-lg ic-char ib ib-size-xl">-25%</span>
+    </a-->
+
+</a>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - banners bildspel</title>
+            <identifier>block_slideshow_banners</identifier>
+            <content><![CDATA[
+<a class="banner fade-on-hover" href="{{store url='about-magento-demo-store'}}">
+    <img src="{{media url='wysiwyg/infortis/ultimo/slideshow/banner/01.png'}}" alt="Sample banner" />
+
+    <div class="caption light1 full-width right">
+        <p class="right">Sample caption</p>
+    </div>
+
+</a>
+
+<a class="banner fade-on-hover" href="{{store url='about-magento-demo-store'}}">
+    <img src="{{media url='wysiwyg/infortis/ultimo/slideshow/banner/02.png'}}" alt="Sample banner" />
+
+    <div class="caption dark1 full-width right">
+        <p class="right">Add custom text</p>
+    </div>
+
+</a>
+
+<a class="banner fade-on-hover" href="{{store url='about-magento-demo-store'}}">
+    <img src="{{media url='wysiwyg/infortis/ultimo/slideshow/banner/03.png'}}" alt="Sample banner" />
+
+    <div class="caption dark3 full-width right">
+        <p class="right">Caption sample</p>
+    </div>
+</a>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - preface</title>
+            <identifier>block_home_preface</identifier>
+            <content><![CDATA[
+<br/>
+<br/>
+<grid class="grid-container">
+    <span class="section-title">Startsida - preface</span>
+    <br/>
+    <div class="grid12-4">
+        <div class="feature feature-icon-hover indent indent-size-xl">
+            <span class="ic ic-2x ic-paint ib ib-size-xl"></span>
+            <h6 class="above-heading">Customizable design</h6>
+            <h3>Unlimited Colors</h3>
+            <p>You have never seen so many options! Change colors of dozens of elements, apply textures, upload background images...</p>
+            <a href="{{store url='ultimo-responsive-magento-theme'}}" class="go">See all features</a>
+        </div>
+    </div>
+
+    <div class="grid12-4">
+        <div class="feature feature-icon-hover indent indent-size-xl">
+            <span class="ic ic-2x ic-smartphones ib ib-size-xl"></span>
+            <h6 class="above-heading">12-column grid</h6>
+            <h3>Responsive Layout</h3>
+            <p>Ultimo can be displayed on any screen. It is based on fluid grid system. If screen is resized, layout will be automatically adjusted...</p>
+            <a href="{{store url='ultimo-responsive-magento-theme'}}" class="go">See all features</a>
+        </div>
+    </div>
+
+    <div class="grid12-4">
+        <div class="feature feature-icon-hover indent indent-size-xl">
+            <span class="ic ic-2x ic-menu ib ib-size-xl"></span>
+            <h6 class="above-heading">Customizable drop-down menu</h6>
+            <h3>Mega Menu</h3>
+            <p>Two styles: wide mega menu or classic drop-down menu. You can add any custom content (images, text, HTML) to any category in the catalog...</p>
+            <a href="{{store url='ultimo-responsive-magento-theme'}}" class="go">See all features</a>
+        </div>
+    </div>
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - postscript</title>
+            <identifier>block_home_postscript</identifier>
+            <content><![CDATA[
+<span class="section-title">Startsida - postscript</span>
+<br/>
+<div class="page-banners grid-container">
+    <div class="grid12-3 banner fade-on-hover hide-below-768">
+        <a href="{{store direct_url='checkout/cart/add/uenc/aHR0cDovL2xvY2FsaG9zdC5jb20vbTE3MDItMDF1bHRpbW8vZGVmYXVsdC8,/product/30/'}}" title="Click to add sample product to your cart">
+            <img class="fade-on-hover" src="{{media url="wysiwyg/infortis/ultimo/custom/banners/1a.png"}}" alt="Add product to cart" />
+        </a>
+    </div>
+    <div class="grid12-3 banner fade-on-hover hide-below-768">
+        <a href="{{store direct_url='checkout/cart/'}}" title="Click to go to cart page">
+            <img class="fade-on-hover" src="{{media url="wysiwyg/infortis/ultimo/custom/banners/1b.png"}}" alt="Go to Magento cart page" />
+        </a>
+    </div>
+    <div class="grid12-6 banner">
+            <img class="fade-on-hover" src="{{media url="wysiwyg/infortis/ultimo/custom/banners/1c.png"}}" alt="Magento discount code" title="Use discount code/coupon on cart page" />
+    </div>
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>CMS sidor - topp</title>
+            <identifier>block_cms_page_top</identifier>
+            <content><![CDATA[
+<div class="nested-container">
+
+    <div class="page-banners clearer">
+        <div class="grid12-6 banner">
+            <a href="{{store direct_url="about-magento-demo-store"}}" title="Replace this image with your own">
+                <img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/01.png"}}" alt="Sample banner" />
+            </a>
+        </div>
+        <div class="grid12-6 banner">
+            <a href="{{store direct_url="about-magento-demo-store"}}" title="Replace this image with your own">
+                <img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/02.png"}}" alt="Sample banner" />
+            </a>
+        </div>
+
+    </div>
+
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - sidebar vänster 1</title>
+            <identifier>block_home_left1</identifier>
+            <content><![CDATA[
+<div class="block">
+    <div class="block-title">
+        <strong><span>Startsida - sidebar vänster 1</span></strong>
+    </div>
+
+    <p style="background-color: #f5f5f5; color:#666; padding:10px; margin-bottom:10px; margin-top:10px;">
+        Custom CMS block displayed at the left sidebar on the home page. Put your own content here: text, HTML, images - whatever you like.
+    </p>
+    <p style="background-color: #f5f5f5; color:#666; padding:10px;">
+        There are many similar content placeholders across the store. All editable from admin panel.
+    </p>
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - sidebar vänster 2</title>
+            <identifier>block_home_left2</identifier>
+            <content><![CDATA[
+<div class="block">
+    <div class="block-title">
+        <strong><span>Startsida - sidebar vänster 2</span></strong>
+    </div>
+
+    <p style="background-color: #f5f5f5; color:#666; padding:10px; margin-bottom:10px; margin-top:10px;">
+        Custom CMS block displayed at the left sidebar on the home page. Put your own content here: text, HTML, images - whatever you like.
+    </p>
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - sidebar vänster 3</title>
+            <identifier>block_home_left3</identifier>
+            <content><![CDATA[
+Startsida - sidebar vänster 3
+]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - sidebar höger 1</title>
+            <identifier>block_home_right1</identifier>
+            <content><![CDATA[
+Startsida - sidebar höger 1
+{{block type="ultramegamenu/navigation" parent="root" depth="2" block_name="My Category Block" template="infortis/ultramegamenu/categories.phtml"}}
+]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - sidebar höger 2</title>
+            <identifier>block_home_right2</identifier>
+            <content><![CDATA[
+<div class="block">
+    <div class="block-title">
+        <strong><span>Startsida - sidebar höger 2</span></strong>
+    </div>
+
+    <p style="background-color: #f5f5f5; color:#666; padding:10px; margin-bottom:10px; margin-top:10px;">
+        Custom CMS block displayed at the right sidebar on the home page. Put your own content here: text, HTML, images - whatever you like.
+    </p>
+    <p style="background-color: #f5f5f5; color:#666; padding:10px;">
+        There are many similar content placeholders across the store. All editable from admin panel.
+    </p>
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Startsida - sidebar höger 3</title>
+            <identifier>block_home_right3</identifier>
+            <content><![CDATA[
+<div class="block">
+    <div class="block-title">
+        <strong><span>Startsida - sidebar höger 3</span></strong>
+    </div>
+    <div class="block-content sample-block">
+        <p>Custom CMS block displayed at the right sidebar on the home page. Put your own content here: text, HTML, images - whatever you like.</p>
+    </div>
+    <div class="block-content sample-block">
+        <p>There are many similar content placeholders across the store. All editable from admin panel. </p>
+    </div>
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Sidebar - vänster topp</title>
+            <identifier>block_left_top</identifier>
+            <content><![CDATA[
+<div class="block">
+    <div class="block-title">
+        <strong><span>Sidebar - vänster topp</span></strong>
+    </div>
+    <div class="block-content sample-block">
+        <p>Custom CMS block displayed at the top of the left sidebar. Put your own content here.</p>
+    </div>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Sidebar - vänster botten</title>
+            <identifier>block_left_bottom</identifier>
+            <content><![CDATA[
+<div class="block">
+    <div class="block-title">
+        <strong><span>Sidebar - vänster nere</span></strong>
+    </div>
+    <div class="block-content sample-block">
+        <p>Custom CMS block displayed in the left sidebar below the other blocks. Put your own content here. There are many similar content placeholders across the store. All editable from admin panel.</p>
+    </div>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Sidebar - höger topp</title>
+            <identifier>block_right_top</identifier>
+            <content><![CDATA[
+<div class="block">
+    <div class="block-title">
+        <strong><span>Sidebar - höger topp</span></strong>
+    </div>
+
+    <div class="block-content sample-block">
+        <p>Custom CMS block displayed at the top of the right sidebar. Put your own content here: text, HTML, images - whatever you like. There are many similar content placeholders across the store. All editable from admin panel.</p>
+    </div>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Sidebar - höger botten</title>
+            <identifier>block_right_bottom</identifier>
+            <content><![CDATA[
+<div class="block">
+    <div class="block-title">
+        <strong><span>Sidebar - höger nere</span></strong>
+    </div>
+    <div class="block-content sample-block">
+        <p>Custom CMS block displayed at the bottom of the right sidebar.  There are many similar content placeholders across the store.</p>
+    </div>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Varukorg - under tabell</title>
+            <identifier>block_cart_below_table</identifier>
+            <content><![CDATA[
+<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/cart-discount.png"}}" alt="Magento discount code" title="Use discount code/coupon" />]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Varukorg - under totalt</title>
+            <identifier>block_cart_below_totals</identifier>
+            <content><![CDATA[
+<div class="hide-below-320" style="display: table; float: right; padding-right: 10px; text-align: right;">
+   <span style="display: table-cell; vertical-align: middle;">
+      Sample info about SSL Certificate
+   </span>
+   <img src="{{media url="wysiwyg/infortis/ultimo/custom/block_cart_below_totals.png"}}" alt="Example Image" title="Static CMS block displayed below totals. Put your own content here." />
+</div>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer top - länkar vänster</title>
+            <identifier>block_footer_links</identifier>
+            <content><![CDATA[
+<ul class="links">
+
+    <li class="first">
+        <a href="{{store url='about-magento-demo-store'}}" title="My custom link">Custom Link</a>
+    </li>
+    <li class=" last">
+        <a href="{{store url='about-magento-demo-store'}}" title="My sample link">Sample Link</a>
+    </li>
+
+</ul>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer top - länkar höger</title>
+            <identifier>block_footer_links2</identifier>
+            <content><![CDATA[
+<ul class="links hide-below-768">
+
+    <li class="first">
+        <a href="{{store direct_url='about-magento-demo-store/'}}" title="You can add more custom links here">About Us</a>
+    </li>
+    <li class="last">
+        <a href="{{store direct_url='customer-service/'}}"  title="You can even replace these links with any other content">Customer Service</a>
+    </li>
+
+</ul>]]></content>
+            <is_active>0</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer main - kolumn 1</title>
+            <identifier>block_footer_column1</identifier>
+            <content><![CDATA[
+<div class="collapsible mobile-collapsible">
+    <h6 class="block-title heading">Footer main - kolumn 1</h6>
+
+    <div class="block-content">
+
+        <div class="feature first last">
+            <img class="icon" src="{{media url="wysiwyg/infortis/ultimo/icons/info.png"}}" alt="About Ultimo Magento Theme" />
+            <p>Ultimo is a premium Magento theme with advanced admin module. It’s extremely customizable, easy to use and fully responsive.</p>
+            <p>Suitable for every type of store. Great starting point for your custom projects.</p>
+            <h5><a class="go" href="http://themeforest.net/item/ultimo-fluid-responsive-magento-theme/3231798?ref=infortis">Buy this theme</a></h5>
+        </div>
+
+    </div>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer main - kolumn 2</title>
+            <identifier>block_footer_column2</identifier>
+            <content><![CDATA[
+<div class="collapsible mobile-collapsible">
+
+    <h6 class="block-title heading">Footer main - kolumn 2</h6>
+    <div class="block-content">
+
+        <ul class="bullet">
+            <li><a href="{{store url='ultimo-responsive-magento-theme'}}">Theme Features</a></li>
+            <li><a href="{{store url='typography'}}">Typography</a></li>
+            <li><a href="#">Some Sample Link</a></li>
+            <li><a href="#">Meat Our Best Partners</a></li>
+            <li><a href="#">Latest Work Samples</a></li>
+            <li><a href="#">Our Other Projects</a></li>
+            <li><a href="#">One Click To Join Us</a></li>
+            <li><a href="#">Follow Us On Twitter</a></li>
+            <li><a href="http://infortis-themes.com/">Magento Themes</a></li>
+            <li><a href="#">Ecommerce</a></li>
+        </ul>
+
+    </div>
+
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer main - kolumn 3</title>
+            <identifier>block_footer_column3</identifier>
+            <content><![CDATA[
+<div class="collapsible mobile-collapsible">
+
+    <h6 class="block-title heading">Footer main - kolumn 3</h6>
+    <div class="block-content">
+        <div class="feature feature-icon-hover indent first">
+            <span class="ib ic ic-char">1</span>
+            <p class="no-margin">Unlimited colors, hundreds of customizable elements</p>
+        </div>
+        <div class="feature feature-icon-hover indent">
+            <span class="ib ic ic-char">2</span>
+            <p class="no-margin ">Customizable responsive layout based on fluid grid</p>
+        </div>
+        <div class="feature feature-icon-hover indent">
+            <span class="ib ic ic-char">3</span>
+            <p class="no-margin ">50+ placeholders to display custom content</p>
+        </div>
+        <div class="feature feature-icon-hover indent">
+            <span class="ib ic ic-char">4</span>
+            <p class="no-margin ">Create your custom sub-themes (variants)</p>
+        </div>
+    </div>
+
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer main - kolumn 4</title>
+            <identifier>block_footer_column4</identifier>
+            <content><![CDATA[
+<div class="collapsible mobile-collapsible">
+
+        <h6 class="block-title heading">Footer main - kolumn 4</h6>
+        <div class="block-content">
+            <div class="feature feature-icon-hover indent first">
+                <span class="ib ic ic-phone ic-lg"></span>
+                <p class="no-margin ">Call Us +001 555 801<br/>Fax +001 555 802</p>
+            </div>
+            <div class="feature feature-icon-hover indent">
+                <span class="ib ic ic-mobile ic-lg"></span>
+                <p class="no-margin ">+77 123 1234<br/>+42 98 9876</p>
+            </div>
+            <div class="feature feature-icon-hover indent">
+                <span class="ib ic ic-letter ic-lg"></span>
+                <p class="no-margin ">boss@example.com<br/>me@example.com</p>
+            </div>
+            <div class="feature feature-icon-hover indent last">
+                <span class="ib ic ic-skype ic-lg"></span>
+                <p class="no-margin ">Skype: samplelogin<br/>skype-support</p>
+            </div>
+        </div>
+
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer main - sociala länkar</title>
+            <identifier>block_footer_primary_bottom_left</identifier>
+            <content><![CDATA[
+<div class="social-links ib-wrapper--square">
+    <a class="first" href="#" title="Join us on Facebook">
+        <span class="ib ib-hover ic ic-lg ic-facebook"></span>
+    </a>
+    <a href="#" title="Instagram">
+        <span class="ib ib-hover ic ic-lg ic-instagram"></span>
+    </a>
+    <a href="#" title="Follow Infortis on Twitter">
+        <span class="ib ib-hover ic ic-lg ic-twitter"></span>
+    </a>
+    <a href="#" title="Join us on Google Plus">
+        <span class="ib ib-hover ic ic-lg ic-googleplus"></span>
+    </a>
+    <a href="#" title="Youtube">
+        <span class="ib ib-hover ic ic-lg ic-youtube"></span>
+    </a>
+    <a href="#" title="Vimeo">
+        <span class="ib ib-hover ic ic-lg ic-vimeo"></span>
+    </a>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer botten - kolumn 1</title>
+            <identifier>block_footer_row2_column1</identifier>
+            <content><![CDATA[
+<div class="collapsible mobile-collapsible">
+    <h6 class="block-title heading">Footer botten - kolumn 1</h6>
+
+    <div class="block-content">
+
+        <ul class="bullet">
+            <li><a href="{{store url=''}}">Detta är bara en demolänk</a></li>
+            <li><a href="{{store url=''}}">Och en länk till</a></li>
+            <li><a href="{{store url=''}}">Och ännu en länk</a></li>
+        </ul>
+
+    </div>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer botten - kolumn 2</title>
+            <identifier>block_footer_row2_column2</identifier>
+            <content><![CDATA[
+<div class="collapsible mobile-collapsible">
+    <h6 class="block-title heading">Footer botten - kolumn 2</h6>
+
+    <div class="block-content">
+
+        <ul class="bullet">
+            <li><a href="{{store url=''}}">Detta är bara en demolänk</a></li>
+            <li><a href="{{store url=''}}">Och en länk till</a></li>
+            <li><a href="{{store url=''}}">Och ännu en länk</a></li>
+        </ul>
+
+    </div>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer botten - kolumn 3</title>
+            <identifier>block_footer_row2_column3</identifier>
+            <content><![CDATA[
+<div class="collapsible mobile-collapsible">
+    <h6 class="block-title heading">Footer botten - kolumn 3</h6>
+
+    <div class="block-content">
+
+        <ul class="bullet">
+            <li><a href="{{store url=''}}">Detta är bara en demolänk</a></li>
+            <li><a href="{{store url=''}}">Och en länk till</a></li>
+            <li><a href="{{store url=''}}">Och ännu en länk</a></li>
+        </ul>
+
+    </div>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer botten - kolumn 4</title>
+            <identifier>block_footer_row2_column4</identifier>
+            <content><![CDATA[
+<div class="collapsible mobile-collapsible">
+    <h6 class="block-title heading">Footer botten - kolumn 4</h6>
+
+    <div class="block-content">
+
+        <ul class="bullet">
+            <li><a href="{{store url=''}}">Detta är bara en demolänk</a></li>
+            <li><a href="{{store url=''}}">Och en länk till</a></li>
+            <li><a href="{{store url=''}}">Och ännu en länk</a></li>
+        </ul>
+
+    </div>
+</div>]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+
+        <cms_block>
+            <title>Footer botten - betalningssätt</title>
+            <identifier>block_footer_payment</identifier>
+            <content><![CDATA[
+<img src="{{media url="wysiwyg/infortis/ultimo/custom/payment.gif}}" alt="Payment methods" title="Sample image with payment methods" />
+]]></content>
+            <is_active>1</is_active>
+            <stores>
+                <item>0</item>
+            </stores>
+        </cms_block>
+    </blocks>
+</root>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Evalent_IwdOpc>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <IWD_Opc/>
+            </depends>
+        </Evalent_IwdOpc>
+    </modules>
+</config>

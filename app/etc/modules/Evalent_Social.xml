@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Evalent Modules
+ * @package     Evalent_Social
+ * @author      Evalent Group AB
+ */
+-->
+<config>
+    <modules>
+        <Evalent_Social>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Evalent_Social>
+    </modules>
+</config>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+    <layout version="0.1.0">        
+        <adminhtml_sales_order_view>
+              <reference name="head">                
+                <action method="addItem">
+                    <type>skin_css</type>
+                    <name>css/repair.css</name>
+                </action>
+            </reference>
+            <reference name="order_item_extra_info">
+                <block type="core/template" name="gsp.repair.info" template="gsp/repair/repair.phtml" />
+            </reference>
+        </adminhtml_sales_order_view>
+    </layout>

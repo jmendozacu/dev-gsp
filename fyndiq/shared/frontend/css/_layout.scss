@@ -1,0 +1,35 @@
+// Adapt the PrestaShop layout
+.fm-container {
+  background-color: $color-page-background;
+  font-family: $font-family-default;
+  font-size: $font-text-default;
+  padding-bottom: 3em;
+
+  p {
+    margin: 0 0 1em;
+  }
+}
+
+.fm-content-wrapper {
+  margin: 0 auto;
+  width: $content-width;
+}
+
+.fm-left-sidebar {
+  float: left;
+  margin-right: 10px;
+  width: $sidebar-width;
+}
+
+.fm-product-panel {
+  float: left;
+  width: 700px;
+}
+
+.clear {
+  clear: both;
+}
+
+.fm-footer {
+  margin: 1em 0 0;
+}

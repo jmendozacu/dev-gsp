@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>ultracart/css/ultracart.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>ultracart/css/skin.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <script>ultracart/js/ultracart.js</script>
+            </action>
+        </reference>
+
+        <update handle="ultracart_header"/>
+        <!-- this set where the cart should be -->
+        <update handle="ultracart_clone"/>  <!-- used to create clones (extra cart for mobile) -->
+    </default>
+
+    <ultracart_header>
+        <reference name="header">
+            <block type="ultracart/cart" name="ultracart.block" template="ultracart/header.phtml" before="-">
+                <block type="ultracart/cart" name="ultracart.title" template="ultracart/parts/title.phtml"/>
+                <block type="ultracart/cart" name="ultracart.summary" template="ultracart/parts/summary.phtml">
+                    <block type="core/text_list" name="cart_sidebar.extra_actions" translate="label" module="checkout">
+                        <label>Shopping Cart Extra Actions</label>
+                    </block>
+                </block>
+                <block type="ultracart/cart" name="ultracart.products" template="ultracart/parts/products.phtml">
+                    <action method="addItemRender">
+                        <type>default</type>
+                        <block>checkout/cart_item_renderer</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>simple</type>
+                        <block>checkout/cart_item_renderer</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>grouped</type>
+                        <block>checkout/cart_item_renderer_grouped</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>configurable</type>
+                        <block>checkout/cart_item_renderer_configurable</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </ultracart_header>
+
+    <ultracart_col>
+        <reference name="right">
+            <block type="ultracart/cart" name="ultracart.block" template="ultracart/sidebar.phtml" before="-">
+                <block type="ultracart/cart" name="ultracart.title" template="ultracart/parts/title.phtml"/>
+                <block type="ultracart/cart" name="ultracart.summary" template="ultracart/parts/summary.phtml">
+                    <block type="core/text_list" name="cart_sidebar.extra_actions" translate="label" module="checkout">
+                        <label>Shopping Cart Extra Actions</label>
+                    </block>
+                </block>
+                <block type="ultracart/cart" name="ultracart.products" template="ultracart/parts/products.phtml">
+                    <action method="addItemRender">
+                        <type>default</type>
+                        <block>checkout/cart_item_renderer</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>simple</type>
+                        <block>checkout/cart_item_renderer</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>grouped</type>
+                        <block>checkout/cart_item_renderer_grouped</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>configurable</type>
+                        <block>checkout/cart_item_renderer_configurable</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </ultracart_col>
+
+    <ultracart_clone>
+        <reference name="header">
+            <block type="ultracart/cart" name="ultracart.clone.block" template="ultracart/clone.phtml" before="-">
+                <block type="ultracart/cart" name="ultracart.clone.title" template="ultracart/parts/title.phtml"/>
+                <block type="ultracart/cart" name="ultracart.clone.summary" template="ultracart/parts/summary.phtml">
+                    <block type="core/text_list" name="cart.clone.extra_actions" translate="label" module="checkout">
+                        <label>Shopping Cart Extra Actions</label>
+                    </block>
+                </block>
+                <block type="ultracart/cart" name="ultracart.clone.products" template="ultracart/parts/products.phtml">
+                    <action method="addItemRender">
+                        <type>default</type>
+                        <block>checkout/cart_item_renderer</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>simple</type>
+                        <block>checkout/cart_item_renderer</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>grouped</type>
+                        <block>checkout/cart_item_renderer_grouped</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>configurable</type>
+                        <block>checkout/cart_item_renderer_configurable</block>
+                        <template>ultracart/item/default.phtml</template>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </ultracart_clone>
+
+    <ultracart_ajax_setqty>
+        <block output="toHtml" type="ultracart/cart" name="ultracart.block" template="ultracart/sidebar.phtml"
+               before="-">
+            <block type="ultracart/cart" name="ultracart.title" template="ultracart/parts/title.phtml"/>
+            <block type="ultracart/cart" name="ultracart.summary" template="ultracart/parts/summary.phtml">
+                <block type="core/text_list" name="cart_sidebar.extra_actions" translate="label" module="checkout">
+                    <label>Shopping Cart Extra Actions</label>
+                </block>
+            </block>
+            <block type="ultracart/cart" name="ultracart.products" template="ultracart/parts/products.phtml">
+                <action method="addItemRender">
+                    <type>default</type>
+                    <block>checkout/cart_item_renderer</block>
+                    <template>ultracart/item/default.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>simple</type>
+                    <block>checkout/cart_item_renderer</block>
+                    <template>ultracart/item/default.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>grouped</type>
+                    <block>checkout/cart_item_renderer_grouped</block>
+                    <template>ultracart/item/default.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>configurable</type>
+                    <block>checkout/cart_item_renderer_configurable</block>
+                    <template>ultracart/item/default.phtml</template>
+                </action>
+            </block>
+        </block>
+    </ultracart_ajax_setqty>
+
+    <ultracart_ajax_reload>
+        <block output="toHtml" type="ultracart/cart" name="ultracart.block" template="ultracart/sidebar.phtml"
+               before="-">
+            <block type="ultracart/cart" name="ultracart.title" template="ultracart/parts/title.phtml"/>
+            <block type="ultracart/cart" name="ultracart.summary" template="ultracart/parts/summary.phtml">
+                <block type="core/text_list" name="cart_sidebar.extra_actions" translate="label" module="checkout">
+                    <label>Shopping Cart Extra Actions</label>
+                </block>
+            </block>
+            <block type="ultracart/cart" name="ultracart.products" template="ultracart/parts/products.phtml">
+                <action method="addItemRender">
+                    <type>default</type>
+                    <block>checkout/cart_item_renderer</block>
+                    <template>ultracart/item/default.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>simple</type>
+                    <block>checkout/cart_item_renderer</block>
+                    <template>ultracart/item/default.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>grouped</type>
+                    <block>checkout/cart_item_renderer_grouped</block>
+                    <template>ultracart/item/default.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>configurable</type>
+                    <block>checkout/cart_item_renderer_configurable</block>
+                    <template>ultracart/item/default.phtml</template>
+                </action>
+            </block>
+        </block>
+    </ultracart_ajax_reload>
+</layout>

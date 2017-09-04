@@ -1,0 +1,27 @@
+<?php if ($this->getIsNeedToDisplaySideBar()):?>
+    <?php $_cartQty = $this->getSummaryCount() ?>
+    <div class="ultracart clone <?php if (!empty ($_cartQty) && $_cartQty > 0): echo 'has-items'; endif; ?>" id="ultracart-clone-outer-wrapper">
+        <a href="#header-cart" class="skip-link skip-cart">
+            <div class="ultracart-title">
+                <!-- ALL Content in this DIV will be replaced by AJAX -->
+                <?php echo $this->getChildHtml('ultracart.clone.title') ?>
+            </div>
+        </a>
+
+        <div class="inner-wrapper skip-content clearer" id="header-cart">
+            <div class="ultracart-msg">
+                <!-- ALL Content in this DIV will be replaced by AJAX -->
+            </div>
+
+            <div class="ultracart-products">
+                <!-- ALL Content in this DIV will be replaced by AJAX -->
+                <?php echo $this->getChildHtml('ultracart.clone.products') ?>
+            </div>
+
+            <div class="ultracart-summary">
+                <!-- ALL Content in this DIV will be replaced by AJAX -->
+                <?php echo $this->getChildHtml('ultracart.clone.summary') ?>
+            </div>
+        </div>
+    </div>
+<?php endif;?>

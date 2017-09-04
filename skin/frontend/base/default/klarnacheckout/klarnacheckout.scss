@@ -1,0 +1,442 @@
+/* general fonts */
+#klarnacheckout-cart-wrapper {
+    font-size: 12px;
+    h1 {
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    * {
+        box-sizing: border-box;
+    }
+}
+
+/* items table */
+table.kco-cart-items {
+    width: 100%;
+    margin-bottom: 15px;
+    th {
+        font-weight: bold;
+        &.kco-table-qty {
+            text-align: left;
+            padding-left: 15px;
+        }
+    }
+    td {
+        line-height: 3em;
+        &.kco-table-qty .loading-indicator {
+            background-image: url("loader.gif");
+            background-position: center center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            text-indent: -50px;
+        }
+        dl.item-options {
+            padding-left: 15px;
+            line-height: 2em;
+            dt {
+                position: relative;
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: -9px;
+                    top: 8px;
+                    width: 0;
+                    height: 0;
+                    border-left: 3px solid gray;
+                    border-top: 3px solid transparent;
+                    border-bottom: 3px solid transparent;
+                }
+            }
+        }
+    }
+    tr {
+        &.even td {
+            background-color: #ececec;
+        }
+    }
+    .kco-table-name {
+        padding-left: 10px;
+    }
+    .kco-table-total {
+        padding-right: 10px;
+    }
+    .kco-table-price, .kco-table-total {
+        text-align: right;
+    }
+    .kco-action {
+        display: block;
+        float: left;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #DE5400;
+        background-color: #F18200;
+        color: #ffffff;
+        font-weight: 900;
+        font-family: "Arial Black";
+        font-size: 15px;
+        line-height: 15px;
+        margin: 0 1px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 2px;
+        &.kco-remove {
+            font-family: "Arial";
+            font-size: 10px;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+    }
+    .kco-qty {
+        display: block;
+        float: left;
+        height: 18px;
+        line-height: 18px;
+        min-width: 25px;
+        text-align: center;
+    }
+}
+
+/* action icons */
+div.kco-action-wrapper {
+    padding-top: 9px;
+}
+
+/* Totals table */
+#shopping-cart-totals-table {
+    float: right;
+    margin-bottom: 15px;
+    tfoot {
+        td {
+            &,
+            & span.price {
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+    }
+    td {
+        font-weight: bold;
+        padding-left: 25px;
+        padding-right: 10px;
+        span.price {
+            font-weight: normal;
+        }
+    }
+}
+
+/* snippet */
+#KCO-snippet {
+    min-height: 600px;
+}
+
+.klarnacheckout-coupon-field {
+    position: relative;
+    //padding: 0 14px 10px;
+    width: 100%;
+    margin-left: 0px;
+    overflow: hidden;
+    height: 100px;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    label {
+        /*font-weight: bold;
+        display: block;
+        color: #31393E;
+        font-size: 18px;
+        line-height: 1;
+        border-bottom: 1px solid #DDDDDD;
+        margin: 0 0 20px 0;
+        padding-bottom: 10px;*/
+        span {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 235px;
+            text-align: center;
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2282D0;
+            color: #fff;
+        }
+    }
+    .step-two & input.input-text {
+        width: 59%;
+    }
+    &.hide {
+        height: 29px;
+    }
+    #kco-coupon-info {
+        position: absolute;
+        text-align: right;
+        width: 100%;
+        top: 4px;
+    }
+}
+
+#klarnacheckout-cart-wrapper .step-two {
+    clear:both;
+}
+
+.step-two, .step-one {
+    input.input-text {
+        max-width: 359px;
+        width: 100%;
+        background-color: #fff;
+        //box-shadow: 0 1px 3px 0 rgba(122, 119, 119, 0.25) inset;
+        border-color: #a6a6a6;
+        padding: 12px;
+        line-height: 19px;
+        font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        border-radius: 2px;
+        box-sizing: border-box;
+        height: 44px;
+    }
+    input.input-text:focus {
+        border-color: #006DBA
+    }
+    button.kco-action,
+    .button,
+    .button:active,
+    .button:focus {
+        background-color: #0089cf;
+        //background-image: linear-gradient(to bottom, #36A2EA 0%, #2282D0 100%);
+        border: 0;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -3px 0 rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 13px 13px 14px;
+        line-height: 18px;
+        color: #fff;
+        border-radius: 3px;
+        font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        float: right;
+        cursor: pointer;
+        text-transform: none;
+        width: 39%;
+        &.loading {
+            background-image: url(loader-button.gif);
+            background-position: center;
+            background-repeat: no-repeat;
+            span {
+                visibility: hidden;
+            }
+        }
+        &:hover, {
+            background-color: #0082c5;
+        }
+    }
+
+}
+
+/* messages */
+.klarnacheckout-message {
+    border: 1px solid #ff7373;
+    background-color: #ffbfbf;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    color: #000000;
+    text-align: center;
+    border-radius: 3px;
+}
+
+/* shipping */
+
+.klarnacheckout-fieldset {
+    clear: both;
+    margin-bottom: 14px;
+    //width: 100%;
+    padding: 0 14px 20px;
+    dl {
+
+    }
+    dd {
+        font-weight: bold;
+    }
+    dt {
+        padding-left: 10px;
+    }
+    h2 {
+        font-weight: bold;
+        display: block;
+        color: #31393E;
+        font-size: 18px;
+        line-height: 1;
+        border-bottom: 1px solid #DDDDDD;
+        margin: 0 0 20px 0;
+        padding-bottom: 10px;
+        text-transform: none;
+        &.klarna-checkout-logo-heading {
+            background-image: url('//cdn.klarna.com/1.0/shared/image/generic/logo/sv_se/basic/blue-black.png?width=80');
+            background-repeat: no-repeat;
+            padding-left: 90px;
+            background-position: 0 2px;
+            font-size: 26px;
+            margin-bottom: 0;
+            color: #0074c8;
+            span {
+                font-size: 16px;
+                line-height: 32px;
+                float: right;
+                color: #333333;
+            }
+        }
+    }
+    &.hideable {
+        overflow: hidden;
+        height: 215px;
+        transition: height 0.5s;
+        -webkit-transition: height 0.5s;
+        padding-bottom: 0;
+        margin-bottom: 0;
+
+        &.hide {
+            height: 0;
+            display: block;
+        }
+
+        .hideable-inner {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+    .klarnacheckout-field {
+        width: 59%;
+        float: left;
+        margin-bottom: 10px;
+        label {
+            display: block;
+        }
+    }
+    select.shipment-methods {
+        border: 1px solid #a6a6a6;
+        border-radius: 2px;
+        //box-shadow: 0 0 4px #d6d6d6 inset;
+        padding: 10px 10px 8px;
+        width: 59%;
+        height: 44px;
+
+    }
+
+    button.button {
+        position: relative;
+        top: 18px;
+    }
+}
+
+@media only screen and (max-width: 645px) {
+    .step-two, .step-one {
+
+        input.input-text {
+            width: 100%;
+            max-width: none;
+        }
+        button.kco-action,
+        .button {
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+
+    .klarnacheckout-coupon-field {
+        height: 154px;
+
+        .step-two & input.input-text {
+            width: 100%;
+        }
+    }
+
+    .klarnacheckout-fieldset {
+        .klarnacheckout-field {
+            width: 100%
+        }
+        select.shipment-methods {
+            width: 100%;
+        }
+
+        button.button {
+            top: -9px;
+        }
+
+        &.hideable {
+            height: 290px;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+
+
+    .klarnacheckout-fieldset {
+        h2{
+            &.klarna-checkout-logo-heading {
+                position: relative;
+                margin-bottom: 29px;
+                span {
+                    float: none;
+                    position: absolute;
+                    bottom: -29px;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+/* twostep */
+
+body.kco-hide-step-two .step-two {
+    display: none;
+}
+
+.step-one, .step-two {
+    max-width: 640px;
+    margin: auto;
+}
+
+.kc-desk {
+    display: table-row;
+}
+
+.kc-mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .kc-desk {
+        display: none;
+    }
+    .kc-mobile {
+        display: table-row;
+    }
+    th.kco-table-qty {
+        visibility: hidden;
+    }
+    table.kco-cart-items tr.even td {
+        background-color: transparent;
+    }
+    tr.kc-even td {
+        background-color: #ECECEC !important;
+    }
+}
+
+/*
+@media only screen and (max-width: 510px) {
+    .klarnacheckout-coupon-field {
+        height: 150px;
+        input.input-text {
+            width: 94%;
+            margin-left: 11px;
+            border-radius: 4px;
+        }
+        .kco-action {
+            float: none;
+            margin: 5px 11px 5px 11px;
+        }
+    }
+    select.shipment-methods {
+        width: 78%;
+    }
+}*/

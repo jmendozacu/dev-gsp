@@ -1,0 +1,25 @@
+<?php
+    $_cartQty = $this->getSummaryCount();
+    $items = $this->getSummaryCount();
+
+    if ($items == 0) echo $this->__('<span class="cart-empty">Your cart is empty</span>');
+    else {
+        if ($items == 1) echo $this->__('<span class="cart-qty">%s</span> <span class="cart-total">%s</span> <span class="cart-shipping">incl. shipping</span>', $items, Mage::helper('checkout')->formatPrice($this->getGrandTotal()));
+        elseif ($items >= 2) echo $this->__('<span class="cart-qty">%s</span> <span class="cart-total">%s</span> <span class="cart-shipping">incl. shipping</span>', $items, Mage::helper('checkout')->formatPrice($this->getGrandTotal()));
+
+    }
+?>
+
+<i class="fa fa-shopping-cart"></i>
+
+<?php /* Checkout button in title hidden to preserve space
+<?php if ($_cartQty && $this->isPossibleOnepageCheckout()): ?>
+    <div onmouseover="return false;" class="header_checkout">
+        <?php echo $this->getChildHtml('extra_actions') ?>
+        <button type="button" title="<?php echo $this->__('Checkout') ?>" class="button"
+                onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')">
+            <span><span><?php echo $this->__('Checkout') ?></span></span>
+        </button>
+    </div>
+<?php endif ?>
+*/ ?>

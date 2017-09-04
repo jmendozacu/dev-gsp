@@ -1,0 +1,11 @@
+<jstranslator>
+    <kco-stock-alert translate="message" module="klarnacheckout">
+        <message>Are you sure you want to delete this product from your cart?</message>
+    </kco-stock-alert>
+	<kco-missing-couponcode translate="message" module="klarnacheckout">
+		<message>A valid coupon code must be entered</message>
+	</kco-missing-couponcode>
+    <kco-empty-helpform translate="message" module="klarnacheckout">
+        <message>Email or phone has to be entered</message>
+    </kco-empty-helpform>
+</jstranslator>

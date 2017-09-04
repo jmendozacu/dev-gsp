@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <AAIT_Payexinvoice>
+            <!-- declare module's version information for database updates -->
+            <version>1.0.25</version>
+        </AAIT_Payexinvoice>
+    </modules>
+
+    <global>
+        <!-- declare model group for new module -->
+        <models>
+            <!-- model group alias to be used in Mage::getModel('newmodule/...') -->
+            <payexinvoice>
+                <!-- base class name for the model group -->
+                <class>AAIT_Payexinvoice_Model</class>
+            </payexinvoice>
+        </models>
+
+        <!-- IMPORTANT: if you use your own namespace (i.e. CompanyName) you also have to declare blocks group for new module. See topic: http://www.magentocommerce.com/boards/viewthread/22416/#t102732 -->
+        <blocks>
+            <payexinvoice>
+                <class>AAIT_Payexinvoice_Block</class>
+            </payexinvoice>
+        </blocks>
+
+        <helpers>
+            <payexinvoice>
+                <class>AAIT_Payexinvoice_Helper</class>
+            </payexinvoice>
+        </helpers>
+
+        <!-- declare resource setup for new module -->
+        <resources>
+            <!-- resource identifier -->
+            <payexinvoice_setup>
+                <!-- specify that this resource is a setup resource and used for upgrades -->
+                <setup>
+                    <!-- which module to look for install/upgrade files in -->
+                    <module>AAIT_Payexinvoice</module>
+                </setup>
+                <!-- specify database connection for this resource -->
+                <connection>
+                    <!-- do not create new connection, use predefined core setup connection -->
+                    <use>core_setup</use>
+                </connection>
+            </payexinvoice_setup>
+            <payexinvoice_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </payexinvoice_write>
+            <payexinvoice_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </payexinvoice_read>
+        </resources>
+
+        <sales>
+            <quote>
+                <totals>
+                    <payexinvoice>
+                        <class>payexinvoice/quote_total</class>
+                        <after>subtotal,discount,shipping</after>
+                        <before>tax,grand_total</before>
+                        <renderer>payexinvoice/checkout_fee</renderer>
+                        <admin_renderer>payexinvoice/adminhtml_sales_order_create_totals_fee</admin_renderer>
+                    </payexinvoice>
+                </totals>
+            </quote>
+            <order_invoice>
+                <totals>
+                    <payexinvoice>
+                        <class>payexinvoice/invoice_total</class>
+                    </payexinvoice>
+                </totals>
+            </order_invoice>
+        </sales>
+
+        <events>
+            <sales_order_invoice_save_after>
+                <observers>
+                    <payexinvoice>
+                        <type>singleton</type>
+                        <class>payexinvoice/observer</class>
+                        <method>sales_order_invoice_save_after</method>
+                    </payexinvoice>
+                </observers>
+            </sales_order_invoice_save_after>            
+            <sales_quote_collect_totals_after>
+                <observers>
+                    <payexinvoice>
+                        <type>singleton</type>
+                        <class>payexinvoice/observer</class>
+                        <method>sales_quote_collect_totals_after</method>
+                    </payexinvoice>
+                </observers>
+            </sales_quote_collect_totals_after>
+            <sales_order_payment_place_end>
+                <observers>
+                    <payexinvoice>
+                        <type>singleton</type>
+                        <class>payexinvoice/observer</class>
+                        <method>sales_order_payment_place_end</method>
+                    </payexinvoice>
+                </observers>
+            </sales_order_payment_place_end>
+        </events>
+    </global>
+
+    <!-- declare default configuration values for this module -->
+    <default>
+        <!-- 'payment' configuration section (tab) -->
+        <payment>
+            <!-- 'newmodule' configuration group (fieldset) -->
+            <payexinvoice>
+                <!-- model to handle logic for this payment method -->
+                <model>payexinvoice/payment</model>
+                <active>1</active>
+                <!-- default title for payment checkout page and order view page -->
+                <title>Payex Invoice Payments</title>
+                <allowspecific>0</allowspecific>
+                <debug>1</debug>
+                <transactiontype>1</transactiontype>
+                <!-- 1 = sale 0 = AUTHORIZATION-->
+                <order_status_authorize>processing</order_status_authorize>
+                <order_status_capture>complete</order_status_capture>
+                <accountnumber>payex account number</accountnumber>
+                <encryptionkey>payex encryption key</encryptionkey>
+                <additionalValues>INVOICE_COUNTRY=SE</additionalValues>
+                <clientlanguage>en-US</clientlanguage>
+                <distribution>11</distribution>
+                <paymentfee>100</paymentfee>
+                <invoicetext>Invoice text</invoicetext>
+                <invoiceduedays>15</invoiceduedays>
+                <unapproved>0</unapproved>
+                <!-- <paymentfee_tax>2</paymentfee_tax> -->
+            </payexinvoice>
+        </payment>
+    </default>
+
+    <adminhtml>
+        <!-- Updates layout... -->
+        <layout>
+            <updates>
+                <payexinvoice>
+                    <file>payexinvoice.xml</file>
+                    <file>payexinvoice_admin.xml</file>
+                </payexinvoice>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <frontend>
+        <!-- Routes... -->
+        <routers>
+            <payexinvoice>
+                <use>standard</use>
+                <args>
+                    <module>AAIT_Payexinvoice</module>
+                    <frontName>payexinvoice</frontName>
+                </args>
+            </payexinvoice>
+        </routers>
+
+        <!-- Translations... -->
+        <translate>
+            <modules>
+                <AAIT_Payexinvoice>
+                    <files>
+                        <default>AAIT_Payexinvoice.csv</default>
+                    </files>
+                </AAIT_Payexinvoice>
+            </modules>
+        </translate>
+
+        <!-- Updates layout... -->
+        <layout>
+            <updates>
+                <payexinvoice>
+                    <file>payexinvoice.xml</file>
+                </payexinvoice>
+            </updates>
+        </layout>
+    </frontend>
+</config>

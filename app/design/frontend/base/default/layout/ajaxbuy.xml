@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+	<default>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/ajaxbuy.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_css</type>
+				<name>css/ajaxbuy.css</name>
+			</action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/template" name="ajaxbuy.init" template="ajaxbuy/initJs.phtml" />
+		</reference>
+	</default>
+	
+</layout>

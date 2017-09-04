@@ -1,0 +1,38 @@
+<br />
+<div class="repair-form">	
+	<h4>Märke:</h4>
+    <input id="brands" style="width:100%" />
+
+    <h4>Produkt:</h4>
+    <input id="products" disabled="disabled"  style="width:100%" />
+
+    <h4>Modell:</h4>
+    <input id="modell" disabled="disabled"  style="width:100%"/>
+				
+	<h4>Reparationer:</h4>
+    <div id="repairs">
+        <input id="repair-1" class="repair" disabled="disabled"  style="width:100%" />
+    </div>   
+    
+    <h4>Serie/IMEI-nummer: *</h4>
+    <input id="imei" class="input-text tt-input" type="text" />
+    
+    <h4>Beskriv problemet: *</h4>
+    <textarea id="problem" class="input-text tt-input" >
+    </textarea>
+    
+    <h4>Pinkod:</h4>
+    <input id="pincode" class="input-text tt-input" type="text" />
+     
+    <h4>Skärmlås:</h4>
+    <input id="screencode" class="input-text tt-input" type="text" />
+     
+    <h4>Övrigt:</h4>
+     <textarea id="extracodes" class="input-text tt-input small" >
+    </textarea>
+     
+    <button class="k-button k-primary" id="order">Beställ</button>    
+</div>
+<script type="text/javascript">
+repair(jQuery,"<?php echo $this->getUrl() ?>")
+</script>

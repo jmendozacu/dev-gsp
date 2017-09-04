@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Gsp_Repair>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Gsp_Repair>
+    </modules>
+</config>

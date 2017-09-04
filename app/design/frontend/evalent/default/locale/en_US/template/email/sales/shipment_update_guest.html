@@ -1,0 +1,87 @@
+<!--@subject {{config path='general/store_information/name'}}: Shipment # {{var shipment.increment_id}} update @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$billing.getName()":"Guest Customer Name",
+"var order.increment_id":"Order Id",
+"var order.getStatusLabel()":"Order Status",
+"var comment":"Order Comment",
+"var store.getFrontendName()":"Store Name"}
+@-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<body style="background:#FFFFFF; font-family:Helvetica, Verdana, Arial, sans-serif; font-size:12px; margin:0; padding:0; color:#444;">
+<div style="background:#FFFFFF; font-family:Helvetica, Verdana, Arial, sans-serif; font-size:12px; margin:0; padding:0; color:#444;">
+<table align="center" cellspacing="0" cellpadding="0" border="0" width="600" style="background:#ffffff; margin-top:20px; margin-bottom:20px;">
+    <tr>
+        <td valign="top" align="center">
+        
+        <!-- [ header starts here] -->
+        
+            <table cellspacing="0" cellpadding="0" border="0" width="600" style="border-bottom:1px solid #dddddd;">
+                <tr>
+                    <td valign="top" align="left">
+                        <a href="{{store url=''}}"><img src="{{var logo_url}}" alt="{{var logo_alt}}" style="margin-bottom:20px;" border="0"/></a>
+                    </td>
+                </tr>
+            </table>
+            
+        <!-- [ middle starts here] -->
+        
+            <table cellspacing="0" cellpadding="0" border="0" width="600">
+                <tr>
+                    <td valign="top" align="left">
+                        <h1 style="font-size: 15px; font-weight:normal; margin:30px 0 20px 0;">
+                            Hello {{htmlescape var=$order.getCustomerName()}},
+                        </h1>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">
+                                 Your order # {{var order.increment_id}} has been <strong>{{var order.getStatusLabel()}}</strong>.
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 20px 0;">
+                            If you have any questions concerning your shipment don't hesitate to contact us. Our details are at the bottom of this email.
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">
+                            {{var comment}}
+                        </p>
+                        <br />
+                        <br />
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">
+                            {{config path='sales_email/email_templates/message3'}}
+                        </p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 20px 0;">
+                            <strong>{{config path='general/store_information/name'}}</strong>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            
+        <!-- [ footer starts here] -->    
+            
+            <table cellspacing="0" cellpadding="0" border="0" width="600" style="border-top:1px solid #dddddd;">
+                <tr>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='general/store_information/name'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/address'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/zip_city'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">{{block type="design/email_country"}}</p>
+                    </td>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='general/store_information/phone'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='general/store_information/hours'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;"><a href="mailto:{{config path='general/trans_email/ident_general/email'}}" style="color:#1865a2;">{{config path='general/trans_email/ident_general/email'}}</a></p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;"><a href="{{store url=''}}" style="color:#1865a2;">{{config path='basicsetup/contact_details/url'}}</a></p>
+                    </td>
+                    <td valign="top" align="left" width="33%">
+                        <p style="font-size:12px; line-height:20px; margin:20px 0 0 0;">{{config path='sales_email/email_templates/email_footer1'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='sales_email/email_templates/email_footer2'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0;">{{config path='sales_email/email_templates/email_footer3'}}</p>
+                        <p style="font-size:12px; line-height:20px; margin:0 0 10px 0;">{{config path='sales_email/email_templates/email_footer4'}}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>

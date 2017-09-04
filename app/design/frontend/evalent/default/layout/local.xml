@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<layout>
+    <cms_index_index>
+        <reference name="content">
+            <block type="catalog/product_new" name="homepage.customerapproval.new" as="homepage.customerapproval.new" template="catalog/product/new.phtml" products_count="10" breakpoints="[0, 1], [320, 1], [480, 2], [768, 3], [960, 4], [1280, 5]" move="0" timeout="4000" centered="1" hide_button="1" is_random="1" block_name="Nya produkter" before="-"/>
+            <block type="core/template" name="homepage.category" template="magecom/homepage/home.phtml" />
+            <block type="ultimo/product_list_featured" name="ultimo.list" as="ultimo.list" template="catalog/product/list_featured_slider.phtml" category_id="421" product_count="10"
+            breakpoints="[0, 1], [320, 2], [480, 3], [768, 4], [960, 5], [1280, 6]" timeout="4000" centered="1" size="size-s" hide_button="1" block_name="Utvalda produkter"/>
+        </reference>
+    </cms_index_index>
+</layout>

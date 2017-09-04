@@ -1,0 +1,79 @@
+<?php
+	$helper = Mage::helper('checkout');
+	$item = $this->getItem();
+	$_class = ($this->getRowNumber()%2)?'kc-odd': 'kc-even';
+?>
+<tr class="kc-mobile <?php echo $_class; ?>">
+	<td width="100%" colspan="4" class="kco-table-name">
+        <?php echo $item->getName() ?>
+
+        <?php if ($_options = $this->getOptionList()):?>
+            <dl class="item-options">
+                <?php foreach ($_options as $_option) : ?>
+                    <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
+                    <dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
+                    <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?>
+                        <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                            <div class="truncated_full_value">
+                                <dl class="item-options">
+                                    <dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
+                                    <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
+                                </dl>
+                            </div>
+                        <?php endif; ?>
+                    </dd>
+                <?php endforeach; ?>
+            </dl>
+        <?php endif;?>
+    </td>
+</tr>
+<tr class="kc-mobile <?php echo $_class; ?>">
+	<td class="kco-table-name"><b><?php echo $this->__('Qty') ?>:</b></td>
+	<td class="kco-table-qty" style="min-width: 135px;">
+		<div class="kco-action-wrapper">
+			<span class="kco-action kco-decrease" data-action="changeQty" data-itemid="<?php echo $item->getId() ?>" data-target-qty="<?php echo $item->getQty()-1; ?>" title="<?php echo $this->__('Decrease qty'); ?>">-</span>
+			<span class="kco-qty"><?php echo $item->getQty() ?></span>
+			<span class="kco-action kco-increase" data-action="changeQty" data-itemid="<?php echo $item->getId() ?>" data-target-qty="<?php echo $item->getQty()+1; ?>" title="<?php echo $this->__('Increase qty'); ?>">+</span>
+			<span class="kco-action kco-remove" data-action="changeQty" data-itemid="<?php echo $item->getId() ?>" data-target-qty="0" title="<?php echo $this->__('Remove item'); ?>">X</span>
+			<div class="clearer"></div>
+		</div>
+	</td>
+	<td class="kco-table-price"><?php echo $helper->formatPrice($item->getPriceInclTax()) ?></td>
+	<td class="kco-table-total"><?php echo $helper->formatPrice($item->getRowTotalInclTax()) ?></td>
+</tr>
+<tr class="kc-desk <?php echo $_class; ?>">
+	<td class="kco-table-name">
+        <?php echo $item->getName() ?>
+
+        <?php if ($_options = $this->getOptionList()):?>
+            <dl class="item-options">
+                <?php foreach ($_options as $_option) : ?>
+                    <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
+                    <dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
+                    <dd<?php if (isset($_formatedOptionValue['full_view'])): ?> class="truncated"<?php endif; ?>><?php echo $_formatedOptionValue['value'] ?>
+                        <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                            <div class="truncated_full_value">
+                                <dl class="item-options">
+                                    <dt><?php echo $this->escapeHtml($_option['label']) ?></dt>
+                                    <dd><?php echo $_formatedOptionValue['full_view'] ?></dd>
+                                </dl>
+                            </div>
+                        <?php endif; ?>
+                    </dd>
+                <?php endforeach; ?>
+            </dl>
+        <?php endif;?>
+
+    </td>
+	<td class="kco-table-qty">
+		<div class="kco-action-wrapper">
+			<span class="kco-action kco-decrease" data-action="changeQty" data-itemid="<?php echo $item->getId() ?>" data-target-qty="<?php echo $item->getQty()-1; ?>" title="<?php echo $this->__('Decrease qty'); ?>">-</span>
+			<span class="kco-qty"><?php echo $item->getQty() ?></span>
+			<span class="kco-action kco-increase" data-action="changeQty" data-itemid="<?php echo $item->getId() ?>" data-target-qty="<?php echo $item->getQty()+1; ?>" title="<?php echo $this->__('Increase qty'); ?>">+</span>
+			<span class="kco-action kco-remove" data-action="changeQty" data-itemid="<?php echo $item->getId() ?>" data-target-qty="0" title="<?php echo $this->__('Remove item'); ?>">X</span>
+			<div class="clearer"></div>
+		</div>
+	</td>
+	<td class="kco-table-price"><?php echo $helper->formatPrice($item->getPriceInclTax()) ?></td>
+	<td class="kco-table-total"><?php echo $helper->formatPrice($item->getRowTotalInclTax()) ?></td>
+</tr>

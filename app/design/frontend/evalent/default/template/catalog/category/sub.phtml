@@ -1,0 +1,26 @@
+<?php
+$imgWidth = 295;
+$columnCount = 3;       
+$currentCategory = Mage::getSingleton('catalog/layer')->getCurrentCategory();
+$categories = $currentCategory->getCollection()
+        ->addAttributeToSelect(array('name', 'image'))
+        ->addAttributeToFilter('is_active', 1)
+        ->addIdFilter($currentCategory->getChildren())
+        ->addAttributeToSort('position');
+?>
+<div class="category-products">
+<ul class="products-grid category-products-grid itemgrid itemgrid-adaptive itemgrid-<?php echo $columnCount; ?>col centered hover-effect equal-height">
+    <?php foreach ($categories as $category): ?>
+        <li class="item">
+            <div class="product-image-wrapper" style="max-width:<?php echo $imgWidth; ?>px;">
+                <a href="<?php echo $category->getUrl() ?>" title="<?php echo $category->getName() ?>" class="product-image">
+                    <img id="product-collection-image-<?php echo $category->getId(); ?>" src="<?php echo $category->getImageUrl() ?>" alt="<?php echo $category->getName() ?>" />   
+                </a>                    
+            </div> <!-- end: product-image-wrapper -->
+            <h2 class="product-name">
+                <a href="<?php echo $category->getUrl() ?>" title="<?php echo $category->getName()?>"><?php echo $category->getName() ?></a>
+            </h2>                    
+        </li>
+    <?php endforeach; ?>    
+</ul>
+</div>

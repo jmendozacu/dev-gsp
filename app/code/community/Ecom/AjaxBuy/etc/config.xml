@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ecom_AjaxBuy>
+            <version>2.1.1</version>
+        </Ecom_AjaxBuy>
+    </modules>
+	<global>
+		<helpers>
+			<ajaxbuy>
+				<class>Ecom_AjaxBuy_Helper</class>
+			</ajaxbuy>
+		</helpers>
+	</global>
+	<frontend>
+		<layout>
+			<updates>
+				<ajaxbuy>
+					<file>ajaxbuy.xml</file>
+				</ajaxbuy>
+			</updates>
+		</layout>
+		<routers>
+			<ajaxbuy>
+				<use>standard</use>
+				<args>
+					<module>Ecom_AjaxBuy</module>
+					<frontName>ajaxbuy</frontName>
+				</args>
+			</ajaxbuy>
+		</routers>
+	</frontend>
+</config>

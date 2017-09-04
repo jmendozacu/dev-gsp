@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Zzzz_Cleanup>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Zzzz_Cleanup>
+		
+		<!-- Disable some modules -->
+		<Mage_Connect>
+			<active>true</active>
+		</Mage_Connect>
+		<Mage_AdminNotification>
+			<active>false</active>
+		</Mage_AdminNotification>
+		<Mage_Backup>
+			<active>false</active>
+		</Mage_Backup>
+		<Mage_Compiler>
+			<active>false</active>
+		</Mage_Compiler>
+		<Mage_GoogleCheckout>
+			<active>false</active>
+		</Mage_GoogleCheckout>
+		<Mage_PaypalUk>
+			<active>false</active>
+		</Mage_PaypalUk>
+		<Mage_ProductAlert>
+			<active>false</active>
+		</Mage_ProductAlert>
+		<Mage_Rss>
+			<active>false</active>
+		</Mage_Rss>
+		<Mage_Sendfriend>
+			<active>false</active>
+		</Mage_Sendfriend>
+		<Mage_XmlConnect>
+			<active>false</active>
+		</Mage_XmlConnect>
+		<Phoenix_Moneybookers>
+			<active>false</active>
+		</Phoenix_Moneybookers>
+        <Mage_Usa>
+            <active>0</active>
+        </Mage_Usa>
+	</modules>
+</config>

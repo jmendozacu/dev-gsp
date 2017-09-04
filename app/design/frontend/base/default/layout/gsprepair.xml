@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+    <layout version="0.1.0">
+        <default>
+            <reference name="block_nav_links">
+                <block type="core/template" name="gsp.repair.link" template="gsp/repair/link.phtml" />
+            </reference>
+            <reference name="head">
+                <block type="core/text" name="gsp.ga">
+                    <action method="setText">
+                        <text>
+                            <![CDATA[<script>
+                            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+                            ga('create', 'UA-58695197-1', 'auto');
+                            ga('send', 'pageview');
+                        </script>]]>
+                        </text>
+                    </action>
+                </block>
+                <block type="core/text" name="gsp.jajja">
+                    <action method="setText">
+                        <text>
+                            <![CDATA[<script type="text/javascript">
+                            _jssX = {v:2};
+                            (function(id){
+                            var e = encodeURIComponent, d = document, s = d.createElement("script"), x,
+                            p = d.getElementsByTagName("script")[0], c = d.cookie?d.cookie.split(";"):[],
+                            a = ["i="+id,"r="+e(d.referrer),"u="+e(d.location),"d="+new Date().getTime()];
+                            while (c.length) { x = c.pop().replace(/^ /,"").split("=");
+                            if (x[0].match(/^_jss_/)) a.push(x[0]+"="+x[1]); }
+                            s.type = "text/javascript"; s.async = true;
+                            s.src = location.protocol+"//jss.jajja.com/jss?"+(_jssX._qparam=a.join("&"));
+                            p.parentNode.insertBefore(s, p);
+                            }("PtDS4rGuDRFlqhRC"));
+                            </script>]]>
+                        </text>
+                    </action>
+                </block>               
+                <action method="addItem">
+                    <type>skin_js</type>
+                    <name>js/cartlink.js</name>
+                </action>
+                <action method="addLinkRel">
+                    <rel>stylesheet</rel>
+                    <href>https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css</href>
+                </action>
+            </reference>
+            <reference name="before_body_end">
+                 		<block type="core/template" name="gsp.scripts" template="gsp/repair/scripts.phtml" />                
+            </reference>
+        </default>
+        <gsprepair_index_index>
+            <reference name="head">
+                <action method="setTitle"><title>Reparation i Stockholm - Laga din mobil eller surfplatta</title></action>
+                <block type="core/text" name="kendo.cdn">
+                    <action method="setText">
+                        <text>
+                            <![CDATA[<script src="//kendo.cdn.telerik.com/2015.2.805/js/kendo.ui.core.min.js"></script>]]>
+                        </text>
+                    </action>
+                </block>
+                <block type="core/text" name="kendo.cdn.culture">
+                    <action method="setText">
+                        <text>
+                            <![CDATA[<script src="http://kendo.cdn.telerik.com/2015.2.805/js/cultures/kendo.culture.sv-SE.min.js"></script>]]>
+                        </text>
+                    </action>
+                </block>
+                <action method="addItem">
+                    <type>skin_js</type>
+                    <name>js/repair.js</name>
+                </action>
+                <action method="addLinkRel">
+                    <rel>stylesheet</rel>
+                    <href>https://kendo.cdn.telerik.com/2015.2.805/styles/kendo.common-material.min.css</href>
+                </action>
+                <action method="addLinkRel">
+                    <rel>stylesheet</rel>
+                    <href>https://kendo.cdn.telerik.com/2015.2.805/styles/kendo.material.min.css</href>
+                </action>
+                <action method="addLinkRel">
+                    <rel>stylesheet</rel>
+                    <href>https://kendo.cdn.telerik.com/2015.2.805/styles/kendo.material.mobile.min.css</href>
+                </action>
+                <action method="addItem">
+                    <type>skin_css</type>
+                    <name>css/repair.css</name>
+                </action>
+            </reference>
+            <reference name="root">
+                <action method="setTemplate">
+                    <template>page/2columns-left.phtml</template>
+                </action>
+            </reference>
+            <reference name="left">
+                <block type="cms/block" name="gsp.repair.left">
+                    <action method="setBlockId">
+                        <block_id>gsp_repair_left</block_id>
+                    </action>
+                </block>
+                <remove name="block_left_top" />
+                <remove name="block_left_bottom" />
+            </reference>
+            <reference name="content">
+                <block type="cms/block" name="gsp.repair.top">
+                    <action method="setBlockId">
+                        <block_id>gsp_repair_top</block_id>
+                    </action>
+                </block>
+                <block type="core/template" name="gsp.repair" template="gsp/repair/index.phtml" />
+            </reference>
+        </gsprepair_index_index>
+    </layout>

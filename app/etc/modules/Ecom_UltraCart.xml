@@ -1,0 +1,11 @@
+<config>
+	<modules>
+		<Ecom_UltraCart>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Mage_Checkout/>
+			</depends>
+		</Ecom_UltraCart>
+	</modules>
+</config>

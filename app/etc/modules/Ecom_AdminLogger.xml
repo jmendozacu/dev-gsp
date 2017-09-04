@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Ecom_AdminLogger>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Ecom_AdminLogger>
+    </modules>
+</config>

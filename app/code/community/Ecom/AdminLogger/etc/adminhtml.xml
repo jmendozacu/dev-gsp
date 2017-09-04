@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<system>
+			<children>
+				<tools>
+					<children>
+						<adminlogger translate="title" module="adminlogger">
+							<title>Admin Activity Log</title>
+							<action>adminhtml/logger/index</action>
+							<sort_order>25</sort_order>
+						</adminlogger>
+					</children>
+				</tools>
+			</children>
+		</system>
+	</menu>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<tools>
+								<children>
+									<adminlogger translate="title" module="adminlogger">
+										<title>Admin Activity Log</title>
+									</adminlogger>
+								</children>
+							</tools>
+							<config>
+								<children>
+									<adminlogger translate="title" module="adminlogger">
+										<title>Admin Activity Log</title>
+									</adminlogger>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

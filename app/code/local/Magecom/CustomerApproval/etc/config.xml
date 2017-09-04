@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magecom
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to info@magecom.net so we can send you a copy immediately.
+ *
+ * @category Magecom
+ * @package Magecom_CustomerApproval
+ * @copyright Copyright (c) 2017 Magecom, Inc. (http://www.magecom.net)
+ * @license  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */-->
+<config>
+
+    <modules>
+        <Magecom_CustomerApproval>
+            <version>1.0.2</version>
+        </Magecom_CustomerApproval>
+    </modules>
+
+    <global>
+        <blocks>
+            <customerApproval>
+                <class>Magecom_CustomerApproval_Block</class>
+            </customerApproval>
+
+            <customer>
+                <rewrite>
+                    <form_login>Magecom_CustomerApproval_Block_Form_Login</form_login>
+                </rewrite>
+            </customer>
+        </blocks>
+
+        <models>
+            <customerApproval>
+                <class>Magecom_CustomerApproval_Model</class>
+            </customerApproval>
+        </models>
+
+        <helpers>
+            <customerApproval>
+                <class>Magecom_CustomerApproval_Helper</class>
+            </customerApproval>
+        </helpers>
+
+        <resources>
+            <magecom_customerApproval_setup>
+                <setup>
+                    <module>Magecom_CustomerApproval</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </magecom_customerApproval_setup>
+        </resources>
+
+        <template>
+            <email>
+                <magecom_customerapproval_registration>
+                    <label>Customer registration</label>
+                    <file>customerapproval/customerapproval_registration.html</file>
+                    <type>html</type>
+                </magecom_customerapproval_registration>
+
+                <magecom_customerapproval_admin_confirm>
+                    <label>Customer confirm</label>
+                    <file>customerapproval/customerapproval_adminconfirm.html</file>
+                    <type>html</type>
+                </magecom_customerapproval_admin_confirm>
+            </email>
+        </template>
+
+    </global>
+
+    <frontend>
+
+        <routers>
+            <customerApproval>
+                <use>standard</use>
+                <args>
+                    <module>Magecom_CustomerApproval</module>
+                    <frontName>customer_approval</frontName>
+                </args>
+            </customerApproval>
+        </routers>
+
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <magecom_customerapproval>
+                        <class>customerApproval/observer</class>
+                        <method>restrictAccess</method>
+                    </magecom_customerapproval>
+                </observers>
+            </controller_action_predispatch>
+            <customer_register_success>
+                <observers>
+                    <magecom_customerapproval>
+                        <class>customerApproval/observer</class>
+                        <method>sendAdminEmail</method>
+                    </magecom_customerapproval>
+                </observers>
+            </customer_register_success>
+        </events>
+
+    </frontend>
+
+    <adminhtml>
+        <events>
+            <customer_save_after>
+                <observers>
+                    <magecom_customerapproval>
+                        <class>customerApproval/observer</class>
+                        <method>sendUserApprovalEmail</method>
+                    </magecom_customerapproval>
+                </observers>
+            </customer_save_after>
+        </events>
+    </adminhtml>
+</config>

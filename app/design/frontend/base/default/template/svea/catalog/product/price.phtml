@@ -1,0 +1,39 @@
+<?php
+$_priceWidget = $this->getPricewidgetData();
+?>
+
+<?php if ($this->isProductPage() && $_priceWidget['enabled']): ?>
+<div id="svea-campaign-info">
+
+    <div id="svea-price-from">
+        <img src="<?php echo $this->getLogoUrl() ?>">
+        <span class="svea-price"><?php echo $_priceWidget['label'] ?><span class="arrow">&#9662;</span></span>
+    </div>
+
+    <ul id="svea-dropdown">
+        <?php foreach ($_priceWidget['methods'] as $_method): ?>
+            <?php if ($_method['enabled']): ?>
+                <li class="svea-method">
+                    <?php echo $_method['label'] ?>
+                    <?php foreach ($_method['rows'] as $row): ?>
+                        <li class="svea-option">
+                            <span class="svea-label"><?php echo $row['label'] ?></span>
+                            <span class="svea-cost"><?php echo $row['cost'] ?></span>
+                        </li>
+                    <?php endforeach ?>
+            </li>
+            <?php endif; ?>
+        <?php endforeach ?>
+    </ul>
+</div>
+<?php endif ?>
+
+<script>
+    document.observe("dom:loaded", function() {
+        $('svea-price-from').observe(
+            'click',
+            function() {
+                $('svea-campaign-info').toggleClassName('svea-open');
+            });
+    });
+</script>

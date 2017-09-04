@@ -1,0 +1,30 @@
+{
+    "name": "fyndiq/fyndiq-module-shared",
+    "description": "Fyndiq shared files",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Håkan Nylén",
+            "email": "hakan.nylen@fyndiq.com"
+        },
+        {
+            "name": "Evgeniy Vasilev",
+            "email": "evgeniy.vasilev@fyndiq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.2.0"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "4.5.*",
+      "phpmd/phpmd" : "@stable",
+      "phpdocumentor/phpdocumentor": "2.*",
+      "squizlabs/php_codesniffer": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    }
+}

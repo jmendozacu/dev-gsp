@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    Evalent Modules
+ * @package     Evalent_Admin
+ * @author      eValent Group AB
+ */
+-->
+
+<config>
+    <modules>
+        <Evalent_Admin>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Evalent_Admin>
+    </modules>
+</config>

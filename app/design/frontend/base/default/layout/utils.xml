@@ -1,0 +1,22 @@
+<layout>
+	<customer_account>
+		<reference name="customer_account_navigation">
+			<action method="removeLinkByName" ifconfig="customer/menu/hide_recurring_profiles"><name>recurring_profiles</name></action>
+			<action method="removeLinkByName" ifconfig="customer/menu/hide_billing_agreements"><name>billing_agreements</name></action>
+			<action method="removeLinkByName" ifconfig="customer/menu/hide_downloadable_products"><name>downloadable_products</name></action>
+			<action method="removeLinkByName" ifconfig="customer/menu/hide_reviews"><name>reviews</name></action>
+			<action method="removeLinkByName" ifconfig="customer/menu/hide_oauth_customer_tokens"><name>OAuth Customer Tokens</name></action>
+			<action method="removeLinkByName" ifconfig="customer/menu/hide_newsletter"><name>newsletter</name></action>
+			<action method="removeLinkByName" ifconfig="customer/menu/hide_tags"><name>tags</name></action>
+		</reference> 
+	</customer_account>
+    <default>
+        <reference name="head">
+            <block type="core/template" name="google.website.verification">
+                <action method="setTemplate" ifconfig="google/webmasters/verification">
+                    <value>utils/google-website-verification.phtml</value>
+                </action>
+            </block>
+        </reference>
+    </default>
+</layout>

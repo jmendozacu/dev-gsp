@@ -1,0 +1,4 @@
+* 2015-02-27
+- Major frontend overhaul of module with bump to new major version 2.0.0
+- Not backwards compatible but can be used to replace older version BUT note that you will probably have to re-do any custom design.
+- Use of Fontawesome for icons which is to be included in the module w. config but for now you might have to add it manually.

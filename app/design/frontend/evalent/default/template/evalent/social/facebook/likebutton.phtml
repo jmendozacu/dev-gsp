@@ -1,0 +1,13 @@
+<?php
+/**
+ * @category    Evalent Modules
+ * @package     Evalent_Social
+ * @author      Evalent Group AB
+ */
+?>
+
+<?php $_product = Mage::registry('current_product') ?>
+<?php if ($_product && $_product->getId()): ?>
+	<div class="fb-like" data-href="<?php echo $_product->getProductUrl() ?>" data-share="<?php echo Mage::getStoreConfig('facebook/like_button/share'); ?>" data-layout="<?php echo Mage::getStoreConfig('facebook/like_button/layout'); ?>" data-show-faces="<?php echo Mage::getStoreConfig('facebook/like_button/faces'); ?>" data-action="<?php echo Mage::getStoreConfig('facebook/like_button/action'); ?>" data-colorscheme="<?php echo Mage::getStoreConfig('facebook/like_button/colorscheme'); ?>" data-width="450">
+	</div>
+<?php endif; ?>

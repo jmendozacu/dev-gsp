@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Ecom_SmartBreadcrumbs>
+			<version>1.0.0</version>
+		</Ecom_SmartBreadcrumbs>
+	</modules>	
+	<global>
+		<blocks>
+			<smartbreadcrumbs>
+				<class>Ecom_SmartBreadcrumbs_Block</class>
+			</smartbreadcrumbs>
+			<catalog>
+				<rewrite>
+					<breadcrumbs>Ecom_SmartBreadcrumbs_Block_Breadcrumbs</breadcrumbs>
+				</rewrite>
+			</catalog>
+			<page>
+				<rewrite>
+					<html_breadcrumbs>Ecom_SmartBreadcrumbs_Block_Html_Breadcrumbs</html_breadcrumbs>
+				</rewrite>
+			</page>
+		</blocks>
+	</global>
+</config> 

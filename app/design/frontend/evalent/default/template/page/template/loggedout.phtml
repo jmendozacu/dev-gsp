@@ -1,0 +1,18 @@
+<?php
+/**
+ * @category    Evalent Design
+ * @package     evalent_default
+ * @author      eValent Group AB
+ *
+ */
+/* Account Links for logged out customers */
+?>
+
+<ul class="links">
+    <li class="first">
+        <a href="<?php echo $this->getUrl('customer/account/login')?>"><?php echo $this->__('Log In'); ?></a>
+    </li>
+    <li class="last">
+        <a href="<?php echo $this->getUrl('customer/account/create')?>"><?php echo $this->__('Create Account'); ?></a>
+    </li>
+</ul>

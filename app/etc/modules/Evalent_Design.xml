@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Evalent_Design>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Infortis_Ultimo/>
+            </depends>
+        </Evalent_Design>
+    </modules>
+</config>

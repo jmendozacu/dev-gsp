@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<layout>
+    <adminhtml_sales_order_view>
+        <reference name="order_totals">
+            <block name="payexinvoice_payment_fee" type="payexinvoice/order_totals_fee" before="tax"/>
+        </reference>
+    </adminhtml_sales_order_view>
+
+    <adminhtml_sales_order_invoice_view>
+        <reference name="invoice_totals">
+            <block name="payexinvoice_payment_fee" type="payexinvoice/invoice_totals_fee" before="tax"/>
+        </reference>
+    </adminhtml_sales_order_invoice_view>
+
+    <adminhtml_sales_order_invoice_new>
+        <reference name="invoice_totals">
+            <block name="payexinvoice_payment_fee" type="payexinvoice/invoice_totals_fee" before="tax"/>
+        </reference>
+    </adminhtml_sales_order_invoice_new>
+
+</layout>

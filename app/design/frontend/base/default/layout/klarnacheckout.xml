@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+	
+	<klarnacheckout_index_index>
+		<label>Klarna Checkout Indexpage</label>
+		<reference name="root">
+			<action method="setTemplate">
+				<file>page/2columns-right.phtml</file>
+			</action>
+		</reference>
+		<reference name="head">
+			<action method="setTitle" translate="title" module="klarnacheckout">
+				<title>Shopping Cart</title>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>klarnacheckout/klarnacheckout.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_css</type>
+				<name>klarnacheckout/klarnacheckout.css</name>
+			</action>
+			<action method="addItem">
+				<type>skin_css</type>
+				<name>klarnacheckout/skin.css</name>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="core/template" name="klarna.initializeJs" template="klarnacheckout/initializeJs.phtml" />
+            <block type="klarnacheckout/cart" name="klarna.cart" template="klarnacheckout/cart.phtml">
+				<block type="checkout/cart_totals" name="checkout.cart.totals" template="checkout/cart/totals.phtml"/>
+				<block type="klarnacheckout/shipping" name="choose-shipping-method" template="klarnacheckout/cart/shipping_method.phtml">
+					<action method="setTemplate" ifconfig="klarnacheckout/checkout/shipping_method_dropdown">
+						<value>klarnacheckout/cart/shipping_method_dropdown.phtml</value>
+					</action>
+				</block>
+				<block type="klarnacheckout/cart_stepone" name="step-one" template="klarnacheckout/cart/stepone.phtml" />
+            </block>
+            <block type="klarnacheckout/cart_couponcode" name="couponcode.above" template="klarnacheckout/cart/couponcode.phtml">
+                <action method="setPosition"><value>above</value></action>
+            </block>
+            <block type="klarnacheckout/checkout" name="klarna.checkout.heading" template="klarnacheckout/checkout/heading.phtml" />
+			<block type="klarnacheckout/checkout" name="klarna.checkout" template="klarnacheckout/checkout.phtml" />
+            <block type="klarnacheckout/cart_couponcode" name="couponcode.below" template="klarnacheckout/cart/couponcode.phtml">
+                <action method="setPosition"><value>below</value></action>
+            </block>
+		</reference>
+	</klarnacheckout_index_index>
+
+	<klarnacheckout_index_terms>
+		<reference name="root">
+			<action method="setTemplate">
+				<file>page/2columns-right.phtml</file>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="core/template" name="klarna.terms" template="klarnacheckout/terms.phtml" />
+		</reference>
+	</klarnacheckout_index_terms>
+
+	<klarnacheckout_index_success>
+		<reference name="root">
+			<action method="setTemplate">
+				<file>page/2columns-right.phtml</file>
+			</action>
+		</reference>
+
+		<reference name="head">
+			<block type="klarnacheckout/track" name="kco.track.head">
+				<action method="setPosition"><value>head</value></action>
+			</block>
+		</reference>
+
+		<reference name="after_body_start">
+			<block type="klarnacheckout/track" name="kco.track.bodystart">
+				<action method="setPosition"><value>after_body_start</value></action>
+			</block>
+		</reference>
+
+		<reference name="before_body_end">
+			<block type="klarnacheckout/track" name="kco.track.bodyend">
+				<action method="setPosition"><value>before_body_end</value></action>
+			</block>
+		</reference>
+
+		<reference name="content">
+			<block type="klarnacheckout/checkout" name="klarna.success" template="klarnacheckout/success.phtml" />
+		</reference>
+
+        <reference name="head">
+            <block type="googleanalytics/ga" name="google_analytics" as="google_analytics" template="googleanalytics/ga.phtml" />
+        </reference>
+	</klarnacheckout_index_success>
+
+
+    <klarnacheckout_ajax_updatecheckout>
+		<block output="toHtml" type="core/template" name="klarna.ajax.placeholder">
+            <block type="klarnacheckout/cart" name="klarna.ajax.summary" template="klarnacheckout/cart.phtml">
+				<block type="checkout/cart_totals" name="checkout.cart.totals" template="checkout/cart/totals.phtml"/>
+				<block type="klarnacheckout/shipping" name="choose-shipping-method" template="klarnacheckout/cart/shipping_method.phtml">
+					<action method="setTemplate" ifconfig="klarnacheckout/checkout/shipping_method_dropdown">
+						<value>klarnacheckout/cart/shipping_method_dropdown.phtml</value>
+					</action>
+				</block>
+				<block type="klarnacheckout/cart_stepone" name="step-one" template="klarnacheckout/cart/stepone.phtml" />
+            </block>
+            <block type="klarnacheckout/cart_couponcode" name="klarna.ajax.coupon" template="klarnacheckout/cart/couponcode.phtml" />
+			<block type="klarnacheckout/checkout" name="klarna.ajax.checkout" template="klarnacheckout/checkout.phtml" />
+		</block>
+    </klarnacheckout_ajax_updatecheckout>
+
+</layout>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <default>
+        <reference name="top.links">
+            <remove name="checkout_cart_link_custom"/>
+        </reference>
+    </default>
+
+    <opc_index_index>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>evalent/iwdopc/js/checkout.js</name></action>
+            <action method="addItem"><type>skin_css</type><name>evalent/iwdopc/css/checkout.css</name></action>
+        </reference>
+        <reference name="checkout.onepage.billing">
+            <action method="setTemplate">
+                <value>evalent/iwdopc/onepage/billing.phtml</value>
+            </action>
+            <block type="core/text_list" name="billing.additional_fields.top" translate="label">
+                <label>OnePageCheckout - Billing Additional fields top</label>
+            </block>
+        </reference>
+        <reference name="checkout.onepage.shipping">
+            <action method="setTemplate">
+                <value>evalent/iwdopc/onepage/shipping.phtml</value>
+            </action>
+        </reference>
+    </opc_index_index>
+
+    <!-- TODO: This sholud ONLY run if klarna is installed! Will throw error otherwise -->
+    <opc_index_index>
+        <!-- klarna/vaimo: added for support with IwdOpc -->
+        <reference name="head">
+            <action method="addJs"><script>vaimo/klarna/klarna.js</script></action>
+            <action method="addCss"><stylesheet>css/vaimo/klarna/checkout.css</stylesheet></action>
+            <block type="page/html_head" name="klarna_header" as="klarna_header" template="vaimo/klarna/checkout/header.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="klarna/checkout_top" after="-" name="klarna_checkout_top" as="klarna_checkout_top" template="vaimo/klarna/checkout/top.phtml" />
+        </reference>
+    </opc_index_index>
+
+</layout>

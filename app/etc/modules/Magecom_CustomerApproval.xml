@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magecom_CustomerApproval>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Magecom_CustomerApproval>
+    </modules>
+</config>

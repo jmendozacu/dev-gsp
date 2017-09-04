@@ -1,0 +1,20 @@
+div.fieldset.repair{
+	margin-bottom: 0;
+}
+div.fieldset.repair repair-content{
+	display: table;
+}
+
+div.fieldset.repair div.repair-field{
+	display: table-row;
+}
+
+div.fieldset.repair div.repair-field span{
+	display: table-cell;
+	padding: 5px;
+}
+
+div.fieldset.repair div.repair-field span.label{
+	width: 120px;
+	padding-left: 0;
+}

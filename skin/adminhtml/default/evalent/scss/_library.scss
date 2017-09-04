@@ -1,0 +1,167 @@
+///////////////////////////////////////////
+// @category    Evalent Modules
+// @package     Evalent_Admin
+// @author      eValent Group AB
+///////////////////////////////////////////
+
+
+/////////////////////////////////////////
+// VARIABLES
+/////////////////////////////////////////
+
+$color1: #ff6600;
+$color1Lightest: lighten($color1, 35%); // #ffd1b3
+$color1Lighter: lighten($color1, 25%);  // #ffb380
+$color1Light: lighten($color1, 15%);    // #ff944d
+$color1Dark: darken($color1, 5%);       // #e65c00
+$color1Darker: darken($color1, 10%);    // #cc5200
+$color1Darkest: darken($color1, 15%);   // #b34700
+
+$color2: #0186C7; // ANVÄNDS INTE
+$color2Lightest: lighten($color2, 35%); // #7CD4FE
+$color2Lighter: lighten($color2, 25%);  // #49C3FE
+$color2Light: lighten($color2, 15%);    // #17B2FE
+$color2Dark: darken($color2, 5%);       // #0175AE
+$color2Darker: darken($color2, 10%);    // #016494
+$color2Darkest: darken($color2, 15%);   // #01537B
+
+$color3: #dd4b38;
+$color3Lightest: lighten($color3, 35%); // #F7D5D0
+$color3Lighter: lighten($color3, 25%);  // #F0ADA5
+$color3Light: lighten($color3, 15%);    // #E88679
+$color3Dark: darken($color3, 5%);       // #D73925
+$color3Darker: darken($color3, 10%);    // #C13321
+$color3Darkest: darken($color3, 15%);   // #AB2E1D
+
+$color4: #e66436;
+$color4Lightest: lighten($color4, 35%);
+$color4Lighter: lighten($color4, 25%);
+$color4Light: lighten($color4, 15%);
+$color4Dark: darken($color4, 5%);
+$color4Darker: darken($color4, 10%);
+$color4Darkest: darken($color4, 15%);
+
+$color5: #333D47;
+$color5Lightest: lighten($color5, 35%);
+$color5Lighter: lighten($color5, 25%);
+$color5Light: lighten($color5, 15%);
+$color5Dark: darken($color5, 5%);
+$color5Darker: darken($color5, 10%);
+$color5Darkest: darken($color5, 15%);
+
+$gray: #888888;
+$grayLightest: lighten($gray, 42%);    // #f3f3f3
+$grayLighter: lighten($gray, 33%);     // #DCDCDC
+$grayLight: lighten($gray, 20%);       // #BBB
+$grayDark: darken($gray, 20%);         // #555
+$grayDarker: darken($gray, 33%);       // #343434
+$grayDarkest: darken($gray, 42%);      // #1D1D1D
+
+
+
+/////////////////////////////////////////
+// MIXINS
+/////////////////////////////////////////
+
+// border-radius
+
+@mixin rounded($rad: 3px) {
+    -moz-border-radius: $rad;
+    -webkit-border-radius: $rad;
+    -ms-border-radius: $rad;
+    border-radius: $rad;
+}
+
+@mixin roundedTop($rad: 3px) {
+    -moz-border-radius: $rad $rad 0 0;
+    -webkit-border-radius: $rad $rad 0 0;
+    -ms-border-radius: $rad $rad 0 0;
+    border-radius: $rad $rad 0 0;
+}
+
+@mixin roundedBottom($rad: 3px) {
+    -moz-border-radius: 0 0 $rad $rad;
+    -webkit-border-radius: 0 0 $rad $rad;
+    -ms-border-radius: 0 0 $rad $rad;
+    border-radius: 0 0 $rad $rad;
+}
+
+@mixin roundedCustom($rad) {
+    -moz-border-radius: $rad;
+    -webkit-border-radius: $rad;
+    -ms-border-radius: $rad;
+    border-radius: $rad;
+}
+
+
+
+// box-shadow
+
+@mixin boxShadow ($x: 2px, $y: 2px, $blur: 3px, $spread: 0px, $hex: #ccc) {
+    -moz-box-shadow: $x $y $blur $spread $hex;
+    -webkit-box-shadow: $x $y $blur $spread $hex;
+    box-shadow: $x $y $blur $spread $hex;
+}
+
+@mixin boxShadowAlpha($x: 2px, $y: 2px, $blur: 3px, $spread: 0px, $rgb: 0, $alpha: 0.5) {
+    -moz-box-shadow: $x $y $blur $spread rgba($rgb, $rgb, $rgb, $alpha);
+    -webkit-box-shadow: $x $y $blur $spread rgba($rgb, $rgb, $rgb, $alpha);
+    box-shadow: $x $y $blur $spread rgba($rgb, $rgb, $rgb, $alpha);
+}
+
+@mixin boxInnerShadow ($x: 1px, $y: 1px, $blur: 0px, $spread: 0px, $hex: #fff, $inset: inset) {
+    -moz-box-shadow: $x $y $blur $spread $hex $inset;
+    -webkit-box-shadow: $x $y $blur $spread $hex $inset;
+    box-shadow: $x $y $blur $spread $hex $inset;
+}
+
+@mixin boxInnerShadowAlpha($x: 1px, $y: 1px, $blur: 1px, $spread: 0px, $rgb: 255, $alpha: 0.5, $inset: inset) {
+    -moz-box-shadow: $x $y $blur $spread rgba($rgb, $rgb, $rgb, $alpha) $inset;
+    -webkit-box-shadow: $x $y $blur $spread rgba($rgb, $rgb, $rgb, $alpha) $inset;
+    box-shadow: $x $y $blur $spread rgba($rgb, $rgb, $rgb, $alpha) $inset;
+}
+
+
+
+// gradient
+
+@mixin gradientAuto ($color: #FF7100, $coef: 30%){
+    background: lighten($color, $coef);
+    background: -moz-linear-gradient(top, lighten($color, $coef) 0%, darken($color, $coef) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,lighten($color, $coef)), color-stop(100%,darken($color, $coef)));
+    background: -webkit-linear-gradient(top, lighten($color, $coef) 0%,darken($color, $coef) 100%);
+    background: -ms-linear-gradient(top, lighten($color, $coef) 0%,darken($color, $coef) 100%);
+    background: linear-gradient(to bottom, lighten($color, $coef) 0%,darken($color, $coef) 100%);
+}
+
+@mixin gradientLinear($from, $to) {
+    background-color: $from;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0, $from),color-stop(1, $to));
+    background: -webkit-linear-gradient(top, $from, $to);
+    background: -moz-linear-gradient(top, $from, $to);
+    background: -ms-linear-gradient(top, $from, $to);
+    background: linear-gradient(top, bottom, $from, $to);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+    //-ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}'));
+}
+
+
+
+// transition
+
+@mixin transition($duration: 0.2s, $ease: ease-in-out) {
+    -moz-transition: all $duration $ease;
+    -webkit-transition: all $duration $ease;
+    transition: all $duration $ease;
+}
+
+@mixin transitionDuration($duration: 100ms) {
+    -moz-transition: $duration;
+    -webkit-transition: $duration;
+    transition: $duration;
+}
+
+
+
+
+

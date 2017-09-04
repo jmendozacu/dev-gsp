@@ -1,0 +1,29 @@
+.fm-panel {
+  table {
+    border-collapse: collapse;
+    font-size: $font-text-small;
+    width: 100%;
+
+    th {
+      background-color: $color-table-header-background;
+      font-size: $font-size-table-header;
+      text-align: center;
+    }
+
+    td,
+    th {
+      border-bottom: 1px solid $color-table-border-color;
+      border-collapse: collapse;
+      border-spacing: 0;
+      border-top: 1px solid $color-table-border-color;
+      font-size: $font-size-table-text;
+      max-width: 280px;
+      overflow: hidden;
+      padding: .4em;
+    }
+
+    tr:nth-child(even) {
+      background-color: $color-table-odd-row-background;
+    }
+  }
+}

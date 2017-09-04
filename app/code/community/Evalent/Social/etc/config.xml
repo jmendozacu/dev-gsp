@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Evalent Modules
+ * @package     Evalent_Social
+ * @author      Evalent Group AB
+ */
+-->
+<config>
+    <modules>
+        <Evalent_Social>
+            <version>0.1.1</version>
+        </Evalent_Social>
+    </modules>
+
+    <frontend>
+        <layout>
+            <updates>
+                <social>
+                    <file>evalent/social.xml</file>
+                </social>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <helpers>
+            <social>
+                <class>Evalent_Social_Helper</class>
+            </social>
+        </helpers>
+        <models>
+            <social>
+                <class>Evalent_Social_Model</class>
+            </social>
+        </models>
+        <blocks>
+            <social>
+                <class>Evalent_Social_Block</class>
+            </social>
+        </blocks>
+    </global>
+    
+    <default>
+        <facebook>
+            <opengraph>
+                <active>1</active>
+                <id>123456789</id>
+                <type>product</type>
+            </opengraph>
+            <like_button>
+                <layout>button_count</layout>
+                <action>recommend</action>
+                <send>true</send>
+            </like_button>
+            <like_box>
+                <block_title_show>0</block_title_show>
+                <block_title>Facebook</block_title>
+                <href>http://www.facebook.com/ecom.partner</href>
+                <width>208</width>
+                <height>396</height>
+                <faces>false</faces>
+                <stream>true</stream>
+            </like_box>
+        </facebook>
+    </default>
+</config>

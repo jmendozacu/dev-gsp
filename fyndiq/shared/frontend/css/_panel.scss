@@ -1,0 +1,34 @@
+.fm-panel {
+  @include border-radius(3px);
+  background-color: $color-panel-body-background;
+  margin-top: 30px;
+  overflow: hidden;
+
+  .fm-panel-header {
+    background-color: $color-panel-header-background;
+    color: $color-panel-header-text;
+    font-size: $font-size-panel-header;
+    line-height: 28px;
+    padding: .4em;
+
+    .legend {
+      float: right;
+      font-size: $font-size-panel-header-subtext;
+      height: 20px;
+      line-height: 19px;
+      margin-top: 4px;
+    }
+  }
+
+  .fm-panel-body {
+    padding: 1em;
+
+    &.no-padding {
+      padding: 0;
+    }
+  }
+
+  .no-padding p {
+    margin: 1em;
+  }
+}

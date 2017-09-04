@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config>
+
+    <menu>
+        <newsletter>
+            <children>
+                <template translate="title" module="newsletter">
+                    <disabled>1</disabled>
+                </template>
+                <queue translate="title" module="newsletter">
+                    <disabled>1</disabled>
+                </queue>
+                <subscriber translate="title" module="newsletter">
+                    <disabled>1</disabled>
+                </subscriber>
+                <problem translate="title" module="newsletter">
+                    <disabled>1</disabled>
+                </problem>
+            </children>
+        </newsletter>
+
+        <lanot>
+            <disabled>1</disabled>
+        </lanot>
+
+        <cms>
+            <children>
+                <lanot_filemanager translate="title" module="lanot_filemanager">
+                    <title>Media Manager</title>
+                    <action>lanot_filemanager/adminhtml_media</action>
+                    <sort_order>30</sort_order>
+                </lanot_filemanager>
+            </children>
+        </cms>
+
+        <system>
+            <children>
+                <iwdall>
+                    <disabled>1</disabled>
+                </iwdall>
+                <!--<tools>
+                    <disabled>1</disabled>
+                </tools>-->
+            </children>
+        </system>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <lanot_filemanager translate="title" module="lanot_filemanager">
+                                <title>File Manager</title>
+                                <sort_order>85</sort_order>
+                            </lanot_filemanager>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+
+</config>

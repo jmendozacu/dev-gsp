@@ -1,0 +1,34 @@
+
+	Change-log Ecom_AjaxBuy
+	Original author: Andre Klang (2012?)
+	
+	**** 2.0.0 **** 140424 - Klang
+	# added changelog
+	# cleaned up cart controller,
+		It now returns JSON and have support for observers to manage the response
+	# added support for messages in JS, and support for Ecom_ProductSquare & Ecom_UpsellOverlay
+	# added status-classes on the button as well
+	
+	**** 2.0.1 **** 140424 - Klang
+	# added a helper
+	
+	**** 2.0.2 **** 140424 - Klang
+	# small fix for configurable products - validate form before the loader starts
+	
+	**** 2.0.3 **** 140428 - Klang
+	# fix for setting the correct statuscode for the json response
+		when redirect occured the code became 302, and therefor not handled correctly by ajax.
+	
+	**** 2.0.4 **** 140512 - Klang
+	# now supports custom options
+	
+	**** 2.0.5 **** 150115 - Klang
+	# now supports ALL TYPES of custom options
+		# except for "file", then ajaxbuy is disabled
+	
+	**** 2.1.0 **** 150116 - Klang
+	# Major rewrite! (Tested on 1.9.0.1)
+		# now supports EVERYTHING (except files)
+		# Configurables, Bundles, Packages, Custom Options, Related Products
+		
+	

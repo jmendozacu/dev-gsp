@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <!-- Re-organising the Store Information group + adding new fields -->
+        <general>
+            <groups>
+                <store_information>
+                    <fields>
+                        <name translate="label">
+                            <label>Store Name</label>
+                            <comment><![CDATA[The public name of the store,<br />for ex. <strong>My Cool Store</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name>
+                        <phone translate="label">
+                            <label>Store Contact Telephone</label>
+                            <comment><![CDATA[Your support line phone number,<br />for ex. <strong>040-692 50 00</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </phone>
+                        <hours translate="label">
+                            <label>Phone Hours</label>
+                            <comment><![CDATA[Between what hours is your phone line open?<br />for ex. <strong>08.00 - 17.00</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hours>
+                        <url translate="label">
+                            <label>Store Url</label>
+                            <comment><![CDATA[Url of the store,<br />for ex. <strong>www.evalent.com</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url>
+                        <street translate="label">
+                            <label>Street Address</label>
+                            <comment><![CDATA[Public street address of the store,<br />for ex. <strong>Riggaregatan 57</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </street>
+                        <zip_city translate="label">
+                            <label>Zip Code and City</label>
+                            <comment><![CDATA[Public zip code and city of the store,<br />for ex. <strong>211 19 Malmö</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </zip_city>
+                        <address translate="label">
+                            <label>Store Contact Address</label>
+                            <comment><![CDATA[This textarea is replaced by the address fields above.]]></comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </address>
+                    </fields>
+                </store_information>
+            </groups>
+        </general>
+        <newsletter>
+            <groups>
+                <subscription>
+                    <fields>
+                        <send_success_email translate="label">
+                            <label>Send success email after subscription</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </send_success_email>
+                    </fields>
+                </subscription>
+            </groups>
+        </newsletter>
+        <customer>
+            <groups>
+                <create_account>
+                    <fields>
+                        <show_address_fields translate="label">
+                            <label>Show a full set of address-fields</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_address_fields>
+                        <send_welcome_email translate="label">
+                            <label>Send welcome email (with password)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </send_welcome_email>
+                    </fields>
+                </create_account>
+                <menu translate="label">
+                    <label>Hide menu items</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <hide_recurring_profiles translate="label">
+                            <label>Hide recurring_profiles</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hide_recurring_profiles>
+                        <hide_billing_agreements translate="label">
+                            <label>Hide billing_agreements</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>2</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hide_billing_agreements>
+                        <hide_downloadable_products translate="label">
+                            <label>Hide downloadable_products</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hide_downloadable_products>
+                        <hide_reviews translate="label">
+                            <label>Hide reviews</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hide_reviews>
+                        <hide_oauth_customer_tokens translate="label">
+                            <label>Hide OAuth Customer Tokens</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hide_oauth_customer_tokens>
+                        <hide_newsletter translate="label">
+                            <label>Hide newsletter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hide_newsletter>
+                        <hide_tags translate="label">
+                            <label>Hide tags</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hide_tags>
+                    </fields>
+                </menu>
+            </groups>
+        </customer>
+        <catalog>
+            <groups>
+                <frontend>
+                    <fields>
+                        <allow_widgets translate="label comment">
+                            <label>Allow widgets in product &amp; category attributes</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Only applies to attributes that has wysiwyg enabled &amp; allows html on frontend</comment>
+                        </allow_widgets>
+                    </fields>
+                    <fields>
+                        <show_position_sort translate="label">
+                            <label>Show "position" in possible sort orders</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </show_position_sort>
+                    </fields>
+                </frontend>
+            </groups>
+        </catalog>
+        <currency>
+            <groups>
+                <options>
+                    <fields>
+                        <frontend_precision translate="label comment">
+                            <label>Decimals to show in frontend</label>
+                            <frontend_type>text</frontend_type>
+                            <class>validate-number</class>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Defines how many decimals are shown in frontend.<br/><b>Note:</b> This only round the displayed price, the unrounded value is still used in the background. Meaning that totals calculation in checkout might seem wrong.]]></comment>
+                        </frontend_precision>
+                        <frontend_round_precision translate="label comment">
+                            <label>Round to decimals in frontend</label>
+                            <frontend_type>text</frontend_type>
+                            <class>validate-number</class>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[If this is less then "Decimals to show", zeros will be appended to make up for the difference.<br/><b>Note:</b> This only round the displayed price, the unrounded value is still used in the background. Meaning that totals calculation in checkout might seem wrong.<br/><b>Note:</b> This is not supported on bundle & configurable products.]]></comment>
+                        </frontend_round_precision>
+                        <remove_trailing_zeros translate="label comment">
+                            <label>Remove trailing zeros</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <class>validate-number</class>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Remove trailing zeros if they are not needed.<br/><strong>Note:</strong> This is not supported on bundle & configurable products.]]></comment>
+                        </remove_trailing_zeros>
+                    </fields>
+                </options>
+            </groups>
+        </currency>
+        <google>
+            <groups>
+                <webmasters>
+                    <label>Webmaster tools</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <verification translate="label comment">
+                            <label>Verification code</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Similar to this: hUhYDQet5zVrDYlt7mqN1lcnb8KasHo94D7LYCpQgzo]]></comment>
+                        </verification>
+                    </fields>
+                </webmasters>
+            </groups>
+        </google>
+        <sales_email>
+            <groups>
+                <!-- Adding custom messages and custom footer content to trans. emails -->
+                <email_templates translate="label">
+                    <label>Email templates</label>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <message1 translate="label">
+                            <label>Custom 1: Greeting message</label>
+                            <comment><![CDATA[Only edit the part '<strong>Thank you for your order with </strong>' and make sure to leave a space after the last word. The code within <em>{{..}}</em> automatically fetches your store name so only remove if you want a different name.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </message1>
+                        <message2 translate="label">
+                            <label>Custom 2: Promotion/Notification message</label>
+                            <comment><![CDATA[For ex. <strong>Don't miss out on our big sale that starts on the 9th of September!</strong> or <strong>Because of holidays your delivery might take a few days longer than normal.</strong><br />Per default this text will be shown as a long sentence only broken into multiple lines by the width of the email body. To make line breaks or other formating you need to be familiar with simple html.<br /><strong>Note! This message is only displayed on the order confirmation email.</strong>]]></comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </message2>
+                        <message3 translate="label">
+                            <label>Custom 3: Bye message</label>
+                            <comment><![CDATA[for ex. <strong>Best regards</strong> or <strong>Thanks again for your business!</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </message3>
+                        <email_footer1 translate="label">
+                            <label>Email footer: column 3 / row 1</label>
+                            <comment><![CDATA[For ex. <strong>Bankgiro: 1234-5678</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_footer1>
+                        <email_footer2 translate="label">
+                            <label>Email footer: column 3 / row 2</label>
+                            <comment><![CDATA[For ex. <strong>Plusgiro: 1234567-8</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_footer2>
+                        <email_footer3 translate="label">
+                            <label>Email footer: column 3 / row 3</label>
+                            <comment><![CDATA[For ex. <strong>Org. nr: 123456-7891</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_footer3>
+                        <email_footer4 translate="label">
+                            <label>Email footer: column 3 / row 4</label>
+                            <comment><![CDATA[For ex. <strong>VAT nr: SE123456789101</strong>]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_footer4>
+                    </fields>
+                </email_templates>
+            </groups>
+        </sales_email>
+    </sections>
+</config>

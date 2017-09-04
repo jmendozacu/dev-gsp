@@ -1,0 +1,16 @@
+<html>
+<body>
+<p style="margin: 40px 0; text-align: center;"><img src="<?php echo Mage::getBaseUrl("media"); ?>/svea/loader.gif"></p>
+
+<?php $inputFields = $this->getFormHtml(); ?>
+<?php echo $inputFields['form_start_tag'] .
+    $inputFields['input_merchantId'] .
+    $inputFields['input_message'] .
+    $inputFields['input_mac'] .
+    $inputFields['form_end_tag']; ?>
+
+<script>
+    document.getElementById('paymentForm').submit();
+</script>
+</body>
+</html>

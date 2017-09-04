@@ -1,0 +1,139 @@
+.global-site-notice .notice-inner{
+	background: none;
+}
+
+.category-image{
+	display: none;
+}
+
+.level2.nav-submenu.nav-panel{
+	display: none !important;
+}
+
+.tt-suggestion a{
+	color:#000;
+}
+
+#payment_form_payex2 li div:first-child{
+	display: none;
+}
+
+#payment_form_payex2 li div:last-child{
+	float:left !important;
+}
+
+#payment_form_bankdebit li div{
+	float:none !important;
+}
+
+#payment_form_bankdebit li div:first-child{
+	display: none;		
+}
+
+#payment_form_bankdebit li div select{
+	box-sizing: border-box;
+	width:100%;
+	height: auto !important;
+}
+
+#search_autocomplete ul li a.name.highlight{
+	  color: #aaa;
+} 
+
+#search_autocomplete div.all a{
+	  color: #aaa;
+}
+
+#co-payment-form dt div.svea-payment-logos{
+	display: none;
+} 
+
+#co-payment-form dt.active{
+	overflow: visible !important;
+    margin-bottom: 50px !important;
+}
+
+#co-payment-form dt.active div.svea-payment-logos{
+	padding-top: 5px;
+	display: block;
+}
+
+#payment_form_svea_invoice{
+	    margin: 0 auto 10px !important;
+		max-width: none !important;
+}
+
+#payment_form_svea_invoice select{
+	box-sizing: border-box;
+	width:100%;
+	height: auto !important;
+}
+
+#payment_form_svea_invoice .field.float-btn{
+	width: auto;
+}
+
+#payment-method-buttons-container-svea_invoice button{
+	background-color: #00909e !important;
+	
+}
+
+#payment-method-buttons-container-svea_invoice button span{	
+	color:#fff;
+}
+
+
+#payment-method-buttons-container-svea_invoice button:hover{
+		background-color: #39b9c6 !important;
+}
+
+p.old-price{
+	display:none;
+}
+
+p.special-price .price-label{
+	display: none;
+}
+
+p.special-price .price{
+	color:#000 !important;
+}
+
+h3.product-name{
+    overflow: hidden;    
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#mini-cart-wrapper-mobile a{
+	color:#777777 !important;
+}
+
+#mini-cart-wrapper-mobile li,
+#mini-cart-wrapper-mobile td{
+	color:#333333 !important;
+}
+
+.gsp-flow{
+	height: 160px;
+	overflow: hidden;
+}
+
+.gsp-flow .cover{
+	height: 160px;
+	overflow: hidden;
+	transition: 0.2s all;
+}
+
+.gsp-flow:hover .cover{
+	height: 0;
+}
+
+.nav-regular .nav-submenu--mega > li {
+    padding-bottom: 20px !important;
+}
+
+.breadcrumbs li .sep:before{
+    content: "\\";
+    font-size: 14px;
+}

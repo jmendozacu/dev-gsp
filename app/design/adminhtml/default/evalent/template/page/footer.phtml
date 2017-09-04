@@ -1,0 +1,29 @@
+<?php
+/**
+ * @category    Evalent Modules
+ * @package     Evalent_Admin
+ * @author      eValent Group AB
+ */
+?>
+
+<p class="bug-report">
+    <?php echo $this->__('Interface Locale: %s', $this->getLanguageSelect()) ?>
+</p>
+<p class="legality">
+    <?php echo $this->__('Magento&trade; is a trademark of Magento Inc.<br/>Copyright &copy; %s Magento Inc.', date('Y')) ?><br />
+    <br />
+    <a href="http://www.evalent.com" target="_blank"><img src="<?php echo($this->getSkinUrl('images/evalent-admin.png')) ?>" alt="<?php echo $this->__('eValent') ?>" /></a><br />
+    <a href="http://www.evalent.com">www.evalent.com</a><br />
+    <a href="mailto:sales@evalent.com">sales@evalent.com</a><br />
+    <a href="tel:+46406925050">+46 (0)40 692 50 50</a>
+</p>
+<p><?php echo $this->__('Magento ver. %s', Mage::getVersion()) ?></p>
+<script type="text/javascript">
+    function setInterfaceLanguage(evt){
+        var elem = Event.element(evt);
+        if(elem){
+            setLocation('<?php echo $this->getChangeLocaleUrl() ?>locale/'+elem.value+'/<?php echo $this->getRefererParamName() ?>/<?php echo $this->getUrlForReferer() ?>');
+        }
+    }
+    Event.observe('interface_locale', 'change', setInterfaceLanguage)
+</script>

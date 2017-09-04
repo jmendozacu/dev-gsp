@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Ecom_Utils>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Ecom_Utils>
+    </modules>
+</config>

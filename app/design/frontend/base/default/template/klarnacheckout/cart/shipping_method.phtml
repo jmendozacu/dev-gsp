@@ -1,0 +1,45 @@
+<?php if (($_shippingRateGroups = $this->getShippingRates()) && Mage::getStoreConfig(Ecom_KlarnaCheckout_Helper_Data::XML_PATH_SHOW_SHIPPING_METHOD)): ?>
+	<?php
+		$count = 0;
+		if(count($_shippingRateGroups)){
+			foreach ($_shippingRateGroups as $code => $_rates){
+				foreach ($_rates as $_rate) $count++;
+			}
+		}
+
+        if($count == 1 && Mage::getStoreConfig('klarnacheckout/checkout/shipping_method_hide_if_one')) return '';
+
+	?>
+
+    <div class="klarnacheckout-fieldset">
+        <h2><?php echo $this->__('Select shipping method'); ?></h2>
+        <dl class="shipment-methods">
+            <?php foreach ($_shippingRateGroups as $code => $_rates): ?>
+                    <dd><?php echo $this->getCarrierName($code) ?></dd>
+                    <?php foreach ($_rates as $_rate): ?>
+                        <dt style="margin-bottom: 5px;">
+
+                           <?php if ($_rate->getErrorMessage()): ?>
+                            <ul class="messages"><li class="error-msg"><ul><li><?php echo $_rate->getErrorMessage() ?></li></ul></li></ul>
+                           <?php else: ?>
+
+                                <label>
+                                    <input type="radio" name="shipping_method" data-action="setShippingMethod" data-shipping-code="<?php echo $_rate->getCode() ?>" class="kco-action" <?php if($_rate->getCode()===$this->getAddressShippingMethod()) echo ' checked="checked"' ?> />
+                                    <?php echo $_rate->getMethodTitle() ?>
+                                    <strong>
+                                        <?php $_excl = $this->getShippingPrice($_rate->getPrice(), $this->helper('tax')->displayShippingPriceIncludingTax()); ?>
+                                        <?php $_incl = $this->getShippingPrice($_rate->getPrice(), true); ?>
+
+                                        <?php echo $_excl; ?>
+                                        <?php if ($this->helper('tax')->displayShippingBothPrices() && $_incl != $_excl): ?>
+                                            (<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
+                                        <?php endif; ?>
+                                    </strong>
+                                </label>
+                           <?php endif ?>
+                        </dt>
+                    <?php endforeach; ?>
+            <?php endforeach; ?>
+        </dl>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,65 @@
+<?php
+
+$store = Mage::registry('cssgen_store');
+
+$lineHeight = Mage::getStoreConfig('ultimo_design/nav/line_height',$store);
+$menuBreak = Mage::getStoreConfig('ultramegamenu/mobilemenu/threshold',$store);
+
+$backgroundColor = Mage::getStoreConfig('ultimo_design/nav/background_ultracart',$store);
+$fontColor = Mage::getStoreConfig('ultimo_design/nav/textcolor_ultracart',$store);
+
+$backgroundColorHasItems = Mage::getStoreConfig('ultimo_design/nav/background_ultracart_hasitems',$store);
+$fontColorHasItems = Mage::getStoreConfig('ultimo_design/nav/textcolor_ultracart_hasitems',$store);
+
+
+$qtyicon_darker = Mage::getStoreConfig('ultimo_design/nav/qtyicon_ultracart',$store);
+?>
+<?php if(false): ?><style><?php endif; ?>
+
+    .ultracart .ultracart-title {
+        background-color: <?php echo $backgroundColor; ?> !important;
+        color: <?php echo $fontColor; ?> !important;
+    }
+
+    .ultracart .dropdown .triangle {
+        border-top-color: <?php echo $backgroundColor; ?> !important;
+    }
+
+    .ultracart.has-items .ultracart-title {
+        background-color: <?php echo $backgroundColorHasItems; ?> !important;
+        color: <?php echo $fontColorHasItems; ?> !important;
+    }
+
+    .ultracart.has-items .dropdown .triangle {
+        border-top-color: <?php echo $backgroundColorHasItems; ?> !important;
+    }
+
+    <?php if(!$qtyicon_darker): ?>
+    .ultracart .ultracart-title .cart-qty {
+        background-color: rgba(255, 255, 255, 0.4) !important;
+    }
+    <?php endif; ?>
+
+    @media screen and (min-width: <?php echo $menuBreak ?>px) {
+        .ultracart .ultracart-title {
+            height: <?php echo $lineHeight; ?>px !important;
+            line-height: <?php echo $lineHeight; ?>px !important;
+        }
+
+        .ultracart .ultracart-title .cart-qty {
+            margin-top: <?php echo ($lineHeight - 22) / 2; ?>px !important;
+        }
+
+        .ultracart .dropdown {
+            top: <?php echo $lineHeight; ?>px !important;
+        }
+
+        .ultracart .ultracart-title .fa-shopping-cart {
+            top: <?php echo ($lineHeight - 18) / 2; ?>px !important;
+        }
+
+        .sticky-header .ultracart .ultracart-title {
+            line-height: <?php echo $lineHeight; ?>px !important;
+        }
+    }
+<?php if(false): ?></style><?php endif;?>

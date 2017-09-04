@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Evalent_Design>
+            <version>0.1.3</version>
+        </Evalent_Design>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <evalent_design>
+                    <file>evalent.xml</file>
+                </evalent_design>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <design>
+                <class>Evalent_Design_Block</class>
+            </design>
+        </blocks>
+        <models>
+            <design>
+                <class>Evalent_Design_Model</class>
+            </design>
+            <ultimo>
+                <rewrite>
+                    <cssgen_generator>Evalent_Design_Model_Cssgen_Generator</cssgen_generator>
+                </rewrite>
+            </ultimo>
+        </models>
+    </global>
+</config>

@@ -1,0 +1,10 @@
+<script type="text/javascript">
+//<![CDATA[
+	var KCOController = null;
+	$(document).observe('dom:loaded', function() {
+		KCOController = new kco(
+			'<?php echo Mage::getUrl('klarnacheckout/ajax/updatecheckout', array('_secure' => true)) ?>'
+		);
+	});
+//]]>
+</script>

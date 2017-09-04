@@ -1,0 +1,164 @@
+@import "mixin.less";
+
+.rma-italic {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-style: italic;
+}
+
+.rma-mute {
+    color: #999;
+    font-size: 11px;
+}
+
+.rma-view, .rma-new-step2 {
+    div.fieldset {
+        margin: 30px 0px;
+    }
+}
+
+.rma-history {
+    div.fieldset {
+        padding: 5px 10px;
+        margin: 10px 0px;
+        border-radius: 0px 5px 5px 0px;
+        font-size: 13px;
+
+        h2.legend {
+            .rma-italic();
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        &.user {
+          border: 1px solid #8eb589;
+          border-left: 5px solid #8eb589;
+          background-color: #fefffe;
+          background-image: -moz-linear-gradient(top, #fdfffd, #ffffff);
+          background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fdfffd), to(#ffffff));
+          background-image: -webkit-linear-gradient(top, #fdfffd, #ffffff);
+          background-image: -o-linear-gradient(top, #fdfffd, #ffffff);
+          background-image: linear-gradient(to bottom, #fdfffd, #ffffff);
+          background-repeat: repeat-x;
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffdfffd', endColorstr='#ffffffff', GradientType=0);
+        }
+        &.customer {
+          border: 1px solid #9cb4c5;
+          border-left: 5px solid #9cb4c5;
+          background-color: #fcfdff;
+          background-image: -moz-linear-gradient(top, #fafcff, #ffffff);
+          background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fafcff), to(#ffffff));
+          background-image: -webkit-linear-gradient(top, #fafcff, #ffffff);
+          background-image: -o-linear-gradient(top, #fafcff, #ffffff);
+          background-image: linear-gradient(to bottom, #fafcff, #ffffff);
+          background-repeat: repeat-x;
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffafcff', endColorstr='#ffffffff', GradientType=0);
+        }
+    }
+}
+
+.rma-confirmation-form {
+    border: solid 1px #cccccc;
+    background: #fff;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    margin-left: -215px;
+    width: 630px;
+    padding: 20px;
+    z-index: 1001;
+
+    .close {
+        width: 40px;
+        float: right;
+        display: block;
+        color: #636363;
+        text-decoration: none;
+        font-weight: normal;
+        font-size: 30px;
+        position: absolute;
+        top: -8px;
+        right: -14px;
+        font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+        cursor: pointer;
+    }
+
+    h2 {
+        font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+        color: #50A4CF;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .buttons {
+        text-align: right;
+        margin-bottom: 0px !important;
+    }
+}
+.rma-confirmation-form-overlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100000px;
+    height: 100000px;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.rma-items {
+    .rma-one-item {
+        .clearfix();
+        margin-bottom: 10px;
+
+        .item-description {
+            width: 50%;
+            float: left;
+            border-right: 1px solid #ededed;
+            b {
+                margin-left: 20px;
+            }
+            img {
+                width: 150px;
+                float: left;
+                margin-left: 10px;
+            }
+            input {
+                float: left;
+            }
+        }
+
+        .item-options {
+            border-left: 1px solid #ededed;
+            margin-left: -1px;
+            padding-left: 20px;
+            width: 50%;
+            float: left;
+
+            >div {
+                margin-bottom: 8px;
+                position: relative;
+
+                label {
+                    width: 150px;
+
+                    em {
+                        color: #df280a;
+                    }
+                }
+
+                .total-qty {
+                    position: absolute;
+                    left: 200px;
+                    top: 1px;
+                }
+
+                .validate-rma-quantity {
+                    font-size: 13px;
+                    text-align: center;
+                }
+
+
+            }
+        }
+    }
+}

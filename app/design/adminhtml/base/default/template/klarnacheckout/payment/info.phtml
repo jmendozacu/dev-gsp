@@ -1,0 +1,5 @@
+<?php // $this = Ecom_KlarnaCheckout_Block_Payment_Info ?>
+<p><?php echo $this->getMethod()->getTitle() ?></p>
+<?php if($this->getInvoiceNumber()): ?>
+	<p><strong><?php echo $this->__('Klarna Invoice #:') ?></strong> <?php echo $this->escapeHtml($this->getInvoiceNumber()) ?></p>
+<?php endif; ?>

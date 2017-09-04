@@ -1,0 +1,82 @@
+<?php $_item = $this->getItem() ?>
+<?php $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM); ?>
+<li class="item">
+    <input type="hidden" class="itemId" value="<?php echo $_item->getId() ?>">
+    <input type="hidden" class="itemQty" value="<?php echo $_item->getQty() ?>">
+
+    <table class="product-details" cellpadding="0">
+        <tr>
+            <td class="cell-col">
+                <?php if ($this->hasProductUrl()): ?>
+                    <a href="<?php echo $this->getProductUrl()?>" title="<?php echo $this->htmlEscape($this->getProductName()) ?>" class="product-image"><img src="<?php echo $this->getProductThumbnail()->resize(45); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" /></a>
+                <?php else: ?>
+                    <span class="product-image">
+                        <img src="<?php echo $this->getProductThumbnail()->resize(45); ?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" title="<?php echo $this->htmlEscape($this->getProductName()) ?>" />
+                    </span>
+                <?php endif; ?>
+            </td>
+            <td class="cell-col1 product-name">
+                <?php if ($this->hasProductUrl()): ?>
+                    <a href="<?php echo $this->getProductUrl() ?>"><?php $prod_name = Mage::helper('ultracart')->processProductTitle($this->htmlEscape($this->getProductName())); echo mb_convert_case($prod_name, MB_CASE_TITLE, "UTF-8"); ?></a>
+                <?php else: ?>
+                    <p><?php echo Mage::helper('ultracart')->processProductTitle($this->htmlEscape($this->getProductName())) ?></p>
+                <?php endif; ?>
+            </td>
+            <td class="cell-col2">
+                <div class="decrease fa fa-minus-square"></div>
+                <div class="qty"><?php echo $this->getQty() ?></div>
+                <div class="increase fa fa-plus-square"></div>
+            </td>
+            <?php if (!$canApplyMsrp): ?>
+                <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                    <?php /* if ($this->helper('tax')->displayCartBothPrices()): ?>
+                        <th><?php echo $this->__('Excl. Tax'); ?></th>
+                    <?php else: ?>
+                        <th><?php echo $this->__('Price'); ?></th>
+                    <?php endif; */ ?>
+                    <td class="cell-col3"><?php echo $this->helper('checkout')->formatPrice((Mage::helper('ultracart')->showPricePerPiece() ? $_item->getCalculationPrice() : $_item->getCalculationPrice() * $this->getQty())) ?></td>
+                <?php endif; ?>
+
+                <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                    <?php $_incl = $this->helper('checkout')->getPriceInclTax($_item); ?>
+                    <?php /* if ($this->helper('tax')->displayCartBothPrices()): ?>
+                        <th><?php echo $this->__('Incl. Tax'); ?></th>
+                    <?php else: ?>
+                        <th><?php echo $this->__('Price'); ?></th>
+                    <?php endif; */ ?>
+                    <td class="cell-col3"><?php echo $this->helper('checkout')->formatPrice((Mage::helper('ultracart')->showPricePerPiece() ? ($_incl - $_item->getWeeeTaxDisposition()) : ($_incl - $_item->getWeeeTaxDisposition()) * $this->getQty())) ?></td>
+                <?php endif; ?>
+            <?php endif; ?>
+            <td class="cell-col4">
+                <div class="remove fa fa-times-circle"></div>
+            </td>
+        </tr>
+    </table>
+
+    <?php /* Display Configurable Options
+    <?php if ($_options = $this->getOptionList() && Mage::helper('ultracart')->showConfigurableOptions()):?>
+    <div class="truncated">
+        <div class="truncated_full_value">
+            <div class="item-options">
+                <p><?php echo $this->__('Options Details'); ?></p>
+                <dl>
+                    <?php foreach ($_options as $_option) : ?>
+                    <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
+                    <dd>
+                        <?php if (is_array($_option['value'])): ?>
+                        <?php echo nl2br(implode("\n", $_option['value'])) ?>
+                        <?php else: ?>
+                        <?php echo $_option['value'] ?>
+                        <?php endif; ?>
+                    </dd>
+                    <?php endforeach; ?>
+                </dl>
+            </div>
+        </div>
+        <a href="#" onclick="return false;" class="details"><?php echo $this->__('View Details') ?></a>
+    </div>
+    <?php endif; ?>
+    */ ?>
+
+    <div class="clearer"></div>
+</li>

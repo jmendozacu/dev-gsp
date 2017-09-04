@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Evalent Modules
+ * @package     Evalent_Social
+ * @author      Evalent Group AB
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <block type="social/facebook_og" name="facebook.opengraph" after="-">
+                <action method="setTemplate" ifconfig="facebook/opengraph/active">
+                    <template>evalent/social/facebook/og.phtml</template>
+                </action>
+                <action method="preparePage" />
+            </block>
+        </reference>
+
+        <reference name="after_body_start">
+            <block type="core/template" name="facebook.js">
+                <action method="setTemplate" ifconfig="facebook/opengraph/active">
+                    <template>evalent/social/facebook/js.phtml</template>
+                </action>
+            </block>
+        </reference>
+
+        <reference name="left">
+            <block type="core/template" name="facebook.likebox.left" after="-">
+                <action method="setTemplate" ifconfig="facebook/like_box/left">
+                    <template>evalent/social/facebook/likebox.phtml</template>
+                </action>
+            </block>
+        </reference>
+
+        <reference name="right">
+            <block type="core/template" name="facebook.likebox.right" after="-">
+                <action method="setTemplate" ifconfig="facebook/like_box/right">
+                    <template>evalent/social/facebook/likebox.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </default>
+
+    <catalog_product_view>
+        <reference name="alert.urls">
+            <block type="core/template" name="facebook.likebutton" before="-">
+                <action method="setTemplate" ifconfig="facebook/like_button/active">
+                    <template>evalent/social/facebook/likebutton.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </catalog_product_view>
+</layout>

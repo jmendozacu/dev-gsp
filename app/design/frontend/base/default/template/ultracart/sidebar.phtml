@@ -1,0 +1,14 @@
+<?php if ($this->getIsNeedToDisplaySideBar()):?>
+<div class="block block-cart ultracart" id="ultracart-outer-wrapper">
+    <?php $_cartQty = $this->getSummaryCount() ?>
+    <div class="ultracart-title">
+        <?php echo $this->getChildHtml('ultracart.title') ?>
+    </div>
+    <div class="ultracart-products">
+        <?php echo $this->getChildHtml('ultracart.products') ?>
+    </div>
+    <div class="ultracart-summary">
+        <?php echo $this->getChildHtml('ultracart.summary') ?>
+    </div>
+</div>
+<?php endif;?>

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<sections>
+		<klarnacheckout translate="label">
+			<label>Klarna Checkout</label>
+			<tab>sales</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>999</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_store>1</show_in_store>
+			<show_in_website>1</show_in_website>
+			<groups>					 
+				<account translate="label">
+					<label>Account settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>70</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_store>1</show_in_store>
+					<show_in_website>1</show_in_website>
+					<fields>
+						<merchant_eid translate="label">
+							<label>Merchant EID</label>
+							<frontend_type>text</frontend_type>							
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</merchant_eid>
+						<shared_secret translate="label">
+							<label>Shared secret</label>
+							<frontend_type>text</frontend_type>							
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</shared_secret>
+						<server>
+							<label>Klarna server mode</label>
+							<frontend_type>select</frontend_type>
+							<source_model>klarnacheckout/system_config_source_klarna</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</server>
+					</fields>
+				</account>
+				<secure translate="label">
+					<label>Security settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>75</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_store>1</show_in_store>
+					<show_in_website>1</show_in_website>
+					<comment><![CDATA[<i>Preferred settings is "Validation" ON, and "Cart Observer" Off</i>]]></comment>
+					<fields>
+						<validation translate="label">
+							<label>Use validation</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[Use order validation before an order is accepted<br><b>NOTE:</b> SSL is REQUIRED by klarna to run this!]]></comment>
+						</validation>
+						<cart_observer translate="label">
+							<label>Use Cart Observer</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[Update Klarna every time the cart is changed (this slows down the whole site)<br><b>NOTE:</b> Only disable this if validation is on!]]></comment>
+						</cart_observer>
+					</fields>
+				</secure>
+				<checkout translate="label">
+					<label>Checkout settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>72</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_store>1</show_in_store>
+					<show_in_website>1</show_in_website>
+					<fields>
+						<enabled>
+							<label>Enable Klarna Checkout</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enabled>
+						<rewrite_links>
+							<label>Rewrite links</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</rewrite_links>
+                        <rewrite_sweettooth_links>
+                            <label>Rewrite Sweet Tooth Checkout Link</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Rewrite 'Checkout' link to standard cart when user is logged in and Sweet Tooth is enabled]]></comment>
+                        </rewrite_sweettooth_links>
+                        <force_authenticated_checkout>
+                            <label>User must be logged in to checkout</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </force_authenticated_checkout>
+						<default_shipping_method translate="label">
+                            <label>Default shipping method</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_shipping_allmethods</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+                        </default_shipping_method>
+						<terms_uri translate="label">
+							<label>Terms and conditions URI</label>
+							<frontend_type>text</frontend_type>							
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+							<comment><![CDATA[Relative to the base URL. Example: kopvillkor (will create a link pointing to baseURL/kopvillkor)]]></comment>
+						</terms_uri>
+						<show_shipping_method>
+							<label>Show Shipping Methods</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</show_shipping_method>
+                        <shipping_method_hide_if_one>
+                            <label>Hide shippingmethod if only one</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <depends>
+                                <show_shipping_method>1</show_shipping_method>
+                            </depends>
+                        </shipping_method_hide_if_one>
+						<shipping_method_dropdown>
+							<label>Show Shipping Method as dropdown</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+							<depends>
+								<show_shipping_method>1</show_shipping_method>
+							</depends>
+						</shipping_method_dropdown>
+						<use_twostep>
+							<label>Use twostep checkout</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</use_twostep>
+						<show_postcode>
+							<label>Show Postcode</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+							<depends>
+								<use_twostep>1</use_twostep>
+							</depends>
+						</show_postcode>
+						<disable_autofocus>
+							<label>Disable autofocus</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</disable_autofocus>
+                        <couponcode_below_checkout>
+                            <label>Show couponcode below checkout</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <comment><![CDATA[Shown above checkout otherwise]]></comment>
+                        </couponcode_below_checkout>
+                        <show_checkout_heading>
+                            <label>Show heading above checkout</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <comment><![CDATA[Shows a heading with a klarna logo above KlarnaCheckout]]></comment>
+                        </show_checkout_heading>
+
+                        <helpform_active>
+                            <label>Show "cant see cart"</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <comment><![CDATA[Enables form to fill in if there is problems with KCO]]></comment>
+                            <depends>
+                                <show_checkout_heading>1</show_checkout_heading>
+                            </depends>
+                        </helpform_active>
+                        <helpform_email_recipients>
+                            <label>Recipients of form Helpform</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <comment><![CDATA[Email adresses, Seperate with comma]]></comment>
+                            <depends>
+                                <helpform_active>1</helpform_active>
+                            </depends>
+                        </helpform_email_recipients>
+					</fields>
+				</checkout>
+				<tracking translate="label comment">
+					<label>Tracking</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>75</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_store>1</show_in_store>
+					<show_in_website>1</show_in_website>
+					<comment><![CDATA[Below is tracking scripts that is used on success-page<br>You can use a set of variables in each script, do this by entering %variable_name%.<br><br><b>Available variables are:</b><br>
+					<pre>
+	tax_amount
+	grand_total
+	grand_total_incl_tax
+	subtotal
+	subtotal_incl_tax
+	shipping
+	shipping_incl_tax
+	reservation_id
+					</pre><b>Note:</b> all attributes except "reservation_id" can pe prefixed with "cent_" to return the value in cents without decimals. Like this %cent_grand_total%]]></comment>
+					<fields>
+						<head translate="label comment">
+							<label>Head</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[Printed in &lt;head&gt;]]></comment>
+						</head>
+						<after_body_start translate="label comment">
+							<label>Body start</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[Printed in beginning of &lt;body&gt;]]></comment>
+						</after_body_start>
+						<before_body_end translate="label comment">
+							<label>Body end</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[Printed in the end of &lt;body&gt;]]></comment>
+						</before_body_end>
+					</fields>
+				</tracking>
+                <callback translate="label">
+                    <label>Callback settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>80</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <show_in_website>1</show_in_website>
+                    <comment><![CDATA[Control if Klarna in contacted with callbacks from Magento<br><b>Note:</b> If any of these is disabled that process has to be handled manually or through other processes.]]></comment>
+                    <fields>
+                        <capture translate="label">
+                            <label>Capture enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <comment><![CDATA[Capture invoice in klarna when Mangeto invoice is captured]]></comment>
+                        </capture>
+                        <refund translate="label">
+                            <label>Refund enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <comment><![CDATA[Refund invoice in klarna when Mangeto invoice is refunded]]></comment>
+                            <depends>
+                                <capture>1</capture>
+                            </depends>
+                        </refund>
+                    </fields>
+                </callback>
+			</groups>
+		</klarnacheckout>
+		<payment>
+			<groups>
+				<klarnapayment translate="label">
+					<label>KCO Payment</label>
+					<sort_order>673</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</active>
+						<order_status translate="label">
+							<label>New order status</label>
+							<frontend_type>select</frontend_type>
+							<source_model>klarnacheckout/payment_orderstatus</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</order_status>						
+					</fields>
+				</klarnapayment>				
+			</groups>
+		</payment>
+	</sections>
+</config>

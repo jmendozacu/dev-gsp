@@ -1,0 +1,52 @@
+<?php
+	$event = $this->getCurrentEvent();
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td style="<?php echo $this->getHeaderWidth() ?>"><?php echo $this->getHeaderHtml() ?></td>
+            <td class="form-buttons"><?php echo $this->getButtonsHtml() ?></td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Admin User Data'); ?></h4>
+        </div>
+        <div id="log_details_fieldset" class="log-details">
+            <table cellspacing="0" class="log-info table">
+                <col width="25%" />
+                <col />
+                <tbody>                   
+                    <tr>
+                        <th><?php echo $this->__('Event time'); ?></th>
+                        <td><?php echo Mage::getModel('core/date')->date($event->getCreatedAt()) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?php echo $this->__('Admin User Name'); ?></th>
+                        <td><?php echo $event->getUsername() ?></td>
+                    </tr>
+                    <tr>
+                        <th><?php echo $this->__('Store'); ?></th>
+                        <td><?php echo $event->getStore(); ?></td>
+                    </tr>
+					 <tr>
+                        <th><?php echo $this->__('Controller'); ?></th>
+                        <td><?php echo $event->getController(); ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="entry-edit">
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Details'); ?></h4>
+        </div>
+        <div class="log-details-grid">
+            <?php echo $this->getChildHtml('details_grid') ?>
+        </div>
+    </div>
+</div>

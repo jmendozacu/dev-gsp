@@ -1,0 +1,25 @@
+		<div class="step-one">
+			
+			<div class="klarnacheckout-fieldset">
+				<h2><?php echo $this->__('Enter details'); ?></h2>
+
+				<?php if(!$this->isLoggedIn()): ?>
+					<div class="klarnacheckout-field">
+						<label><?php echo $this->__('Enter Email'); ?></label>
+						<input class="input-text validate-email required-entry" type="text" id="kco-email" value="<?php echo $this->getEmail(); ?>" />
+					</div>
+				<?php endif; ?>
+
+				<?php if (Mage::getStoreConfig(Ecom_KlarnaCheckout_Helper_Data::XML_PATH_SHOW_POSTCODE)): ?>
+					<div class="klarnacheckout-field">
+						<label><?php echo $this->__('Enter Postcode'); ?></label>
+						<input class="input-text validate-number required-entry" type="text" id="kco-postcode" value="<?php echo $this->getPostcode(); ?>" />
+					</div>
+				<?php endif; ?>
+				
+				<button class="kco-action button" type="button" data-action="saveStepOne">
+					<span><?php echo $this->__('Continue'); ?></span>
+				</button>
+				<div style="clear:both;"></div>
+			</div>
+		</div>

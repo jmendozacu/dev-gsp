@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    Evalent Modules
+ * @package     Evalent_Admin
+ * @author      eValent Group AB
+ */
+-->
+
+<config>
+    <modules>
+        <Evalent_Admin>
+            <version>0.1.0</version>
+        </Evalent_Admin>
+	</modules>
+	<stores>
+	    <admin>
+	        <design>
+	            <package>
+	                <name>default</name>
+	            </package>
+	            <theme>
+	                <default>evalent</default>
+	            </theme>
+	        </design>
+	    </admin>
+	</stores>
+</config>

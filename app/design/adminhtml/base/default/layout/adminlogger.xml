@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+	<adminhtml_logger_details>
+		<reference name="content">
+			<block type="adminlogger/adminhtml_details" name="adminlogger.details" template="adminlogger/details.phtml">
+				<block type="adminlogger/adminhtml_details_grid" name="adminlogger.details.grid" as="details_grid"/>
+			</block>
+		</reference>
+	</adminhtml_logger_details>
+</layout>

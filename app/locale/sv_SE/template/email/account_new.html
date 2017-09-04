@@ -1,0 +1,77 @@
+<!--@subject Välkommen, {{var customer.name}}! @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$customer.name":"Customer Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var customer.email":"Customer Email",
+"htmlescape var=$customer.password":"Customer Password"}
+@-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<body style="background:#ebebeb; font-family:Helvetica, Verdana, Arial, sans-serif; font-size:12px; margin:0; padding:0; color:#444;">
+<div style="background:#ebebeb; font-family:Helvetica, Verdana, Arial, sans-serif; font-size:12px; margin:0; padding:0; color:#444;">
+<table align="center" cellspacing="0" cellpadding="0" border="0" width="600" style="background:#ffffff; margin-top:20px; margin-bottom:20px;">
+    <tr>
+        <td align="center" valign="top">
+        
+        <!-- [ header starts here] -->
+
+            <table width="600" cellpadding="0" cellspacing="0" border="0" class="logo-container"  style="width:600px;">
+                <tr>
+                    <td class="logo" style="background-color:#00b8d0;">
+                        <h1 style="font-size:35px;color:#fff;padding:15px">Welcome to G-SP</h1>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tbody>
+                <tr height="10" style="height: 20px;">
+
+                </tr>
+                </tbody>
+            </table>
+        <!-- [ middle starts here] -->
+
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td class="action-content" style="text-align: center">
+                        <h1 style="margin:0; color:#747474;font-size:16px;margin:5px 0">Thanks for your reseller application!</h1>
+                        <p style="margin:0; color:#747474;font-size:16px;margin:5px 0">You will receive an email when the application is processed.(Normaly with in 24 hours)</p>
+                    </td>
+                </tr>
+            </table>
+            
+        <!-- [ footer starts here] -->
+
+            <table cellpadding="0" cellspacing="0" border="0" width="600" style="width:600px;background-color: #fff;">
+                <tbody>
+                <tr>
+                    <td style="font-family:Verdana,Arial;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                        <table align="left" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;width:100%">
+                            <tbody>
+                            <tr>
+                                <td  style="font-family:Verdana,Arial;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 30px;margin:0">
+                                    <p style="margin:0; color:#747474;font-size:16px;margin:5px 0">Best regards</p>
+                                    <p style="margin:0;color:#747474;font-size:16px;margin:5px 0">G-SP Electronics</p>
+                                    <p style="margin:0;color:#747474;font-size:16px;margin:5px 0">phone <a href="tel:460720853020 07"style="margin:0;color:#747474;font-size:14px;margin:5px 0;text-decoration:none;">+460720853020 07</a></p>
+                                    <p style="margin:0;color:#747474;font-size:16px;margin:5px 0">Mail <a href="mailto:warehouse@g-sp.se" style="margin:0;color:#747474;font-size:14px;margin:5px 0;text-decoration:none;">warehouse@g-sp.se</a></p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <a href="{{store url=''}}"> <img src="{{var logo_url}}" alt="{{var logo_alt}}" style="margin:0 20px 20px 0;" border="0"/> </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<sections>
+		<ultracart translate="label">
+			<label>UltraCart</label>
+			<tab>sales</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>102</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>					 
+				<general translate="label">
+					<label>General</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>70</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<show_grand_total translate="label">
+							<label>Show grand total</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_grand_total>
+						<show_sub_total translate="label">
+							<label>Show sub total</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_sub_total>
+						<show_shipping translate="label">
+							<label>Show shipping</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_shipping>
+						<show_shipping_weight translate="label">
+							<label>Show shipping weight</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<show_shipping>1</show_shipping>
+							</depends>
+						</show_shipping_weight>
+						<show_total_tax translate="label">
+							<label>Show total tax</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_total_tax>
+						<default_shipping_method translate="label">
+                            <label>Default shipping method</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_shipping_allmethods</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_shipping_method>
+						<links>
+							<label>Links</label>
+							<frontend_model>ultracart/system_config_form_field_links</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[Available links in dropdown cart]]></comment>
+						</links>
+                        <cms>
+                            <label>CMS</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Misc html shown in dropdown cart]]></comment>
+                        </cms>
+					</fields>
+				</general>
+			</groups>
+		</ultracart>
+
+        <!--
+        Support for ULTIMO
+        Adds config-values for colors
+        -->
+        <ultimo_design>
+            <groups>
+                <nav>
+                    <fields>
+                        <heading_ultracart translate="label">
+                            <label>Minicart</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_ultracart>
+
+                        <background_ultracart_hasitems translate="label">
+                            <label>Background Color</label>
+                            <comment><![CDATA[Background color of the minicart]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>infortis/adminhtml_system_config_form_field_color</frontend_model>
+                            <backend_model>infortis/system_config_backend_design_color_validatetransparent</backend_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </background_ultracart_hasitems>
+
+                        <textcolor_ultracart_hasitems translate="label">
+                            <label>Text Color</label>
+                            <comment><![CDATA[Text color of the minicart]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>infortis/adminhtml_system_config_form_field_color</frontend_model>
+                            <backend_model>infortis/system_config_backend_design_color_validatetransparent</backend_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </textcolor_ultracart_hasitems>
+
+                        <qtyicon_ultracart translate="label">
+                            <label>Qty icon color darker</label>
+                            <comment><![CDATA[Is the qty icon darker (yes) or lighter (no)]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>91</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </qtyicon_ultracart>
+
+                        <background_ultracart translate="label">
+                            <label>Empty Cart Background Color</label>
+                            <comment><![CDATA[Background color of the minicart]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>infortis/adminhtml_system_config_form_field_color</frontend_model>
+                            <backend_model>infortis/system_config_backend_design_color_validatetransparent</backend_model>
+                            <sort_order>92</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </background_ultracart>
+
+                        <textcolor_ultracart translate="label">
+                            <label>Empty Cart Text Color</label>
+                            <comment><![CDATA[Text color of the minicart]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>infortis/adminhtml_system_config_form_field_color</frontend_model>
+                            <backend_model>infortis/system_config_backend_design_color_validatetransparent</backend_model>
+                            <sort_order>93</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </textcolor_ultracart>
+                    </fields>
+                </nav>
+            </groups>
+        </ultimo_design>
+
+	</sections>
+</config>

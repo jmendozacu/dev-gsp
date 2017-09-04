@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+    <!--
+/**
+ * @package     Evalent_Design
+ * @project     Evalent Modules
+ * @author      eValent Group AB
+ */
+-->
+
+    <layout>
+
+        <default>
+
+            <remove name="right.reports.product.viewed" />
+            <remove name="left.reports.product.viewed" />
+            <remove name="catalog.compare.sidebar" />
+            <remove name="right.reports.product.compared" />
+            <remove name="tags_popular" />
+            <remove name="paypal.partner.right.logo" />
+
+            <reference name="head">
+                <action method="removeItem">
+                    <type>skin_css</type>
+                    <name>css/print.css</name>
+                </action>
+                <action method="removeItem">
+                    <type>skin_css</type>
+                    <name>css/styles-ie7.css</name>
+                </action>
+                <action method="removeItem">
+                    <type>skin_css</type>
+                    <name>css/infortis/cloud-zoom/cloud-zoom.css</name>
+                </action>
+                <action method="removeItem">
+                    <type>skin_css</type>
+                    <name>css/infortis/_shared/colorbox.css</name>
+                </action>
+                <action method="addItem">
+                    <type>skin_css</type>
+                    <name>css/infortis/cloud-zoom/cloud-zoom.css</name>
+                </action>
+                <action method="addItem">
+                    <type>skin_css</type>
+                    <name>css/infortis/_shared/colorbox.css</name>
+                </action>
+                <action method="addItem">
+                    <type>skin_css</type>
+                    <name>css/evalent.css</name>
+                </action>
+                <action method="addItem">
+                    <type>skin_css</type>
+                    <name>css/gsp.css</name>
+                </action>
+                <action method="removeItem">
+                    <type>js</type>
+                    <name>lib/ds-sleight.js</name>
+                </action>
+                <action method="removeItem">
+                    <type>skin_js</type>
+                    <name>js/ie6.js</name>
+                </action>
+                <block type="core/text" name="fontawesome.cdn">
+                    <action method="setText">
+                        <text>
+                            <![CDATA[
+                        <!--Fontawesome glyphicon library-->
+                        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+                    ]]>
+                        </text>
+                    </action>
+                </block>
+            </reference>
+
+            <reference name="root">
+                <action method="setTemplate">
+                    <template>page/2columns-left.phtml</template>
+                </action>
+            </reference>
+
+            <reference name="header">
+                <!-- Welcome message -->
+                <remove name="welcome" />
+
+                <block type="core/text_list" name="account_links" translate="label">
+                    <label>Account Links</label>
+                </block>
+            </reference>
+
+            <reference name="top.links">
+                <!--<action method="removeLinkByUrl">
+                <url helper="customer/getLoginUrl"/>
+            </action>
+
+            <action method="removeLinkByUrl">
+                <url helper="customer/getAccountUrl"/>
+            </action>-->
+            </reference>
+
+            <reference name="global_cookie_notice">
+                <action method="setTemplate">
+                    <template>page/html/cookienotice.phtml</template>
+                </action>
+            </reference>
+
+
+            <reference name="catalog.topnav.menu">
+                <action method="unsetChild">
+                    <name>block_nav_links</name>
+                </action>
+                <block type="core/text_list" name="block_nav_links" as="block_nav_links">
+                    <label>Extra links</label>
+                </block>
+            </reference>
+        </default>
+
+
+        <cms_index_index>
+
+            <reference name="root">
+                <action method="setTemplate">
+                    <template>page/1column.phtml</template>
+                </action>
+            </reference>
+
+        </cms_index_index>
+
+        <!--<customer_logged_out>
+
+        <reference name="header">
+            <action method="unsetChild">
+                <name>block_header_top_links2</name>
+            </action>
+        </reference>
+
+        <reference name="top.links">
+            <action method="removeLinkByUrl">
+                <url helper="customer/getLoginUrl"/>
+            </action>
+        </reference>
+
+        <reference name="account_links">
+            <block type="core/template" name="links_loggedout" template="page/template/loggedout.phtml" />
+        </reference>
+
+    </customer_logged_out>
+
+
+    <customer_logged_in>
+
+        <reference name="header">
+            <action method="unsetChild">
+                <name>block_header_top_links</name>
+            </action>
+        </reference>
+
+        <reference name="top.links">
+            <action method="removeLinkByUrl">
+                <url helper="customer/getLogOutUrl"/>
+            </action>
+        </reference>
+
+        <reference name="account_links">
+            <action method="unsetChild">
+                <name>links_loggedout</name>
+            </action>
+
+            <block type="core/template" name="links_loggedin" template="page/template/loggedin.phtml" />
+        </reference>
+
+    </customer_logged_in>-->
+
+
+        <catalog_product_view>
+
+            <reference name="product.info.tabs">
+
+            </reference>
+
+        </catalog_product_view>
+
+
+        <customer_account_create>
+            <reference name="customer_form_register">
+                <block name="customer.form.register.extra.top" type="core/text_list" translate="label">
+                    <label>Extension placeholder - customer register form (top)</label>
+                </block>
+            </reference>
+        </customer_account_create>
+
+        <catalog_category_default>
+            <reference name="product_list">
+                <action method="unsetChild">
+                    <name>block_category_above_empty_collection</name>
+                </action>
+                <block type="core/template" name="block_category_above_empty_collection" template="catalog/category/sub.phtml">
+                </block>
+            </reference>
+        </catalog_category_default>
+
+        <catalog_category_layered>
+            <reference name="product_list">
+                <action method="unsetChild">
+                    <name>block_category_above_empty_collection</name>
+                </action>
+                <block type="core/template" name="block_category_above_empty_collection" template="catalog/category/sub.phtml">
+                </block>
+            </reference>
+        </catalog_category_layered>
+
+        <checkout_onepage_index>
+            <reference name="content">
+                  <remove  name="klarna_checkout_top" />
+            </reference>
+        </checkout_onepage_index>
+
+        <onestepcheckout_index_index>
+            <reference name="content">
+                <remove  name="klarna_checkout_top" />
+            </reference>
+        </onestepcheckout_index_index>
+
+    </layout>

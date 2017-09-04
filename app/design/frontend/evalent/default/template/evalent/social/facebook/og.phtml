@@ -1,0 +1,14 @@
+<?php
+/**
+ * @categoryEvalent Modules
+ * @package Evalent_Social
+ * @author  Evalent Group AB
+ */
+/** @var Evalent_Social_Block_Facebook_Og $this */
+?>
+
+<!-- BEGIN FACEBOOK INTEGRATION -->
+<?php foreach($this->getTags() as $property => $value): ?>
+    <meta property="<?php echo $property; ?>" content="<?php echo $value; ?>"/>
+<?php endforeach; ?>
+<!-- END FACEBOOK INTEGRATION -->

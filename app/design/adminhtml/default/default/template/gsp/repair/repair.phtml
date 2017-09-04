@@ -1,0 +1,29 @@
+<?php $order =  Mage::registry('current_order'); ?>
+ 
+<?php if($order->getRepairIsrepair() == 1): ?>
+ <div class="fieldset repair">
+     <div class="repair-content">
+    <h4>Reparationsinformation</h4>
+    <div class="repair-field">
+        <span class="label"><label>Imei</label></span>
+        <span class="value"><strong><?php echo $order->getRepairImei() ?></strong></span>
+    </div>
+        <div class="repair-field">
+        <span class="label"><label>Pinkod</label></span>
+        <span class="value"><strong><?php echo $order->getRepairPincode() ?></strong></span>
+    </div>
+    <div class="repair-field">
+        <span class="label"><label>Skärmlås</label></span>
+        <span class="value"><strong><?php echo $order->getRepairScreencode() ?></strong></span>
+    </div>
+    <div class="repair-field">
+        <span class="label"><label>Problem</label></span>
+        <span class="value"><strong><?php echo $order->getRepairProblem() ?></strong></span>
+    </div>
+    <div class="repair-field">
+        <span class="label"><label>Extra</label></span>
+        <span class="value"><strong><?php echo $order->getRepairExtracodes() ?></strong></span>
+    </div>     
+    </div>
+</div>
+<?php endif; ?>

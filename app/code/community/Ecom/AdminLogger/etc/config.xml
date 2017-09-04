@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Ecom_AdminLogger>
+			<version>1.0.0</version>
+		</Ecom_AdminLogger>
+	</modules>
+	<global>
+		<blocks>
+			<adminlogger>
+				<class>Ecom_AdminLogger_Block</class>
+			</adminlogger>
+		</blocks>
+		<helpers>
+			<adminlogger>
+				<class>Ecom_AdminLogger_Helper</class>
+			</adminlogger>
+		</helpers>
+		<models>
+			<adminlogger>
+				<class>Ecom_AdminLogger_Model</class>
+				<resourceModel>adminlogger_resource</resourceModel>
+			</adminlogger>
+			<adminlogger_resource>
+				<class>Ecom_AdminLogger_Model_Resource</class>
+				<entities>
+					<log>
+						<table>ecom_adminlogger_log</table>
+					</log>
+					<details>
+						<table>ecom_adminlogger_log_details</table>
+					</details>
+				</entities>
+			</adminlogger_resource>
+		</models>
+		<resources>
+			<ecom_adminlogger_setup>
+				<setup>
+					<module>Ecom_AdminLogger</module>
+					<class>Mage_Core_Model_Resource_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</ecom_adminlogger_setup>
+		</resources>
+
+        <events>
+            <!-- support for ultimo import -->
+            <controller_action_predispatch_ultimo_adminhtml_import>
+                <observers>
+                    <adminlogger>
+                        <class>adminlogger/observer_action</class>
+                        <method>controllerActionPredispatch</method>
+                    </adminlogger>
+                </observers>
+            </controller_action_predispatch_ultimo_adminhtml_import>
+
+            <!-- support for ultimo data import -->
+            <controller_action_predispatch_dataporter_adminhtml_cfgporter>
+                <observers>
+                    <adminlogger>
+                        <class>adminlogger/observer_action</class>
+                        <method>controllerActionPredispatch</method>
+                    </adminlogger>
+                </observers>
+            </controller_action_predispatch_dataporter_adminhtml_cfgporter>
+        </events>
+
+	</global>
+	<adminhtml>
+		<events>
+			<controller_action_predispatch>
+				<observers>
+					<adminlogger>
+						<class>adminlogger/observer_action</class>
+						<method>controllerActionPredispatch</method>
+					</adminlogger>
+				</observers>
+			</controller_action_predispatch>
+			<model_save_before>
+				<observers>
+					<adminlogger>
+						<class>adminlogger/observer_object</class>
+						<method>beforeSave</method>
+					</adminlogger>
+				</observers>				
+			</model_save_before>
+			<model_save_after>
+				<observers>
+					<adminlogger>
+						<class>adminlogger/observer_object</class>
+						<method>afterSave</method>
+					</adminlogger>
+				</observers>
+			</model_save_after>
+			<model_delete_after>
+				<observers>
+					<adminlogger>
+						<class>adminlogger/observer_object</class>
+						<method>afterDelete</method>
+					</adminlogger>
+				</observers>
+			</model_delete_after>
+            <admin_session_user_login_success>
+                <observers>
+                    <adminlogger>
+                        <class>adminlogger/observer_admin</class>
+                        <method>afterSuccess</method>
+                    </adminlogger>
+                </observers>
+            </admin_session_user_login_success>
+            <admin_session_user_login_failed>
+                <observers>
+                    <adminlogger>
+                        <class>adminlogger/observer_admin</class>
+                        <method>afterFail</method>
+                    </adminlogger>
+                </observers>
+            </admin_session_user_login_failed>
+		</events>
+		<layout>
+			<updates>
+				<adminlogger>
+					<file>adminlogger.xml</file>
+				</adminlogger>
+			</updates>
+		</layout>
+	</adminhtml>
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<Ecom_AdminLogger before="Mage_Adminhtml">Ecom_AdminLogger_Adminhtml</Ecom_AdminLogger>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+	<default>
+		<adminlogger>			
+			<controller_filter>
+				<catalog_product>
+					<title>Product management</title>
+					<model>Mage_Catalog_Model_Product</model>
+					<actions>
+						<edit>
+							<title>View</title>
+							<short_details>id</short_details>
+						</edit>
+						<save>
+							<title>Save</title>
+							<short_details>id</short_details>
+						</save>
+						<delete>
+							<title>Delete</title>
+							<short_details>id</short_details>
+						</delete>
+						<massDelete>
+							<title>Mass Delete</title>
+							<short_details>id</short_details>							
+						</massDelete>
+					</actions>			
+				</catalog_product>
+				<customer>
+					<title>Customer management</title>
+					<model>Mage_Customer_Model_Customer</model>
+					<actions>
+						<edit>
+							<title>View</title>							
+							<short_details>id</short_details>
+						</edit>
+						<save>
+							<title>Save</title>
+							<short_details>customer_id</short_details>
+						</save>
+						<delete>
+							<title>Delete</title>
+							<short_details>customer_id</short_details>
+						</delete>
+						<massDelete>
+							<title>Mass Delete</title>
+							<short_details>customer_id</short_details>
+						</massDelete>
+					</actions>
+				</customer>
+                <system_config>
+                    <title>System config</title>
+                    <model>Mage_Core_Model_Config_Data</model>
+                    <actions>
+                        <edit>
+                            <title>View</title>
+                            <short_details>section</short_details>
+                        </edit>
+                        <save>
+                            <title>Save</title>
+                            <short_details>section</short_details>
+                        </save>
+                    </actions>
+                </system_config>
+                <catalog_product_attribute>
+                    <title>Product attributes</title>
+                    <model>Mage_Catalog_Model_Resource_Eav_Attribute</model>
+                    <actions>
+                        <edit>
+                            <title>View</title>
+                            <short_details>attribute_id</short_details>
+                        </edit>
+                        <save>
+                            <title>Save</title>
+                            <short_details>attribute_id</short_details>
+                        </save>
+                    </actions>
+                </catalog_product_attribute>
+                <cms_block>
+                    <title>Cms blocks</title>
+                    <model>Mage_Cms_Model_Block</model>
+                    <actions>
+                        <edit>
+                            <title>View</title>
+                            <short_details>block_id</short_details>
+                        </edit>
+                        <save>
+                            <title>Save</title>
+                            <short_details>block_id</short_details>
+                        </save>
+                    </actions>
+                </cms_block>
+                <cms_page>
+                    <title>Cms page</title>
+                    <model>Mage_Cms_Model_Page</model>
+                    <actions>
+                        <edit>
+                            <title>View</title>
+                            <short_details>page_id</short_details>
+                        </edit>
+                        <save>
+                            <title>Save</title>
+                            <short_details>page_id</short_details>
+                        </save>
+                    </actions>
+                </cms_page>
+                <tax_rule>
+                    <title>Tax rules</title>
+                    <model>Mage_Tax_Model_Calculation_Rule</model>
+                    <actions>
+                        <edit>
+                            <title>View</title>
+                            <short_details>rule</short_details>
+                        </edit>
+                        <save>
+                            <title>Save</title>
+                            <short_details>tax_calculation_rule_id</short_details>
+                        </save>
+                    </actions>
+                </tax_rule>
+                <process>
+                    <title>Index management</title>
+                    <actions>
+                        <reindexProcess>
+                            <title>Reindex data</title>
+                            <short_details>process</short_details>
+                        </reindexProcess>
+                        <massReindex>
+                            <title>Reindex data (Mass)</title>
+                            <short_details>process</short_details>
+                        </massReindex>
+                    </actions>
+                </process>
+                <cache>
+                    <title>Cache</title>
+                    <actions>
+                        <flushSystem>
+                            <title>Flush Magento Cache</title>
+                        </flushSystem>
+                        <flushAll>
+                            <title>Flush Cache Storage</title>
+                        </flushAll>
+                        <massRefresh>
+                            <title>Mass refresh</title>
+                            <short_details>types</short_details>
+                        </massRefresh>
+                        <massDisable>
+                            <title>Mass disable</title>
+                            <short_details>types</short_details>
+                        </massDisable>
+                        <massEnable>
+                            <title>Mass enable</title>
+                            <short_details>types</short_details>
+                        </massEnable>
+                        <cleanImages>
+                            <title>Flush Catalog Images Cache</title>
+                        </cleanImages>
+                        <cleanSwatches>
+                            <title>Flush Swatch Images Cache</title>
+                        </cleanSwatches>
+                        <cleanMedia>
+                            <title>Flush JavaScript/CSS Cache</title>
+                        </cleanMedia>
+                    </actions>
+                </cache>
+                <redismanager>
+                    <title>Redis Cache</title>
+                    <actions>
+                        <flushAll>
+                            <title>Flush All</title>
+                        </flushAll>
+                        <flushDb>
+                            <title>Flush single database</title>
+                            <short_details>id</short_details>
+                        </flushDb>
+                        <mass>
+                            <title>Mass flush</title>
+                            <short_details>service</short_details>
+                        </mass>
+                    </actions>
+                </redismanager>
+                <brands>
+                    <title>Brand management</title>
+                    <model>Ecom_Brands_Model_Brand</model>
+                    <actions>
+                        <edit>
+                            <title>View</title>
+                            <short_details>id</short_details>
+                        </edit>
+                        <save>
+                            <title>Save</title>
+                            <short_details>brand_id</short_details>
+                        </save>
+                        <delete>
+                            <title>Delete</title>
+                            <short_details>id</short_details>
+                        </delete>
+                    </actions>
+                </brands>
+                <urlrewrite>
+                    <title>URL Rewrite Management</title>
+                    <model>Mage_Core_Model_Url_Rewrite</model>
+                    <actions>
+                        <edit>
+                            <title>View</title>
+                            <short_details>id</short_details>
+                        </edit>
+                        <save>
+                            <title>Save</title>
+                            <short_details>id</short_details>
+                        </save>
+                        <delete>
+                            <title>Delete</title>
+                            <short_details>id</short_details>
+                        </delete>
+                    </actions>
+                </urlrewrite>
+                <login> <!-- Not acctually used, just need this for complete data here (for filters) -->
+                    <title>Admin login</title>
+                    <actions>
+                        <failed_login>
+                            <title>Failed login</title>
+                            <short_details>password</short_details>
+                        </failed_login>
+                        <successful_login>
+                            <title>Successful login</title>
+                        </successful_login>
+                    </actions>
+                </login>
+                <adminhtml_import><!-- ultimo does not use the correct admin route -->
+                    <title>Ultimo import</title>
+                    <actions>
+                        <blocks>
+                            <title>Ultimo import - Blocks</title>
+                        </blocks>
+                        <pages>
+                            <title>Ultimo import - Pages</title>
+                        </pages>
+                    </actions>
+                </adminhtml_import>
+                <adminhtml_cfgporter><!-- ultimo does not use the correct admin route -->
+                    <title>Ultimo dataporter</title>
+                    <actions>
+                        <index>
+                            <title>Ultimo dataporter - View</title>
+                            <short_details>action_type</short_details>
+                        </index>
+                        <import>
+                            <title>Ultimo dataporter - import</title>
+                            <short_details>preset_name</short_details>
+                        </import>
+                        <export>
+                            <title>Ultimo dataporter - export</title>
+                            <short_details>modules</short_details>
+                        </export>
+                    </actions>
+                </adminhtml_cfgporter>
+			</controller_filter>
+		</adminlogger>
+	</default>
+</config>

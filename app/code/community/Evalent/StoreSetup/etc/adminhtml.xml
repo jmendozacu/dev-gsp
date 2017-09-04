@@ -1,0 +1,21 @@
+<config>
+  <acl>
+    <resources>
+      <admin>
+        <children>
+          <system>
+            <children>
+              <config>
+                <children>
+                  <storesetup module="storesetup">
+                    <title>Initial Configuration</title>
+                  </storesetup>
+                </children>
+              </config>
+            </children>
+          </system>
+        </children>
+      </admin>
+    </resources>
+  </acl>
+</config>

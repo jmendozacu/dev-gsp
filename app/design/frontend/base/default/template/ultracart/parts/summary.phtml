@@ -1,0 +1,63 @@
+<?php $_cartQty = $this->getSummaryCount() ?>
+<?php if ($_cartQty > 0): ?>
+    <div class="summary">
+
+        <div class="usp_wrapper"><?php echo Mage::getStoreConfig('ultracart/general/cms'); ?></div>
+         <?php /*   <?php if ($_cartQty == 1): ?>
+                <p class="amount"><?php echo $this->__('There is <a href="%s">1 item</a> in your cart.', $this->getUrl('checkout/cart')) ?></p>
+            <?php else: ?>
+                <p class="amount"><?php echo $this->__('There are <a href="%s">%s items</a> in your cart.', $this->getUrl('checkout/cart'), $_cartQty) ?></p>
+            <?php endif ?>
+        */ ?>
+        <?php if ($this->canApplyMsrp()): ?>
+            <span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
+        <?php else: ?>
+            <ul class="totals">
+                <?php if ($this->showSubTotal()): ?>
+                    <li class="subtotal">
+                        <?php echo $this->__('Subtotal') ?> <?php echo Mage::helper('checkout')->formatPrice($this->getSubTotal()) ?>
+                    </li>
+                <?php endif; ?>
+                <?php if ($this->showShipping()): ?>
+                    <li class="shipping">
+                        <?php if ($this->showShippingWeight()): ?>
+                            <?php echo $this->__('Shipping <em>(%s kg)</em>', round($this->getPackageWeight(), 2)) ?> <?php echo Mage::helper('checkout')->formatPrice($this->getShippingPrice()) ?>
+                        <?php else: ?>
+                            <?php echo $this->__('Shipping') ?> <?php echo Mage::helper('checkout')->formatPrice($this->getShippingPrice()) ?>
+                        <?php endif; ?>
+                    </li>
+                <?php endif; ?>
+                <?php if ($this->showTotalTax()): ?>
+                    <li class="total-tax">
+                        <?php echo $this->__('Tax') ?> <?php echo Mage::helper('checkout')->formatPrice($this->getTotalTax()) ?>
+                    </li>
+                <?php endif; ?>
+                <?php if ($this->showGrandTotal()): ?>
+                    <li class="grand-total">
+                        <?php echo $this->__('Grand total') ?> <?php echo Mage::helper('checkout')->formatPrice($this->getGrandTotal()) ?>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        <?php endif; ?>
+        <div class="payment"></div>
+
+        <div style="clear:both;"></div>
+    </div>
+<?php endif ?>
+
+<?php if ($_cartQty && $this->isPossibleOnepageCheckout()): ?>
+    <?php echo $this->getChildHtml('extra_actions') ?>
+    <button type="button" title="<?php echo $this->__('Checkout') ?>" class="button right"
+            onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')">
+        <span><span><?php echo $this->__('Till Kassan') ?></span></span></button>
+<?php endif ?>
+
+<?php if (Mage::getStoreConfig('ultracart/general/links')): ?>
+    <div class="cart-links">
+        <?php foreach (unserialize(Mage::getStoreConfig('ultracart/general/links')) as $link): ?>
+            <a href="<?php echo $link['href']; ?>"><?php echo $link['label']; ?></a>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
+<div style="clear:both;"></div>

@@ -1,0 +1,49 @@
+<?php $quote = $this->getQuote() ?>
+<div id="klarnacheckout-cart-wrapper">
+	
+	<?php if(count($messages = $this->getMessages())): ?>
+		<?php foreach($messages as $message): ?>
+			<div class="klarnacheckout-message">
+				<?php echo $message; ?>
+			</div>
+		<?php endforeach; ?>
+	<?php endif; ?>
+	
+	<h1><?php echo $this->__('Shopping Cart') ?></h1>
+
+	<table class="kco-cart-items" id="kco-cart-items">
+		<tr>
+			<th class="kco-table-name"><?php echo $this->__('Name') ?></th>
+			<th class="kco-table-qty"><?php echo $this->__('Qty') ?></th>
+			<th class="kco-table-price"><?php echo $this->__('Price') ?></th>
+			<th class="kco-table-total"><?php echo $this->__('Total') ?></th>
+		</tr>
+		<?php echo $this->getItemsHtml() ?>
+	</table>
+
+	<div id="kco-totals">
+		<?php echo $this->getChildHtml("checkout.cart.totals") ?>
+	</div>
+	
+	<?php if(Mage::getStoreConfig(Ecom_KlarnaCheckout_Helper_Data::XML_PATH_USE_TWOSTEP)): ?>
+		<?php echo $this->getChildHtml('step-one'); ?>
+	<?php endif; ?>
+
+	<div class="step-two">
+		<?php echo $this->getChildHtml('choose-shipping-method'); ?>
+	</div>
+
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	decorateTable($('kco-cart-items'));
+
+  
+	<?php if($this->stepOneComplete()): ?>
+		$(document.body).removeClassName('kco-hide-step-two');
+	<?php else: ?>
+		$(document.body).addClassName('kco-hide-step-two');
+	<?php endif; ?>
+	
+//]]>
+</script>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ *
+-->
+<config>
+    <modules>
+        <Plugincompany_Syntaxhighlighter>
+            <version>1.0.1</version>
+        </Plugincompany_Syntaxhighlighter>
+    </modules>
+    <global>
+        <blocks>
+            <plugincompany_syntaxhighlighter>
+                <class>Plugincompany_Syntaxhighlighter_Block</class>
+            </plugincompany_syntaxhighlighter>
+        </blocks>
+        <helpers>
+            <plugincompany_syntaxhighlighter>
+                <class>Plugincompany_Syntaxhighlighter_Helper</class>
+            </plugincompany_syntaxhighlighter>
+        </helpers>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <plugincompany_syntaxhighlighter>
+                    <file>plugincompany_syntaxhighlighter.xml</file>
+                </plugincompany_syntaxhighlighter>
+            </updates>
+        </layout>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <plugincompany_syntaxhighlighter>
+                                            <title>Syntax Highlighter Config</title>
+                                        </plugincompany_syntaxhighlighter>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <plugincompany_syntaxhighlighter>
+            <plugincompany_syntaxhighlighter_group>
+                <enabled>1</enabled>
+                <cms_page>1</cms_page>
+                <cms_block>1</cms_block>
+                <product>1</product>
+                <categories>1</categories>
+                <category_fields>custom_layout_update,description,umm_dd_blocks</category_fields>
+                <product_fields>custom_layout_update,description,in_depth,short_description</product_fields>
+                <newsletter>1</newsletter>
+                <transactional>1</transactional>
+                <blog>1</blog>
+            </plugincompany_syntaxhighlighter_group>
+        </plugincompany_syntaxhighlighter>
+    </default>
+</config>

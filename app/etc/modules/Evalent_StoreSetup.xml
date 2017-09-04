@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Evalent_StoreSetup>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Infortis_Ultimo/>
+                <Infortis_UltraMegamenu/>
+                <Infortis_UltraSlideshow/>
+                <Infortis_CloudZoom/>
+            </depends>
+        </Evalent_StoreSetup>
+    </modules>
+</config>

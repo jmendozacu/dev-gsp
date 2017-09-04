@@ -1,0 +1,25 @@
+<layout version="0.1.0">
+    <checkout_onepage_index>
+        <reference name='checkout.onepage.billing'>
+            <action method='setTemplate' ifconfig="aait_ssn/aait_ssn/active">
+                <template>checkout/onepage/billing_with_ssn.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addJs"><script>aait_ssn/social_security_number.js</script></action>
+        </reference>
+    </checkout_onepage_index>
+    <opc_index_index>
+        <reference name="head">
+            <action method="addJs"><script>aait_ssn/social_security_number.js</script></action>
+        </reference>
+
+        <reference name='billing.additional_fields.top'>
+            <block type="core/template" name="payex_ssn.field">
+                <action method="setTemplate" ifconfig="aait_ssn/aait_ssn/active">
+                    <template>payex/iwd_opc/ssn.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </opc_index_index>
+</layout>

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <monkey>
+            <label><![CDATA[Mailchimp]]></label>
+            <sort_order>800</sort_order>
+        </monkey>
+        <ultimo>
+            <label>Theme Settings (Ultimo)</label>
+            <sort_order>799</sort_order>
+        </ultimo>
+        <customgrid>
+            <sort_order>801</sort_order>
+        </customgrid>
+    </tabs>
+    <sections>
+        <lanot_filemanager>
+            <tab>general</tab>
+            <show_in_default>0</show_in_default>
+        </lanot_filemanager>
+        <lanot_core>
+            <sort_order>10000</sort_order>
+            <show_in_default>0</show_in_default>
+        </lanot_core>
+        <ultimo>
+            <sort_order>20</sort_order>
+        </ultimo>
+        <ultraslideshow>
+            <tab>ultimo</tab>
+        </ultraslideshow>
+        <ultramegamenu>
+            <tab>ultimo</tab>
+        </ultramegamenu>
+        <cloudzoom>
+            <tab>ultimo</tab>
+        </cloudzoom>
+        <bubble_autocomplete>
+            <tab>catalog</tab>
+            <sort_order>120</sort_order>
+            <label>Search Autocomplete</label>
+        </bubble_autocomplete>
+        <foomancommon>
+            <tab>advanced</tab>
+            <show_in_default>0</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
+        </foomancommon>
+        <foomanspeedster>
+            <tab>advanced</tab>
+            <sort_order>1000</sort_order>
+            <label>Merge/Minify Css &amp; Js</label>
+            <groups>
+                <settings>
+                    <fields>
+                        <enabled>
+                            <comment><![CDATA[<b style="color:red">NOTE:</b> Enable at your own risk!<br>This can break features both in frontend and backend. Be sure to test thoroughly after this feature is enabled.]]></comment>
+                        </enabled>
+                    </fields>
+                </settings>
+            </groups>
+        </foomanspeedster>
+        <aromicon_gua>
+            <tab>general</tab>
+            <sort_order>1010</sort_order>
+        </aromicon_gua>
+        <ordermanager>
+            <label>Order Automation</label>
+            <tab>sales</tab>
+            <sort_order>500</sort_order>
+        </ordermanager>
+        <billmate>
+            <label>Billmate General settings</label>
+            <tab>sales</tab>
+            <sort_order>500</sort_order>
+        </billmate>
+        <aait_ssn translate="label">
+            <label>Payex Get address</label>
+            <tab>sales</tab>
+            <sort_order>500</sort_order>
+        </aait_ssn>
+    </sections>
+</config>

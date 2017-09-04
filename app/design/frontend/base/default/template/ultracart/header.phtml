@@ -1,0 +1,36 @@
+
+
+<?php if ($this->getIsNeedToDisplaySideBar()): ?>
+    <?php $_cartQty = $this->getSummaryCount() ?>
+    <div class="ultracart <?php if (!empty ($_cartQty) && $_cartQty > 0): echo 'has-items'; endif; ?>" id="ultracart-outer-wrapper">
+        <div class="ultracart-title">
+            <!-- ALL Content in this DIV will be replaced by AJAX -->
+            <?php echo $this->getChildHtml('ultracart.title') ?>
+        </div>
+
+        <div class="dropdown minicart">
+            <div class="triangle"></div>
+
+            <div class="inner-wrapper">
+                <div class="ultracart-msg">
+                    <!-- ALL Content in this DIV will be replaced by AJAX -->
+                </div>
+                <div class="ultracart-products">
+                    <!-- ALL Content in this DIV will be replaced by AJAX -->
+                    <?php echo $this->getChildHtml('ultracart.products') ?>
+                </div>
+
+                <div class="ultracart-summary">
+                    <!-- ALL Content in this DIV will be replaced by AJAX -->
+                    <?php echo $this->getChildHtml('ultracart.summary') ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var ultracart = null;
+        document.observe('dom:loaded', function () {
+            ultracart = new UltraCartClass($('ultracart-outer-wrapper'), '<?php echo Mage::helper('ultracart')->getAjaxUrl() ?>');
+        });
+    </script>
+<?php endif; ?>

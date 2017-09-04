@@ -1,0 +1,38 @@
+<?php $errors = array(); ?>
+<?php if (($_shippingRateGroups = $this->getShippingRates()) && Mage::getStoreConfig(Ecom_KlarnaCheckout_Helper_Data::XML_PATH_SHOW_SHIPPING_METHOD)): ?>
+	<?php
+		$count = 0;
+		if(count($_shippingRateGroups)){
+			foreach ($_shippingRateGroups as $code => $_rates){
+				foreach ($_rates as $_rate) $count++;
+			}
+		}
+
+        if($count == 1 && Mage::getStoreConfig('klarnacheckout/checkout/shipping_method_hide_if_one')) return '';
+	?>
+
+    <div class="klarnacheckout-fieldset">
+        <h2><?php echo $this->__('Select shipping method'); ?></h2>
+        <select class="shipment-methods kco-action-dropdown" name="shipping_method" data-action="setShippingMethodDropdown">
+            <?php foreach ($_shippingRateGroups as $code => $_rates): ?>
+                <?php $carrier = $this->getCarrierName($code) ?>
+                <?php foreach ($_rates as $_rate): ?>
+                    <option value="<?php echo $_rate->getCode() ?>" <?php if($_rate->getCode()===$this->getAddressShippingMethod()) echo ' selected="selected"' ?>>
+
+                       <?php if ($_rate->getErrorMessage()) $errors[] = $_rate->getErrorMessage(); ?>
+
+                        <?php echo $carrier.(($carrier)?' - ':'').$_rate->getMethodTitle().' - ' ?>
+                        <?php $_excl = $this->getShippingPrice($_rate->getPrice(), $this->helper('tax')->displayShippingPriceIncludingTax()); ?>
+                        <?php $_incl = $this->getShippingPrice($_rate->getPrice(), true); ?>
+
+                        <?php echo $_excl; ?>
+                        <?php if ($this->helper('tax')->displayShippingBothPrices() && $_incl != $_excl): ?>
+                            (<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
+                        <?php endif; ?>
+                    </option>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+<?php endif; ?>

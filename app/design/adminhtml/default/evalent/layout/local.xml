@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Evalent Modules
+ * @package     Evalent_Admin
+ * @author      eValent Group AB
+ */
+-->
+
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>print.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>custom.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>menu.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>menu.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/custom.css</name>
+            </action>
+        </reference>
+    </default>
+</layout>

@@ -1072,6 +1072,8 @@ ul.disc ul li { background:url(../images/infortis/_shared/cck/list/bullet-small.
 /* Mini Products List
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 */
+/*add by jerry*/
+#cart-sidebar.mini-products-list li{height:auto!important;}
 .mini-products-list li { padding:5px 0; }
 .mini-products-list .product-image { float:left; width:50px; }
 .mini-products-list .product-details { margin-left:60px; }

@@ -1,0 +1,17 @@
+/.idea
+/var/
+/app/etc/local.xml
+/media/catalog/product/
+/media/tmp/*
+/media/import/
+/media/.thumbs/
+/dev
+/media
+/custom_scripts/
+/dndamazonreports2044/
+sitemap.xml
+n98-magerun.phar
+!/var/.htaccess
+/downloader/.cache/
+/downloader/cache.cfg
+/downloader/connect.cfg

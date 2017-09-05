@@ -92,11 +92,19 @@
     }
 ?>
 <style>
+    /*grid*/
+    .category-products-grid .btn-cart{padding:0 10px;}
     .products-grid .item .display-onhover{padding:0;}
+    .products-grid .item .qtyBox{display: inline-block;float:left;height:44px;margin: 0 10px 0 -10px;border: 1px solid #bdbdbd;}
+    .products-grid .item .qtyBox:after{ display:block; content:"."; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
+    .products-grid .item .qtyBtn{display: inline;width: 20px;height: 44px;line-height: 20px;font-size: 16px;}
+    /*list*/
+    .products-list li.item .qtyBox{margin-bottom: 20px;}
+    .products-list li.item .qtyBox:after{display:block; content:"."; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
+    .products-list .item .qtyBtn{height:44px;width:20px;}
     .products-grid li.item .act-input,
-    .products-list li.item .act-input{display: inline-block;width:40px;height:20px;margin-top:1px;text-align: center;}
-    .products-grid li.item .act-input{margin:10px 10px auto auto;}
-    .products-list li.item .act-input{margin-bottom: 20px;width:50px;}
+    .products-list li.item .act-input{display: inline-block;width:40px;height:44px;line-height:40px;text-align: center;box-sizing: border-box;border: 1px solid #fff;}
+    .products-list li.item .act-input{border:1px solid #e5e5e5;margin:0 8px;}
     .products-grid li.item .act-input::-webkit-outer-spin-button,
     .products-list li.item .act-input::-webkit-outer-spin-button,
     .products-grid li.item .act-input::-webkit-inner-spin-button,
@@ -183,7 +191,11 @@
                 <?php if($_product->isSaleable()): ?>
                     <p>
                         <!--add by jerry-->
-                        <input type="number" class="act-input f-left"  value="" oninput="if(value.length>3)value=value.slice(0,3)" data-toggle="tooltip" title="Qty">
+                        <div class="qtyBox">
+                            <input type="button" value="-" class="left qtyBtn qtyReduce">
+                            <input type="number" class="act-input f-left"  value="1" oninput="if(value.length>3)value=value.slice(0,3)" data-toggle="tooltip" title="Qty">
+                            <input type="button" value="+" class="left qtyBtn qtyAdd">
+                        </div>
                         <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
                     </p>
                 <?php else: ?>
@@ -354,7 +366,11 @@
                     <?php if ($gc['display_addtocart'] != 0): ?>
                         <?php if ($_product->isSaleable()): ?>
                             <!--add by jerry-->
-                            <input type="number" class="act-input f-left"  value="" oninput="if(value.length>3)value=value.slice(0,3)" data-toggle="tooltip" title="Qty">
+                            <div class="qtyBox">
+                                <input type="button" value="-" class="left qtyBtn qtyReduce">
+                                <input type="number" class="act-input f-left"  value="1" oninput="if(value.length>3)value=value.slice(0,3)" data-toggle="tooltip" title="Qty">
+                                <input type="button" value="+" class="right qtyBtn qtyAdd">
+                            </div>
                             <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
                         <?php else: ?>
                             <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
@@ -372,12 +388,27 @@
         <?php endforeach; ?>    
     </ul>
     <?php endif; //end: if grid mode ?>
-
     <?php if (!$hideToolbar): ?>
         <div class="toolbar-bottom">
             <?php echo $this->getToolbarHtml() ?>
         </div>
     <?php endif; ?>
+    <script type="text/javascript">
+        ;jQuery(document).ready(function () {
+            jQuery(".category-products").delegate(".qtyBtn","click",function(){
+                var $qtyBox = jQuery(this).parent();
+                var $input = $qtyBox.find(".act-input");
+                var inputVal = $input.val();
+                if(jQuery(this).hasClass("qtyReduce")&&inputVal>1){
+                    inputVal--;
+                    $input.val(inputVal);
+                }else if(jQuery(this).hasClass("qtyAdd")){
+                    inputVal++;
+                    $input.val(inputVal);
+                }
+            });
+        });
+    </script>
 </div>
 <?php endif; ?>
 

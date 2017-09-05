@@ -108,7 +108,12 @@
 				</div>
 			</li>
 		<?php endif; ?>
-		
+
+        <?php //edit by mivec; add link for `all product`?>
+        <li class="nav-item nav-item--home level0 level-top">
+            <a class="level-top" href="<?php echo Mage::getUrl("items/list/new"); ?>">All Product</a>
+        </li>
+
 		<?php //Custom links ?>
 		<?php echo $linksHtml; ?>
 		

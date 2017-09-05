@@ -15,3 +15,4 @@ n98-magerun.phar
 /downloader/.cache/
 /downloader/cache.cfg
 /downloader/connect.cfg
+index.php

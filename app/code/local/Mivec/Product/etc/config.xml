@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <modules>
+        <Mivec_Product>
+            <version>0.1</version>
+        </Mivec_Product>
+    </modules>
+    <frontend>
+        <routers>
+            <product>
+                <use>standard</use>
+                <args>
+                    <module>Mivec_Product</module>
+                    <frontName>items</frontName>
+                </args>
+            </product>
+        </routers>
+        <layout>
+            <updates>
+                <product>
+                    <file>mivec_product.xml</file>
+                </product>
+            </updates>
+        </layout>
+        <product>
+            <per_page_values>30,60,90</per_page_values>
+        </product>
+    </frontend>
+    <global>
+        <blocks>
+            <product>
+                <class>Mivec_Product_Block</class>
+            </product>
+        </blocks>
+        <helpers>
+            <product>
+                <class>Mivec_Product_Helper</class>
+            </product>
+        </helpers>
+    </global>
+</config>

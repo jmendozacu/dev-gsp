@@ -1,0 +1,8 @@
+<?php if (!$this->getResultCount()): ?>
+    <p class="error-msg"><?php echo $this->helper('product')->__('There are no products matching the selection.');?></p>
+<?php else:?>
+    <div class="page-title">
+        <h1><?php echo $this->__('All Products')?></h1>
+    </div>
+    <?php echo $this->getProductListHtml() ?>
+<?php endif; ?>

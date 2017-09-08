@@ -21,7 +21,7 @@ class Mivec_Product_Block_List_New extends Mivec_Product_Block_Abstract
                 'link'  => Mage::getBaseUrl()
             ))
             ->addCrumb("new" , array(
-                "label" => "All Product",
+                "label" => "All Products",
                 "read-only" => "yes"
             ));
         }

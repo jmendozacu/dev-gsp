@@ -95,16 +95,42 @@
     /*grid*/
     .category-products-grid .btn-cart{padding:0 10px;}
     .products-grid .item .display-onhover{padding:0;}
-    .products-grid .item .qtyBox{display: inline-block;float:left;height:44px;margin: 0 10px 0 -10px;border: 1px solid #bdbdbd;}
+    .products-grid .item .qtyBox{display: inline-block;float:left;height:44px;margin: 0 10px 0 -10px;}
+    .products-grid .item .qtyBox:hover .qtyBtn,
+    .products-grid .item .qtyBox:hover .act-input,
+    .products-list .item .qtyBox:hover .qtyBtn,
+    .products-list .item .qtyBox:hover .act-input{background-color: #1dc1cd; color: #ffffff;}
+    /*hover class*/
+    .products-grid .item .qtyBox.qtyFocus .qtyBtn,
+    .products-grid .item .qtyBox.qtyFocus .act-input,
+    .products-list .item .qtyBox.qtyFocus .qtyBtn,
+    .products-list .item .qtyBox.qtyFocus .act-input{background-color: #1dc1cd; color: #ffffff;}
     .products-grid .item .qtyBox:after{ display:block; content:"."; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
-    .products-grid .item .qtyBtn{display: inline;width: 20px;height: 44px;line-height: 20px;font-size: 16px;}
+    .products-grid .item .qtyBtn{position:relative;z-index:11;display: inline;width: 20px;height: 34px;
+        margin-top: 5px;line-height: 20px;font-size: 16px;border: 1px solid #bdbdbd;border-radius: 2px;}
+    .qtyBtn{
+        transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
+        -moz-transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
+        -webkit-transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
+        -o-transition: color 300ms ease-in-out, background-color 300ms ease-in-out;}
+    .qtyBtn.qtyReduce{border-right:0 solid transparent!important;}
+    .qtyBtn.qtyAdd{border-left:0 solid transparent!important;margin-left:-1px;}
     /*list*/
-    .products-list li.item .qtyBox{margin-bottom: 20px;}
+    .products-list li.item .qtyBox{margin-bottom: 20px;width: 80px;}
     .products-list li.item .qtyBox:after{display:block; content:"."; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
-    .products-list .item .qtyBtn{height:44px;width:20px;}
+    .products-list .item .qtyBtn{position:relative;z-index:11;display: inline;width: 20px;height: 34px;
+        margin-top: 5px;line-height: 20px;font-size: 16px;border: 1px solid #bdbdbd;border-radius: 2px;}
     .products-grid li.item .act-input,
-    .products-list li.item .act-input{display: inline-block;width:40px;height:44px;line-height:40px;text-align: center;box-sizing: border-box;border: 1px solid #fff;}
-    .products-list li.item .act-input{border:1px solid #e5e5e5;margin:0 8px;}
+    .products-list li.item .act-input{position:relative;z-index:9;display: inline-block;width:40px;height:44px;border-radius:2px;font-size:16px;margin-left:-1px;line-height:40px;text-align: center;box-sizing: border-box;border: 1px solid #bdbdbd;
+        transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
+        -moz-transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
+        -webkit-transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
+        -o-transition: color 300ms ease-in-out, background-color 300ms ease-in-out;}
+    .products-grid li.item .act-input:hover,
+    .products-list li.item .act-input:hover,
+    .products-grid li.item .act-input:focus,
+    .products-list li.item .act-input:focus{background-color: #1dc1cd; color: #ffffff;}
+    .products-list li.item .act-input{border:1px solid #bdbdbd;}
     .products-grid li.item .act-input::-webkit-outer-spin-button,
     .products-list li.item .act-input::-webkit-outer-spin-button,
     .products-grid li.item .act-input::-webkit-inner-spin-button,
@@ -406,6 +432,10 @@
                     inputVal++;
                     $input.val(inputVal);
                 }
+            }).delegate(".act-input","focus",function(){
+                jQuery(this).parent().addClass("qtyFocus");
+            }).delegate(".act-input",'blur',function () {
+                jQuery(this).parent().removeClass("qtyFocus");
             });
         });
     </script>

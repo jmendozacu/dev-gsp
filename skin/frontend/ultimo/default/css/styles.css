@@ -3491,18 +3491,8 @@ body.cms-index-index .breadcrumbs { display:none; }
 		padding-left: 12px;
 		text-align: left!important;}
 }
-#nav>.nav-4 > a:hover,#nav>.nav-4.active > a{
+#nav>.nav-4 > a:hover, #nav>.nav-4.active > a{
 	color:#fff;
-	background: #f5851d;
+	background: #e26355;
 	position: relative;
-}
-#nav>.nav-4.active > a:after {
-	content:'';
-	background: url("../images/booking.png") no-repeat 0 0;
-	position: absolute;
-	z-index:9;
-	width:24px;
-	height:25px;
-	right:-10px;
-	top:-14px;
 }

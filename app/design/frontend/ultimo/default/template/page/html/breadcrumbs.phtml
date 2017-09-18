@@ -27,7 +27,10 @@
 <?php if($crumbs && is_array($crumbs)): ?>
 <div class="breadcrumbs">
     <ul>
-        <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
+        <?php foreach($crumbs as $_crumbName=>$_crumbInfo):
+            //edit by mivec
+            $_crumbInfo['label'] = ucfirst($_crumbInfo['label']);
+            ?>
             <li class="<?php echo $_crumbName ?>" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
             <?php if($_crumbInfo['link']): ?>
                 <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>" itemprop="url"><span itemprop="title"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></span></a>

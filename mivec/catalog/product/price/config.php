@@ -96,11 +96,27 @@ function deleteSpeicalPrice($_entityId)
     return $db->query($sql);
 }
 
-
 function deleteGroupPrice($_entityId)
 {
     global $db;
     $sql = "DELETE FROM " . __TABLE_PRICE_GROUP__
         . " WHERE entity_id=" . $_entityId;
     return $db->query($sql);
+}
+
+//tier
+function hasTierPrice($_entityId)
+{
+    global $db;
+    $sql = "SELECT COUNT(*) FROM " . __TABLE_PRICE_TIER__
+        . " WHERE entity_id=" . $_entityId;
+    return $db->fetchOne($sql);
+}
+
+function getTierPrice($_entityId)
+{
+    global $db;
+    $sql = "SELECT `value` FROM " . __TABLE_PRICE_TIER__
+        ." WHERE entity_id=" . $_entityId;
+    return $db->fetchOne($sql);
 }

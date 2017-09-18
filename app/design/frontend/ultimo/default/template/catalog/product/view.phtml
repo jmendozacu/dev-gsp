@@ -168,7 +168,9 @@
         <div class="product-shop <?php echo $primaryColGridClass; ?>">
 
             <div class="product-name">
-                <h1 itemprop="name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                <h1 itemprop="name">
+                    <?php echo ucfirst($_helper->productAttribute($_product, $_product->getName(), 'name')) //edit by mivec?>
+                </h1>
             </div>
             
             <?php echo $this->getReviewsSummaryHtml($_product, false, true); //reviews ?>

@@ -183,7 +183,9 @@
                 <div class="product-shop-inner">
                     <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
                     <h2 class="product-name">
-                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>
+                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>">
+                        <?php echo ucfirst($_helper->productAttribute($_product, $_product->getName(), 'name')) //edit by mivec?>
+                    </a></h2>
                     <br />
                     <?php 
 					$_p = Mage::getModel('catalog/product')->load($_product->getId());
@@ -334,7 +336,11 @@
                 </div> <!-- end: product-image-wrapper -->
 
                 <?php if ($gc['display_name'] != 0): ?>
-                    <h2 class="product-name<?php echo $productNameClasses; ?>"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                    <h2 class="product-name<?php echo $productNameClasses; ?>">
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">
+                            <?php echo ucfirst($_helper->productAttribute($_product, $_product->getName(), 'name')) //edit by mivec?>
+                        </a>
+                    </h2>
                 <?php endif; ?>
 
                 <?php

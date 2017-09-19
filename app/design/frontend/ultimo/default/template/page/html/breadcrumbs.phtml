@@ -29,7 +29,7 @@
     <ul>
         <?php foreach($crumbs as $_crumbName=>$_crumbInfo):
             //edit by mivec
-            $_crumbInfo['label'] = ucfirst($_crumbInfo['label']);
+            $_crumbInfo['label'] = strtoupper($_crumbInfo['label']);
             ?>
             <li class="<?php echo $_crumbName ?>" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
             <?php if($_crumbInfo['link']): ?>

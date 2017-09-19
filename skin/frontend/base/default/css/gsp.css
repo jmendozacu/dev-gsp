@@ -130,6 +130,7 @@ h3.product-name{
 }
 
 .nav-regular .nav-submenu--mega > li {
+	text-transform: uppercase;
     padding-bottom: 20px !important;
 }
 

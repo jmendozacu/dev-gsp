@@ -1301,6 +1301,7 @@ ul.disc ul li { background:url(../images/infortis/_shared/cck/list/bullet-small.
 /* Product name
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 */
+.block_category_above_empty_collection h2.product-name a{text-transform: uppercase;}
 h2.product-name a,
 h3.product-name a,
 h4.product-name a,
@@ -1406,7 +1407,7 @@ h3.product-name {
 }
 .products-grid .product-name { margin:15px 0 10px; }
 .products-grid .product-image-wrapper { margin:0 auto; position:relative; }
-.products-grid .product-image { display:block; }
+.products-grid .product-image { display:block; text-transform: uppercase;}
 .products-grid .price-box { margin:10px 0 10px; font-size:1em; }
 .products-grid .ratings { margin:10px 0; line-height:1.0833em; }
 /* If ratings wrapped, remove margin from ratings, leave maring in wrapper */

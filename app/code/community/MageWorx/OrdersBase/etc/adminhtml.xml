@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageWorx
+ * MageWorx Order Base Extension
+ * 
+ * @category   MageWorx
+ * @package    MageWorx_OrdersBase
+ * @copyright  Copyright (c) 2016 MageWorx (http://www.mageworx.com/)
+ */
+ -->
+
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mageworx_ordersmanagement>
+                                        <children>
+                                            <mageworx_ordersbase translate="title" module="mageworx_ordersbase">
+                                                <title>Order Base</title>
+                                                <sort_order>600</sort_order>
+                                            </mageworx_ordersbase>
+                                        </children>
+                                    </mageworx_ordersmanagement>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

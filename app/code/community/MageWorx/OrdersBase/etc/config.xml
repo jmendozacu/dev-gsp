@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageWorx
+ * MageWorx Order Base Extension
+ * 
+ * @category   MageWorx
+ * @package    MageWorx_OrdersBase
+ * @copyright  Copyright (c) 2016 MageWorx (http://www.mageworx.com/)
+ */
+-->
+<config>
+    <modules>
+        <MageWorx_OrdersBase>
+            <version>1.0.0</version>
+        </MageWorx_OrdersBase>
+    </modules>
+    <global>
+        <helpers>
+            <mageworx_ordersbase>
+                <class>MageWorx_OrdersBase_Helper</class>
+            </mageworx_ordersbase>
+        </helpers>
+        <models>
+            <mageworx_ordersbase>
+                <class>MageWorx_OrdersBase_Model</class>
+            </mageworx_ordersbase>
+        </models>
+    </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <MageWorx_OrdersBase>
+                    <files>
+                        <default>MageWorx_OrdersBase.csv</default>
+                    </files>
+                </MageWorx_OrdersBase>
+            </modules>
+        </translate>
+    </adminhtml>    
+</config>

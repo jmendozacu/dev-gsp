@@ -120,3 +120,10 @@ function getTierPrice($_entityId)
         ." WHERE entity_id=" . $_entityId;
     return $db->fetchOne($sql);
 }
+
+function destroyTierPrice()
+{
+    global $db;
+    $sql = "TRUNCATE TABLE `".__TABLE_PRICE_TIER__."`";
+    return $db->query($sql);
+}

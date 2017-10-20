@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageWorx
+ * Admin Order Editor extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_OrdersEdit
+ * @copyright  Copyright (c) 2016 MageWorx (http://www.mageworx.com/)
+ */
+-->
+<jstranslator>
+    <save_order_confirm translate="message" module="mageworx_ordersedit">
+        <message>Are you sure you want to apply the changes to the order and send the payment link to the customer?</message>
+    </save_order_confirm>
+    <save_order_confirm_surcharge translate="message" module="mageworx_ordersedit">
+        <message>Are you sure you want to apply the changes the order?</message>
+    </save_order_confirm_surcharge>
+</jstranslator>

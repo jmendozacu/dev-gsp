@@ -1,0 +1,69 @@
+<?php
+/**
+ * MageWorx
+ * Admin Order Editor extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_OrdersEdit
+ * @copyright  Copyright (c) 2016 MageWorx (http://www.mageworx.com/)
+ */
+?>
+<script type="text/javascript">
+
+    <?php
+    /** @var MageWorx_OrdersEdit_Helper_Edit $helper */
+    $helper = Mage::helper('mageworx_ordersedit/edit');
+    $order = $this->getLayout()->getBlock('order_info')->getOrder();
+    if ($order && $helper->isOrderEditable($order)) {
+        $surcharge = $order->getBaseLinkedAmount();
+    ?>
+        var orderEdit = new OrdersEditEdit(
+            '<?php echo $helper->getEditUrlTemplate() ?>',
+            '<?php echo $helper->getProductGridUrl() ?>',
+            '<?php echo $helper->getCustomersGridUrl() ?>',
+            '<?php echo $helper->getSubmitCustomerUrl() ?>',
+            '<?php echo $helper->getApplyChangesUrl() ?>',
+            <?php echo $this->getBlocksJson(); ?>,
+            '<?php echo $this->__('The order has pending changes. Are you sure you want to skip them?') ?>',
+            '<?php echo $helper->getSaveChangesUrl() ?>',
+            '<?php echo $helper->getCancelChangesUrl() ?>'
+        );
+
+        var orderAddress = new OrderAddress({});
+
+        var orderEditItems = new OrdersEditEditItems(
+            '<?php echo $this->getCurrencySymbol(); ?>',
+            <?php echo Zend_Json::encode($this->getQuoteItemIds()); ?>
+        );
+
+        Event.observe(window, 'load',  function() {
+            if (window.productConfigure) {
+                productConfigure.addListType('product_to_add', {
+                    urlFetch: '<?php echo $this->getUrl('*/sales_order_create/configureProductToAdd') ?>'
+                });
+                productConfigure.addListType('quote_items', {
+                    urlFetch: '<?php echo $this->getUrl('*/sales_order_create/configureQuoteItems') ?>'
+                });
+            }
+        });
+    <?php } else { ?>
+        Event.observe(window, 'load',  function() {
+            var elements = document.querySelectorAll('.entry-edit .tools');
+
+            for (var elem in elements) {
+
+                if (!elements.hasOwnProperty(elem)) {
+                    continue;
+                }
+
+                var currEl;
+                currEl = elements[elem];
+                if (currEl instanceof Element) {
+                    currEl.hide();
+                }
+            }
+
+            return this;
+        });
+    <?php } ?>
+</script>

@@ -32,3 +32,8 @@ destroyTierPrice();
 
 fclose($fp);
 }
+/**
+ * //cron
+ * // *\1 * * * 0 0 * * * php -f /var/www/gsp/www/mivec/catalog/product/price/tier.hook.php
+ *
+ * */

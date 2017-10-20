@@ -1,0 +1,44 @@
+<?php
+/**
+ * MageWorx
+ * Admin Order Editor extension
+ *
+ * @category   MageWorx
+ * @package    MageWorx_OrdersEdit
+ * @copyright  Copyright (c) 2016 MageWorx (http://www.mageworx.com/)
+ */
+?>
+<script type="text/javascript">
+    orderAddress.setAddresses(<?php echo $this->getAddressCollectionJson() ?>);
+</script>
+
+<?php
+$_fieldsContainerId = 'order-address_fields';
+if($this->getIsShipping()):
+    $_addressChoiceContainerId = 'order-shipping_address_choice';
+else:
+    $_addressChoiceContainerId = 'order-billing_address_choice';
+endif;
+?>
+
+<div id = "<?php echo $_addressChoiceContainerId ?>" class="order-choose-address">
+    <?php echo Mage::helper('sales')->__('Select from existing customer addresses:') ?><br/>
+    <?php $_id = $this->getForm()->getHtmlIdPrefix() . 'customer_address_id' ?>
+    <select id="<?php echo $_id ?>"  name="<?php echo $this->getForm()->getHtmlNamePrefix()?>[customer_address_id]" style="width:97.5%;" onchange="orderAddress.selectAddress(this, '<?php echo $_fieldsContainerId ?>')">
+        <option value=""><?php echo Mage::helper('sales')->__('Add New Address') ?></option>
+        <?php foreach ($this->getAddressCollection() as $_address): ?>
+            <option value="<?php echo $_address->getId() ?>"<?php if ($_address->getId()==$this->getAddressId()): ?> selected="selected"<?php endif; ?>>
+                <?php echo $this->getAddressAsString($_address) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+</div>
+
+<div id="order-address_fields" class="entry-edit">
+    <div class="fieldset">
+        <?php echo $this->getForm()->toHtml() ?>
+    </div>
+</div>
+<script type="text/javascript">
+    VatParameters.groupIdHtmlId = <?php echo $this->getCustomer()->getGroupId(); ?>;
+</script>

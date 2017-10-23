@@ -1174,7 +1174,7 @@ ul.disc ul li { background:url(../images/infortis/_shared/cck/list/bullet-small.
 }
 .block-related-thumbnails .product-details > * { margin-bottom:5px; }
 .block-related-thumbnails .product-name,
-.block-related-thumbnails .related-add-to-wishlist { font-size:1em; line-height:1.25em; font-family:inherit; font-weight:inherit; display:inline-block; }
+.block-related-thumbnails .related-add-to-wishlist { font-size:1em; line-height:1.25em; font-family:inherit; font-weight:inherit; /*display:inline-block;*/ }
 .block-related-thumbnails .price-box { font-size:1em; line-height:1.25em; }
 .block-related-thumbnails .checkbox { float:left; margin:2px 5px 0 0; }
 

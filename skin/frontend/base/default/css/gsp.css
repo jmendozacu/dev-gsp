@@ -104,7 +104,12 @@ h3.product-name{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
+/*new add*/
+.block-related-thumbnails h3.product-name:hover{
+	overflow: visible;
+	white-space: inherit;
+	text-overflow: inherit;
+}
 #mini-cart-wrapper-mobile a{
 	color:#777777 !important;
 }

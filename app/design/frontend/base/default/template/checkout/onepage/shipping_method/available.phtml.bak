@@ -24,10 +24,6 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<style>
-    .checkText{display: none;}
-    .opc-wrapper-opc .checked .checkText{display: block;margin: 4px 0 10px 0; padding-left: 30px;}
-</style>
 <?php /** @var $this Mage_Checkout_Block_Onepage_Shipping_Method_Available */ ?>
 <?php $_shippingRateGroups = $this->getShippingRates(); ?>
 <?php if (!$_shippingRateGroups): ?>
@@ -59,9 +55,7 @@
                         <?php endif; ?>
 
                         <?php endif; ?>
-
                         <label for="s_method_<?php echo $_rate->getCode() ?>"><?php echo $this->escapeHtml($_rate->getMethodTitle()) ?>
-
                         <?php $_excl = $this->getShippingPrice($_rate->getPrice(), $this->helper('tax')->displayShippingPriceIncludingTax()); ?>
                         <?php $_incl = $this->getShippingPrice($_rate->getPrice(), true); ?>
                         <?php echo $_excl; ?>
@@ -69,11 +63,6 @@
                             (<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
                         <?php endif; ?>
                         </label>
-                       <?php
-                       if ($_rate->getCode() == "matrixrate_matrixrate_439"):
-                       ?>
-                           <p class="checkText">test</p>
-                       <?php endif;?>
                    <?php endif ?>
                 </li>
             <?php endforeach; ?>
@@ -86,11 +75,8 @@
     <?php if (!empty($shippingCodePrice)): ?>
         var shippingCodePrice = {<?php echo implode(',',$shippingCodePrice); ?>};
     <?php endif; ?>
+
     $$('input[type="radio"][name="shipping_method"]').each(function(el){
-        //init
-        if(el.checked == true){
-            jQuery(el).parent().addClass('checked').siblings().removeClass('checked');
-        }
         Event.observe(el, 'click', function(){
             if (el.checked == true) {
                 var getShippingCode = el.getValue();
@@ -106,8 +92,6 @@
                     }
                 <?php endif; ?>
                 checkQuoteBaseGrandTotal = quoteBaseGrandTotal;
-                //change status
-                jQuery(el).parent().addClass('checked').siblings().removeClass('checked');
                 return false;
             }
        });

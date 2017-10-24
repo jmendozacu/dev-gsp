@@ -156,12 +156,16 @@ class Mirasvit_Rma_Helper_Process extends Mage_Core_Helper_Abstract
      */
     public function createRmaFromPost($data, $items, $customer = false)
     {
-        $order = Mage::getModel('sales/order')->load((int) $data['order_id']);
+        $order = Mage::getModel('sales/order')->load($data['order_id']);
+
+        //edit by mivec
         if ($customer && $order->getCustomerId() != $customer->getId()) {
             throw new Exception('Error Processing Request 1');
         }
 
         $address = $order->getShippingAddress();
+        //print_r($order->getData());exit;
+
         if (!$address) {
             $address = $order->getBillingAddress();
         }
@@ -174,14 +178,12 @@ class Mirasvit_Rma_Helper_Process extends Mage_Core_Helper_Abstract
             ->setLastname($address->getLastname())
             ->setCompany($address->getCompany())
             ->setTelephone($address->getTelephone())
-
             ->setStreet(implode("\n", $address->getStreet()))
             ->setCity($address->getCity())
             ->setCountryId($address->getCountryId())
             ->setRegionId($address->getRegionId())
-            ->setRegion($address->getRegion())
+            ->setRegion($address->getRegion());
 
-            ;
         if (isset($data['is_gift'])) {
             $rma->addData($data['gift']);
             $rma->setIsGift(true);

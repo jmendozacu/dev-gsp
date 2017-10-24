@@ -92,9 +92,13 @@ class Mirasvit_Rma_RmaController extends Mage_Core_Controller_Front_Action
 
     public function saveAction()
     {
+        //echo Mage::getStoreConfig(Mage_Core_Model_Url::XML_PATH_SECURE_IN_FRONT);
+
+        $data = $this->getRequest()->getParams();
+        //print_r($data);exit;
+
         $session = $this->_getSession();
         $customer = $session->getCustomer();
-        $data = $this->getRequest()->getParams();
 
         $items = $data['items'];
         unset($data['items']);

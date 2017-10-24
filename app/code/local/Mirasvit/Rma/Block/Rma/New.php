@@ -64,7 +64,13 @@ class Mirasvit_Rma_Block_Rma_New extends Mage_Core_Block_Template
 
     public function getStep2PostUrl()
     {
-        return Mage::getUrl('rma/rma/save');
+        //edit by mivec
+        $_secure = array();
+        if (Mage::getStoreConfig(Mage_Core_Model_Url::XML_PATH_SECURE_IN_FRONT)) {
+            $_secure = array("_secure" => true);
+        }
+        return Mage::getUrl("rma/rma/save" , $_secure);
+        //return Mage::getUrl('rma/rma/save');
     }
 
     public function getOrderItemCollection()

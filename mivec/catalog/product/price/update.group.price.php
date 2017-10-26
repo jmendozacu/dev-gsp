@@ -1,6 +1,10 @@
 <?php
 require 'config.php';
 
+//log
+$_toFile = "group-".date('Ymd_h').".log";
+$fp = fopen(__DATA_PATH__ . $_toFile , "wb");
+
 //insert data automatically rule of group price for all products
 $sql = "SELECT * FROM " . __TABLE_PRODUCT__
     . " WHERE 1"
@@ -27,3 +31,4 @@ if ($row = $db->fetchAll($sql)) {
         }
     }
 }
+fclose($fp);

@@ -192,7 +192,24 @@ if (empty($centralColUnits)) {
                 <div
                     class="header-top header container clearer<?php if ($classes['top']) echo " " . $classes['top']; ?>">
                     <div class="inner-container">
-
+                        <!--change position of logo.-->
+                        <div id="newP">
+                            <div class="logo-wrapper logo-wrapper--regular">
+                                <?php if ($this->getIsHomePage()): ?>
+                                    <h1 class="logo logo--regular">
+                                        <strong><?php echo $this->getLogoAlt() ?></strong>
+                                        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>">
+                                            <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).Mage::getStoreConfig('design/header/logo_src') ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                                        </a>
+                                    </h1>
+                                <?php else: ?>
+                                    <a class="logo logo--regular" href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>">
+                                        <strong><?php echo $this->getLogoAlt() ?></strong>
+                                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).Mage::getStoreConfig('design/header/logo_src') ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                         <?php if ($tmpHtml = $this->getChildHtml('block_header_top_left')): ?>
                             <div class="block_header_top_left item item-left"><?php echo $tmpHtml; ?></div>
                         <?php endif; ?>
@@ -208,19 +225,22 @@ if (empty($centralColUnits)) {
 
                         <div id="currency-switcher-wrapper-regular" class="item item-right"><?php echo $currencySwitcher; ?></div>
                         <div id="lang-switcher-wrapper-regular" class="item item-right"><?php echo $languageSwitcher; ?></div>
-
                         <?php /* Evalent: Moved Top Links from header primary. Placeholder for extension top links. */ ?>
                         <div class="block_header_top_right3 item item-right">
                             <?php echo $this->getChildHtml('topLinks'); ?>
                         </div>
 
+                        <!--search box-->
+                        <div id="header-search"
+                             class="hp-block search-wrapper-centered clearer <?php echo $centralColGridClass; ?> <?php echo $searchClasses; ?> skip-content skip-content--style">
+                            <?php echo $p['centralCol'][0]; ?>
+                        </div>
                         <?php if ($tmpHtml = $this->getChildHtml('block_header_top_right')): ?>
                             <div class="block_header_top_right item item-right hide-below-960"><?php echo $tmpHtml; ?></div>
                         <?php endif; ?>
                         <?php if ($tmpHtml = $this->getChildHtml('block_header_top_right2')): ?>
                             <div class="block_header_top_right2 item item-right hide-below-1280"><?php echo $tmpHtml; ?></div>
                         <?php endif; ?>
-
                     </div>
                     <!-- end: inner-container -->
                     <?php echo $this->getChildHtml('topContainer'); ?>
@@ -230,8 +250,7 @@ if (empty($centralColUnits)) {
             <!-- end: header-top-container -->
 
             <div class="header-primary-container">
-                <div
-                    class="header-primary header container<?php if ($classes['primary']) echo " " . $classes['primary']; ?>">
+                <div class="header-primary header container<?php if ($classes['primary']) echo " " . $classes['primary']; ?>">
                     <div class="inner-container">
 
                         <div class="hp-blocks-holder skip-links--<?php echo $skipLinksCount; ?>">
@@ -311,10 +330,10 @@ if (empty($centralColUnits)) {
 
                             <!-- Central column -->
                             <?php if ($centralColUnits): ?>
-                                <div id="header-search"
-                                     class="hp-block search-wrapper-centered clearer <?php echo $centralColGridClass; ?> <?php echo $searchClasses; ?> skip-content skip-content--style">
-                                    <?php echo $p['centralCol'][0]; ?>
-                                </div>
+                                <!--<div id="header-search"
+                                     class="hp-block search-wrapper-centered clearer <?php /*echo $centralColGridClass; */?> <?php /*echo $searchClasses; */?> skip-content skip-content--style">
+                                    <?php /*echo $p['centralCol'][0]; */?>
+                                </div>-->
                             <?php endif; ?>
 
                             <!-- Right column -->

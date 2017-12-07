@@ -3497,3 +3497,16 @@ body.cms-index-index .breadcrumbs { display:none; }
 	background: #e26355;
 	position: relative;
 }
+/*site links*/
+@font-face{
+	font-family: "Arnhem Pro";
+	font-style: normal;
+	src: url("../fonts/ArnhemPro-BoldItalic.otf")format("woff2");
+}
+.block_header_top_left2 .links{display: none;}
+.header-primary-container .logo img{display: none;}
+#newP .logo img{/*width: 80px;height: auto;*/}
+#newP{float:left;}
+#newP .logo-wrapper{/*margin:-24px 0 0 100px;*/margin:0;}
+.header .logo-wrapper .logo{margin: 0!important;}
+#header-search{margin-top:20px;float:right;}

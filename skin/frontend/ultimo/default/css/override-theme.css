@@ -377,6 +377,9 @@
 		margin-right: auto;
 		text-align: center;
 	}
+	.header-mobile .logo-wrapper--mobile{
+		width: 100%;
+	}
 	.header-mobile .header-collateral + .logo-wrapper--mobile {
 		float: left;
 		text-align: left;

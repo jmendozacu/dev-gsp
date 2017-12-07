@@ -209,6 +209,13 @@ if (empty($centralColUnits)) {
                                     </a>
                                 <?php endif; ?>
                             </div>
+                            <!-- Mobile logo -->
+                            <div class="logo-wrapper--mobile">
+                                <a class="logo logo--mobile" href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>">
+                                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).(($small = Mage::getStoreConfig('design/header/logo_src')) ? $small : Mage::getStoreConfig('design/header/logo_src')); ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                                </a>
+                            </div>
+                            <div class="clearer after-mobile-logo"></div>
                         </div>
                         <?php if ($tmpHtml = $this->getChildHtml('block_header_top_left')): ?>
                             <div class="block_header_top_left item item-left"><?php echo $tmpHtml; ?></div>
@@ -255,21 +262,8 @@ if (empty($centralColUnits)) {
 
                         <div class="hp-blocks-holder skip-links--<?php echo $skipLinksCount; ?>">
 
-                            <?php if ($mobileHeaderMode && $hasHeaderCollateral): ?>
-                                <!-- Mobile header collaterals -->
-                                <div id="header-collateral" class="header-collateral">
-                                    <?php echo $languageSwitcher; ?>
-                                    <?php echo $currencySwitcher; ?>
-                                </div>
-                            <?php endif; ?>
 
-                            <!-- Mobile logo -->
-                            <div class="logo-wrapper--mobile">
-                                <a class="logo logo--mobile" href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>">
-                                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).(($small = Mage::getStoreConfig('design/header/logo_src_small')) ? $small : Mage::getStoreConfig('design/header/logo_src')); ?>" alt="<?php echo $this->getLogoAlt() ?>" />
-                                </a>
-                            </div>
-                            <div class="clearer after-mobile-logo"></div>
+
 
                             <!-- Skip Links -->
 
@@ -306,7 +300,13 @@ if (empty($centralColUnits)) {
                                 <?php /* Evalent: Ultracart clone appears here for mobile view */ ?>
                                 <?php echo $this->getChildHtml('ultracart.clone.block'); ?>
                             </div>
-
+                            <?php if ($mobileHeaderMode && $hasHeaderCollateral): ?>
+                                <!-- Mobile header collaterals -->
+                                <div id="header-collateral" class="header-collateral">
+                                    <?php echo $languageSwitcher; ?>
+                                    <?php echo $currencySwitcher; ?>
+                                </div>
+                            <?php endif; ?>
                             <!-- Left column -->
                             <div class="hp-block <?php echo $leftColGridClass; ?>">
 

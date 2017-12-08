@@ -111,12 +111,10 @@
 }
 /*Add by Jerry,Set 'flag' background for dropdown of 'lang' and 'currency'*/
 #currency-switcher-wrapper-regular .dropdown .dropdown-content{min-width:100px;}
-#lang-switcher-wrapper-regular .dropdown .dropdown-content >li .dropdown-icon{display:none;}
-#lang-switcher-wrapper-regular .dropdown .dropdown-content > li,
+#lang-switcher-wrapper-regular .dropdown .dropdown-content >li .dropdown-icon{}
 #currency-switcher-wrapper-regular .dropdown .dropdown-content > li{white-space:nowrap;height:20px;line-height:20px;padding-left: 20px;margin: 5px 0;display:block;box-sizing:border-box;background: url(https://www.g-sp.se/media/wysiwyg/logos/flag.jpg) 0 0 no-repeat;}
-#lang-switcher-wrapper-regular .dropdown .dropdown-content > li,#currency-switcher-wrapper-regular .dropdown .dropdown-content > li{padding-left:44px;}
-#lang-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(1),#currency-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(1){background-position:0 0;}
-#lang-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(2){background-position:0 -20px;}
-#lang-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(3),#currency-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(3){background-position:0 -40px;}
-#lang-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(4),#currency-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(4){background-position:0 -60px;}
-#lang-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(5),#currency-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(2){background-position:0 -80px;}
+#currency-switcher-wrapper-regular .dropdown .dropdown-content > li{padding-left:44px;}
+#currency-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(1){background-position:0 0;}
+#currency-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(3){background-position:0 -40px;}
+#currency-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(4){background-position:0 -60px;}
+#currency-switcher-wrapper-regular .dropdown .dropdown-content > li:nth-child(2){background-position:0 -80px;}

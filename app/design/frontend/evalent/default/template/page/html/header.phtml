@@ -636,9 +636,13 @@ if (empty($centralColUnits)) {
 
     //edit by jerry
     jQuery(function ($) {
+        $("#head-notice").find("span").click(function () {
+            delCookie("notice");
+            setCookie("notice","0","h1");
+        });
         function checkNotice() {
-            var isBlock = getCookie1("notice");
-            if(isBlock == null || isBlock == ""){
+            var isBlock = getCookie("notice");
+            if(isBlock == null || isBlock == "" || isBlock == "1"){
                 jQuery("#head-notice").css("display","block");
                 setCookie("notice","1","h1")
             }
@@ -669,7 +673,7 @@ if (empty($centralColUnits)) {
                 return str1*24*60*60*1000;
             }
         }
-        function getCookie1(name)
+        function getCookie(name)
         {
             var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
 
@@ -679,7 +683,7 @@ if (empty($centralColUnits)) {
             else
                 return null;
         }
-        function delCookie1(name)
+        function delCookie(name)
         {
             var exp = new Date();
             exp.setTime(exp.getTime() - 1);

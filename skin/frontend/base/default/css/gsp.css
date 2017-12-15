@@ -143,7 +143,7 @@ h3.product-name{
     content: "\\";
     font-size: 14px;
 }
-/*edit by jerry*/
+/* ---------------edit by jerry----------------- */
 .wrapper{border-top-color: #f9f9f9;}
 .header-top-container {background-color: #f9f9f9;}
 .header .links > li{line-height: 5em;}
@@ -169,3 +169,5 @@ h3.product-name{
 	-moz-transform: scale(1.3);
 	-o-transform: scale(1.3);
 }
+/* ------------one page checkout------------ */
+.opc-wrapper-opc .opc-col-left .fields select{padding:0;}

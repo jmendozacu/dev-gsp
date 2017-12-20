@@ -185,14 +185,6 @@ if (empty($centralColUnits)) {
 }
 ?>
 <div class="header-container header-regular" id="top">
-    <div id="head-notice" style="background: #333;display: none;">
-        <p class="container" style="color:#fff;padding: 24px 0;text-align: center;position: relative;">
-            Hej alla kära kunder! Den 15 December kommer vi att flytta till nya lokaler på strömsätravägen 15.<br/>
-            Vi kommer vi att ha stängt den dagen men man kan beställa på hemsidan som vanligt och beställningarna skickas nästa vardag.<br/>
-            Tack för visad förståelse.
-            <span style="display:inline-block;cursor:pointer;position: absolute;z-index: 9;right: 0;top:20px;color:#fff;border:2px dotted #fff;font-weight:bold;width:20px;height: 20px;text-align: center;" onclick="javascript:jQuery('#head-notice').hide();">X</span>
-        </p>
-    </div>
     <div class="header-container2">
         <div class="header-container3">
             <div class="header-top-container">
@@ -633,63 +625,5 @@ if (empty($centralColUnits)) {
     <?php endif; //end: if sticky  ?>
 
     //]]>
-
-    //edit by jerry
-    jQuery(function ($) {
-        $("#head-notice").find("span").click(function () {
-            delCookie("notice");
-            setCookie("notice","0","h1");
-        });
-        function checkNotice() {
-            var isBlock = getCookie("notice");
-            if(isBlock == null || isBlock == "" || isBlock == "1"){
-                jQuery("#head-notice").css("display","block");
-                setCookie("notice","1","h1")
-            }
-        }
-       checkNotice();
-        function setCookie(name,value,time)
-        {
-            var strsec = getsec(time);
-            var exp = new Date();
-            exp.setTime(exp.getTime() + strsec*1);
-            document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
-        }
-        function getsec(str)
-        {
-            //alert(str);
-            var str1=str.substring(1,str.length)*1;
-            var str2=str.substring(0,1);
-            if (str2=="s")
-            {
-                return str1*1000;
-            }
-            else if (str2=="h")
-            {
-                return str1*60*60*1000;
-            }
-            else if (str2=="d")
-            {
-                return str1*24*60*60*1000;
-            }
-        }
-        function getCookie(name)
-        {
-            var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-
-            if(arr=document.cookie.match(reg))
-
-                return unescape(arr[2]);
-            else
-                return null;
-        }
-        function delCookie(name)
-        {
-            var exp = new Date();
-            exp.setTime(exp.getTime() - 1);
-            var cval=getCookie(name);
-            if(cval!=null)
-                document.cookie= name + "="+cval+";expires="+exp.toGMTString();
-        }
-    });//end: on document ready
+    
 </script>

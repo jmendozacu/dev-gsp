@@ -183,12 +183,16 @@ $rightColGridClass = 'grid12-' . $rightColUnits;
 if (empty($centralColUnits)) {
     $centralColGridClass = '';
 }
+$session = Mage::getSingleton('customer/session');
+$customer_data = Mage::getModel('customer/customer')->load($session->id);
 ?>
 <div class="header-container header-regular" id="top">
     <div class="header-container2">
         <div class="header-container3">
+
             <div class="header-top-container">
-                <div class="header-top header container clearer<?php if ($classes['top']) echo " " . $classes['top']; ?>">
+                <div
+                    class="header-top header container clearer<?php if ($classes['top']) echo " " . $classes['top']; ?>">
                     <div class="inner-container">
                         <!--change position of logo.-->
                         <div id="newP">
@@ -228,11 +232,28 @@ if (empty($centralColUnits)) {
                         </div>
                         */ ?>
 
-                        <div id="currency-switcher-wrapper-regular" class="item item-right"><?php echo $currencySwitcher; ?></div>
+                        <div id="currency-switcher-wrapper-regular" class="item item-right  sdsdsdsd"><?php echo $currencySwitcher; ?></div>
                         <div id="lang-switcher-wrapper-regular" class="item item-right"><?php echo $languageSwitcher; ?></div>
                         <?php /* Evalent: Moved Top Links from header primary. Placeholder for extension top links. */ ?>
                         <div class="block_header_top_right3 item item-right">
-                            <?php echo $this->getChildHtml('topLinks'); ?>
+							<ul class="links">
+								<?php if (empty($session->getId())):?>
+									  <li class="first">
+										<a href="<?php echo $this->getUrl('customer/account/login')?>"><?php echo $this->__('Log In'); ?></a>
+									  </li>
+									  <li class="last">
+										<a href="<?php echo $this->getUrl('customer/account/create')?>"><?php echo $this->__('Create Account'); ?></a>
+									  </li>
+								<?php else:?>
+								   <li class="first">
+										<span style="display: inline-block;color:#5d5d5d;font-size: 1.2rem;line-height: 1.2rem;margin-top: 2.4rem;">Hi,</span><a style="display: inline-block;padding-left: 0;" title="My Account" href="<?php echo $this->getUrl('customer/account')?>"><?php echo $customer_data->getFirstname()?></a>
+									</li>
+									<li class="last">
+										<a href="<?php echo $this->getUrl('customer/account/logout')?>" title="Log out"><?php echo $this->__('Log Out'); ?></a>
+									</li>
+								<?php endif; ?>						
+							</ul>
+                            <?php //echo $this->getChildHtml('topLinks'); ?>
                         </div>
 
                         <!--search box-->
@@ -625,5 +646,4 @@ if (empty($centralColUnits)) {
     <?php endif; //end: if sticky  ?>
 
     //]]>
-    
 </script>

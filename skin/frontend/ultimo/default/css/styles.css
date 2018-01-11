@@ -3511,9 +3511,17 @@ body.cms-index-index .breadcrumbs { display:none; }
 .header .logo-wrapper .logo{margin: 0!important;}
 #header-search{margin-top:20px;float:right;}
 .header-mobile .logo-wrapper--mobile{width:100%;}
+#userName{max-width: 100px;word-break: break-all;vertical-align: top;}
 @media only screen and (max-width: 1235px) and (min-width: 960px){
 	.header-top .block_header_top_right {display: none;}
 }
 @media only screen and (max-width: 810px){
 	.header .item-right{margin-left: 0;}
+}
+@media only screen and (max-width: 767px) {
+	#userName{max-width: 80px;}
+	.header-mobile .header-collateral > * {display: inline-block}
+}
+@media only screen and (max-width: 321px) {
+	#userName{max-width: 40px;}
 }

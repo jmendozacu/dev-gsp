@@ -3520,7 +3520,7 @@ body.cms-index-index .breadcrumbs { display:none; }
 }
 @media only screen and (max-width: 767px) {
 	#userName{max-width: 80px;}
-	.header-mobile .header-collateral > * {display: inline-block}
+	.header-mobile .header-collateral > div {display: inline-block}
 }
 @media only screen and (max-width: 321px) {
 	#userName{max-width: 40px;}
